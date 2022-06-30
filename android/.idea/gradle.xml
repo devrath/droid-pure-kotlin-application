@@ -12,7 +12,12 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/onboarding" />
+            <option value="$PROJECT_DIR$/features/onboarding/onboarding_data" />
+            <option value="$PROJECT_DIR$/features/onboarding/onboarding_domain" />
+            <option value="$PROJECT_DIR$/features/onboarding/onboarding_presentation" />
             <option value="$PROJECT_DIR$/features/splash" />
+            <option value="$PROJECT_DIR$/features/splash/splash_data" />
             <option value="$PROJECT_DIR$/features/splash/splash_domain" />
             <option value="$PROJECT_DIR$/features/splash/splash_presentation" />
           </set>

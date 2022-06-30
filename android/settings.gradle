@@ -6,10 +6,15 @@ dependencyResolutionManagement {
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
-rootProject.name = "CaloryTracker"
+rootProject.name = "iPrayForGod"
 include ':app'
 include ':core'
 include ':features'
 include ':features:splash'
-include ':features:splash:splash_presentation'
+include ':features:splash:splash_data'
 include ':features:splash:splash_domain'
+include ':features:splash:splash_presentation'
+include ':features:onboarding'
+include ':features:onboarding:onboarding_data'
+include ':features:onboarding:onboarding_domain'
+include ':features:onboarding:onboarding_presentation'
