@@ -8,3 +8,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CaloryTracker"
 include ':app'
+include ':core'
+include ':features'
+include ':features:splash'
+include ':features:splash:splash_presentation'
+include ':features:splash:splash_domain'
