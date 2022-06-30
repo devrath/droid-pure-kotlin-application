@@ -1,4 +1,4 @@
-package com.plcoding.calorytracker
+package com.iprayforgod.app
 
 import org.junit.Test
 
