@@ -7,8 +7,12 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2e34d75aa760a38b6997889c8daaba48/transformed/jetified-storage-1.4.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/775ada5cd9705c6e415750c5dfaaeddb/transformed/jetified-storage-1.4.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fc64f8990141ab723f3d52c07ff60533/transformed/jetified-storage-1.4.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/775ada5cd9705c6e415750c5dfaaeddb/transformed/jetified-storage-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/775ada5cd9705c6e415750c5dfaaeddb/transformed/jetified-storage-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/05925831724c6014a88bed2ff6d8aa2d/transformed/jetified-storage-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2f773a4bc101d5f533335247d703545c/transformed/jetified-storage-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/1bebe07f15d84bc04e87ae239fb44e92/transformed/jetified-storage-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b46dc8ccf20182eb67eb599511d90dc2/transformed/jetified-storage-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b46dc8ccf20182eb67eb599511d90dc2/transformed/jetified-storage-1.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b46dc8ccf20182eb67eb599511d90dc2/transformed/jetified-storage-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

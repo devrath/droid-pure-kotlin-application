@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test:monitor:1.5.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/aee4b39c632cfdf5d1528bf4a9ce0796/transformed/monitor-1.5.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/851a98c8eeff75e752959cc79b6e946f/transformed/monitor-1.5.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17f73cb8c060ae7ad80c994eb9660bd0/transformed/monitor-1.5.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17f73cb8c060ae7ad80c994eb9660bd0/transformed/monitor-1.5.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/17f73cb8c060ae7ad80c994eb9660bd0/transformed/monitor-1.5.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/monitor/1.5.0/60bb87a38c32918423f45c682698dc1936d893c/monitor-1.5.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/monitor/1.5.0/5ebccd1e5b6995ce77e117436bdd1ebbaff571c3/monitor-1.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
