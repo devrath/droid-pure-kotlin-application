@@ -11,6 +11,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.test.iml" filepath="$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.unitTest.iml" />
