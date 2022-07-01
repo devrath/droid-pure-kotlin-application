@@ -8,4 +8,5 @@ dependencies {
     "implementation"(project(Modules.featuresSplashSplashDomain))
 
     "implementation"(Coil.coilCompose)
+    "implementation"(SplashScreen.splashAndroidApi)
 }
