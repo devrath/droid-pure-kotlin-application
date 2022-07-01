@@ -1,13 +1,23 @@
 object Modules {
     const val app = ":app"
 
-    /*const val core = ":core"
-    const val coreUi = ":core-ui"
+    const val core = ":core"
 
-    const val onboardingDomain = ":onboarding:onboarding_domain"
-    const val onboardingPresentation = ":onboarding:onboarding_presentation"
+    // -------------------- Splash ------------------------->
+    const val featuresSplash = ":features:splash"
+    const val featuresSplashSplashData = ":features:splash:splash_data"
+    const val featuresSplashSplashDomain = ":features:splash:splash_domain"
+    const val featuresSplashSplashPresentation = ":features:splash:splash_presentation"
+    // -------------------- Splash ------------------------->
+    // -------------------- On-boarding -------------------->
+    const val featuresOnboarding = ":features:onboarding"
+    const val featuresOnboardingOnboardingData = ":features:onboarding:onboarding_data"
+    const val featuresOnboardingOnboardingDomain = ":features:onboarding:onboarding_domain"
+    const val featuresOnboardingOnboardingPresentation = ":features:onboarding:onboarding_presentation"
+    // -------------------- On-boarding -------------------->
 
-    const val trackerData = ":tracker:tracker_data"
-    const val trackerDomain = ":tracker:tracker_domain"
-    const val trackerPresentation = ":tracker:tracker_presentation"*/
+
+
+
+
 }
