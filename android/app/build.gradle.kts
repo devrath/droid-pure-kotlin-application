@@ -70,6 +70,8 @@ dependencies {
     implementation(project(Modules.trackerDomain))
     implementation(project(Modules.trackerData))*/
     implementation(project(Modules.core))
+    implementation(project(Modules.featuresSplashSplashPresentation))
+    implementation(project(Modules.featuresSplashSplashDomain))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
