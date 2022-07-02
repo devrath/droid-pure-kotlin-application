@@ -1,4 +1,4 @@
-package com.iprayforgod.splash_presentation.view
+package com.iprayforgod.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,22 +9,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.iprayforgod.core_ui.theme.AppTheme
-import com.iprayforgod.splash_presentation.vm.SplashVm
+import com.iprayforgod.vm.OnBoardingVm
 
-class SplashActivity : ComponentActivity() {
+class OnBoardingActivity : ComponentActivity() {
 
-    private val viewModel: SplashVm by viewModels()
+    private val viewModel: OnBoardingVm by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen().apply {
-            setKeepVisibleCondition {
-                // As long as this value is true in view model the splash screen will keep loading
-                viewModel.isLoading.value
-            }
-        }
         setContent {
             AppTheme {
                 Box(
@@ -37,7 +30,5 @@ class SplashActivity : ComponentActivity() {
         }
     }
 
-    private fun setKeepVisibleCondition(function: () -> Boolean) {
 
-    }
 }

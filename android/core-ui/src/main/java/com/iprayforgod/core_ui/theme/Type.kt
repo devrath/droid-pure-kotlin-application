@@ -1,4 +1,4 @@
-package com.iprayforgod.calorytrackerprep.ui.theme
+package com.iprayforgod.core_ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

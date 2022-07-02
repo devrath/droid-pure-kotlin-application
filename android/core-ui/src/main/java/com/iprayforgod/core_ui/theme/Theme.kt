@@ -1,4 +1,4 @@
-package com.iprayforgod.app.ui.theme
+package com.iprayforgod.core_ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -7,9 +7,6 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
-import com.iprayforgod.calorytrackerprep.ui.theme.Typography
-import com.iprayforgod.core_ui.Dimensions
-import com.iprayforgod.core_ui.LocalSpacing
 
 private val DarkColorPalette = darkColors(
     primary = BrightGreen,
@@ -50,4 +47,20 @@ fun CaloryTrackerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
             content = content
         )
     }
+}
+
+@Composable
+fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        shapes = Shapes,
+        content = content
+    )
 }

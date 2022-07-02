@@ -14,6 +14,7 @@ class SplashVm : ViewModel() {
 
     init {
         viewModelScope.launch {
+            // Here we shall have some long running operation
             delay(3000)
             _isLoading.value = false
         }

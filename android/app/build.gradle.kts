@@ -65,7 +65,7 @@ dependencies {
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
     implementation(project(Modules.featuresSplashSplashPresentation))
-    implementation(project(Modules.featuresSplashSplashDomain))
+    implementation(project(Modules.featuresOnboardingOnboardingPresentation))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)

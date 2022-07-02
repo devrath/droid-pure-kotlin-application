@@ -1,4 +1,4 @@
-package com.iprayforgod.app.ui.theme
+package com.iprayforgod.core_ui.theme
 
 import androidx.compose.ui.graphics.Color
 

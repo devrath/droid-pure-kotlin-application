@@ -1,4 +1,4 @@
-package com.iprayforgod.core_ui
+package com.iprayforgod.core_ui.theme
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.unit.Dp
