@@ -62,16 +62,10 @@ dependencies {
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
-   /*
-    implementation(project(Modules.coreUi))
-    implementation(project(Modules.onboardingPresentation))
-    implementation(project(Modules.onboardingDomain))
-    implementation(project(Modules.trackerPresentation))
-    implementation(project(Modules.trackerDomain))
-    implementation(project(Modules.trackerData))*/
     implementation(project(Modules.core))
+    implementation(project(Modules.coreUi))
     implementation(project(Modules.featuresSplashSplashPresentation))
-    implementation(project(Modules.featuresSplashSplashDomain))
+    implementation(project(Modules.featuresOnboardingOnboardingPresentation))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)

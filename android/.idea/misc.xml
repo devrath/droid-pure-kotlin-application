@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="core-ui/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="core-ui/src/main/res/drawable/ic_launcher_icon.xml" value="0.1" />
+        <entry key="core-ui/src/main/res/drawable/splash.xml" value="0.1" />
+        <entry key="features/splash/splash_presentation/src/main/res/drawable/ic_launcher_icon.xml" value="0.1" />
+        <entry key="features/splash/splash_presentation/src/main/res/layout/activity_splash.xml" value="0.7862903225806451" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
