@@ -5,6 +5,7 @@
       <map>
         <entry key="core-ui/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="core-ui/src/main/res/drawable/ic_launcher_icon.xml" value="0.1" />
+        <entry key="core-ui/src/main/res/drawable/splash.xml" value="0.1" />
         <entry key="features/splash/splash_presentation/src/main/res/drawable/ic_launcher_icon.xml" value="0.1" />
         <entry key="features/splash/splash_presentation/src/main/res/layout/activity_splash.xml" value="0.7862903225806451" />
       </map>
