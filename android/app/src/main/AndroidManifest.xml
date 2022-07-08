@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.iPrayForGod">
+        android:theme="@style/Theme.App.Starting">
         <activity
-            android:name="com.iprayforgod.splash_presentation.view.SplashActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.App.Starting">
@@ -20,12 +20,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.iprayforgod.view.OnBoardingActivity"
-            android:exported="false"
-            android:label="@string/screen_on_boarding"
-            android:theme="@style/Theme.Design.NoActionBar" />
     </application>
 
 </manifest>

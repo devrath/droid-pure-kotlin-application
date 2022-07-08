@@ -29,7 +29,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="00f985" />
-                            <entry key="outputName" value="ic_launcher_icon" />
+                            <entry key="outputName" value="ic_default_android" />
                           </map>
                         </option>
                       </PersistentState>

@@ -15,7 +15,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "com.iprayforgod.app.HiltTestRunner"
+        testInstrumentationRunner = "com.com.iprayforgod.app.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -64,7 +64,6 @@ dependencies {
 
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
-    implementation(project(Modules.featuresSplashSplashPresentation))
     implementation(project(Modules.featuresOnboardingOnboardingPresentation))
 
     implementation(AndroidX.coreKtx)
@@ -73,6 +72,8 @@ dependencies {
     implementation(Coil.coilCompose)
 
     implementation(Google.material)
+
+    implementation(SplashScreen.splashAndroidApi)
 
     implementation(Retrofit.okHttp)
     implementation(Retrofit.retrofit)
