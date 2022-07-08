@@ -13,4 +13,7 @@ dependencies {
     "implementation"(Compose.viewModelCompose)
     "implementation"(Compose.activityCompose)
 
-    "implementation"(Google.material) }
+    "implementation"(Google.material)
+
+    "implementation"(SplashScreen.splashAndroidApi)
+}

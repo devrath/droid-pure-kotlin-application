@@ -73,6 +73,8 @@ dependencies {
 
     implementation(Google.material)
 
+    implementation(SplashScreen.splashAndroidApi)
+
     implementation(Retrofit.okHttp)
     implementation(Retrofit.retrofit)
     implementation(Retrofit.okHttpLoggingInterceptor)
