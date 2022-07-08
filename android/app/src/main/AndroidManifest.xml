@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.iPrayForGod">
         <activity
-            android:name="com.iprayforgod.splash_presentation.view.SplashActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.App.Starting">
+            android:theme="@style/Theme.iPrayForGod">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

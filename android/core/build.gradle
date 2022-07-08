@@ -27,7 +27,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'com.iprayforgod.core'
+    namespace 'com.com.iprayforgod.core'
 }
 
 dependencies {
