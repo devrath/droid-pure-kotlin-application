@@ -1,8 +1,8 @@
-package com.iprayforgod.core.data.implementations.preferences
+package com.iprayforgod.core.data.implementations
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
-import com.iprayforgod.core.domain.preferences.PreferenceDatastore
+import com.iprayforgod.core.domain.PreferenceDatastore
 import com.iprayforgod.core.keys.KeysPreferences.KEY_TEXT
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

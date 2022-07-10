@@ -1,10 +1,8 @@
 package com.iprayforgod.core.data.repositories
 
-import android.content.Context
-import com.iprayforgod.core.domain.preferences.PreferenceDatastore
+import com.iprayforgod.core.domain.PreferenceDatastore
 
 class PreferenceRepository(
-    context:Context,
     val preference: PreferenceDatastore
 ) {
 

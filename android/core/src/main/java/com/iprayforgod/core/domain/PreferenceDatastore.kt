@@ -1,4 +1,4 @@
-package com.iprayforgod.core.domain.preferences
+package com.iprayforgod.core.domain
 
 interface PreferenceDatastore {
 
