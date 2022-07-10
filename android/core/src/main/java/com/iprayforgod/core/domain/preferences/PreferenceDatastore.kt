@@ -1,6 +1,6 @@
 package com.iprayforgod.core.domain.preferences
 
-interface AppDatastore {
+interface PreferenceDatastore {
 
     suspend fun saveIsOnBoardingShownState(text: Boolean)
 

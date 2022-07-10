@@ -1,8 +1,8 @@
-package com.iprayforgod.core.data.preferences
+package com.iprayforgod.core.data.implementations.preferences
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
-import com.iprayforgod.core.domain.preferences.AppDatastore
+import com.iprayforgod.core.domain.preferences.PreferenceDatastore
 import com.iprayforgod.core.keys.KeysPreferences.KEY_TEXT
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -10,9 +10,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-class AppDatastoreImpl(
+class PreferenceDatastoreImpl(
     private val dataStore: DataStore<Preferences>
-): AppDatastore {
+): PreferenceDatastore {
 
     companion object {
         private val KEY_REF_isOnBoardingShown = booleanPreferencesKey(KEY_TEXT)
