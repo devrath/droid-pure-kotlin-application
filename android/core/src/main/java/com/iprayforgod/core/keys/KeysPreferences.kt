@@ -1,6 +1,6 @@
-package com.iprayforgod.core.preferences.datastore
+package com.iprayforgod.core.keys
 
-object Keys {
+object KeysPreferences {
     const val SHARED_PREFERENCES_NAME = "preferences_file"
     const val KEY_TEXT = "key_text"
 }

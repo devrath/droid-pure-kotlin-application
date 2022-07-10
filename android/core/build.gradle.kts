@@ -3,5 +3,6 @@ apply {
 }
 
 dependencies {
-
+    "implementation"(DataStorePreferences.datastorePreferences)
+    "implementation"(AndroidX.coreKtx)
 }
