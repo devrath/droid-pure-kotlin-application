@@ -9,7 +9,7 @@ import com.iprayforgod.vm.OnBoardingScreenVm
 
 @Composable
 fun OnBoardingScreen(
-    //welcomeViewModel: OnBoardingScreenVm = hiltViewModel()
+    welcomeViewModel: OnBoardingScreenVm = hiltViewModel()
 ){
 
     Column(

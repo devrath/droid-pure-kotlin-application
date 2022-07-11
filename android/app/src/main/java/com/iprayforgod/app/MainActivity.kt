@@ -18,7 +18,9 @@ import androidx.navigation.compose.rememberNavController
 import com.iprayforgod.app.navigation.Route
 import com.iprayforgod.core_ui.theme.AppTheme
 import com.iprayforgod.view.OnBoardingScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainVm by viewModels()
