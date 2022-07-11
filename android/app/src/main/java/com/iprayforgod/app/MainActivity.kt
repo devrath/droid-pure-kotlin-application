@@ -12,8 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.iprayforgod.app.navigation.Route
 import com.iprayforgod.core_ui.theme.AppTheme
+import com.iprayforgod.view.OnBoardingScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -39,7 +43,12 @@ class MainActivity : ComponentActivity() {
                 backgroundColor = Color.Gray,
                 scaffoldState = scaffoldState
             ) {
-
+                NavHost(
+                    navController = navController,
+                    startDestination = Route.ON_BOARDING
+                ){
+                    composable(Route.ON_BOARDING) { OnBoardingScreen() }
+                }
             }
         }
     }
