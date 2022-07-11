@@ -1,6 +1,7 @@
 package com.iprayforgod.core.data.repositories
 
 import com.iprayforgod.core.domain.PreferenceDatastore
+import kotlinx.coroutines.flow.Flow
 
 class PreferenceRepository(
     val preference: PreferenceDatastore
@@ -9,15 +10,15 @@ class PreferenceRepository(
     /**
      * @param isOnBoardingShown if the on-boarding screen is shown or not
      */
-    suspend fun saveTextFromPreferences(isOnBoardingShown: Boolean) {
-        preference.saveIsOnBoardingShownState(isOnBoardingShown)
+    suspend fun saveOnBoardingState(isOnBoardingShown: Boolean) {
+        preference.saveOnBoardingState(isOnBoardingShown)
     }
 
     /**
      * @return if on-boarding screen is shown or not
      */
-    suspend fun getTextFromPreferences(): Boolean {
-        return preference.loadIsOnBoardingShownState()
+    suspend fun readOnBoardingState(): Flow<Boolean> {
+        return preference.readOnBoardingState()
     }
 
 }

@@ -18,13 +18,17 @@ class PreferenceDatastoreImpl(
         private val KEY_REF_isOnBoardingShown = booleanPreferencesKey(KEY_TEXT)
     }
 
-    override suspend fun saveIsOnBoardingShownState(state: Boolean) {
+    override suspend fun saveOnBoardingState(state: Boolean) {
         dataStore.edit { it[KEY_REF_isOnBoardingShown] = state }
     }
 
-    override suspend  fun loadIsOnBoardingShownState(): Boolean {
-        return dataStore.getValueFlow(KEY_REF_isOnBoardingShown, false).first()
+    override suspend  fun readOnBoardingState(): Flow<Boolean> {
+        return dataStore.getValueFlow(KEY_REF_isOnBoardingShown, false)
     }
+
+    /*override suspend  fun readOnBoardingState(): Boolean {
+        return dataStore.getValueFlow(KEY_REF_isOnBoardingShown, false).first()
+    }*/
 
     private fun <T> DataStore<Preferences>.getValueFlow(
         key: Preferences.Key<T>,
