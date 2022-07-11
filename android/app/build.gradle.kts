@@ -59,6 +59,9 @@ dependencies {
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
 
+    debugImplementation(Compose.uiTooling)
+    implementation(Compose.uiToolingPreview)
+
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
 
