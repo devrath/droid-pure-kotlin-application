@@ -3,6 +3,7 @@ package com.iprayforgod.vm
 import androidx.lifecycle.viewModelScope
 import com.iprayforgod.core.base.BaseViewModel
 import com.iprayforgod.core.data.repositories.PreferenceRepository
+import com.iprayforgod.mock.OnBoardingMockData.addDataForDemo
 import com.iprayforgod.onboarding_domain.models.OnBoardingPageData
 import com.iprayforgod.onboarding_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,10 +16,10 @@ class OnBoardingScreenVm @Inject constructor(
     private val preferenceRepository : PreferenceRepository
 ) : BaseViewModel() {
 
-    val onBoardingPageData = mutableListOf<OnBoardingPageData>()
+    var onBoardingPageData = mutableListOf<OnBoardingPageData>()
 
     init {
-        //addDataForDemo()
+        onBoardingPageData = addDataForDemo()
     }
 
 
