@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalPagerApi::class)
-
 package com.iprayforgod.view
 
 import androidx.compose.foundation.layout.*
