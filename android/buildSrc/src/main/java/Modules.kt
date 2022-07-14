@@ -11,8 +11,11 @@ object Modules {
     const val featuresOnboardingOnboardingPresentation = ":features:onboarding:onboarding_presentation"
     // -------------------- On-boarding -------------------->
 
-
-
-
+    // -------------------- Login -------------------------->
+    const val featureLogin = ":features:login"
+    const val featureLoginData = ":features:login:login_data"
+    const val featureLoginDomain = ":features:login:login_domain"
+    const val featureLoginPresentation = ":features:login:login_presentation"
+    // -------------------- Login -------------------------->
 
 }
