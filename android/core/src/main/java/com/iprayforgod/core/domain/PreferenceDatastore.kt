@@ -1,9 +1,11 @@
 package com.iprayforgod.core.domain
 
+import kotlinx.coroutines.flow.Flow
+
 interface PreferenceDatastore {
 
-    suspend fun saveIsOnBoardingShownState(text: Boolean)
+    suspend fun saveOnBoardingState(text: Boolean)
 
-    suspend fun loadIsOnBoardingShownState() : Boolean
+    suspend fun readOnBoardingState() : Flow<Boolean>
 
 }
