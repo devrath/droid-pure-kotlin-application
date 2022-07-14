@@ -17,12 +17,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.pager.*
 import com.iprayforgod.components.mainComponents.OnBoardingScreenContent
+import com.iprayforgod.components.subComponents.OnBoardingFinishButton
 import com.iprayforgod.components.subComponents.PagerData
 import com.iprayforgod.onboarding_domain.models.OnBoardingPageData
 import com.iprayforgod.onboarding_presentation.R
 import com.iprayforgod.vm.OnBoardingScreenVm
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun OnBoardingScreen(
     viewModel: OnBoardingScreenVm = hiltViewModel()
@@ -45,45 +45,14 @@ fun OnBoardingScreen(
                 .weight(1f),
             pagerState = pagerState
         )
-        FinishButton(
+        OnBoardingFinishButton(
             modifier = Modifier.weight(1f),
             pagerState = pagerState
-        ) {
+        ){
             viewModel.saveOnBoardingState(completed = true)
             /* navController.popBackStack()
             navController.navigate(Screen.Home.route)*/
             // ---------------------------------------------> Perform some action
-        }
-    }
-}
-
-
-@ExperimentalAnimationApi
-@ExperimentalPagerApi
-@Composable
-fun FinishButton(
-    modifier: Modifier,
-    pagerState: PagerState,
-    onClick: () -> Unit
-) {
-    Row(
-        modifier = modifier
-            .padding(horizontal = 40.dp),
-        verticalAlignment = Alignment.Top,
-        horizontalArrangement = Arrangement.Center
-    ) {
-        AnimatedVisibility(
-            modifier = Modifier.fillMaxWidth(),
-            visible = pagerState.currentPage == 2
-        ) {
-            Button(
-                onClick = onClick,
-                colors = ButtonDefaults.buttonColors(
-                    contentColor = Color.White
-                )
-            ) {
-                Text(text = "Finish")
-            }
         }
     }
 }
