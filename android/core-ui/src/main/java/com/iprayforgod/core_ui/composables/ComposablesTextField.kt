@@ -1,9 +1,14 @@
 package com.iprayforgod.core_ui.composables
 
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 
@@ -24,32 +29,44 @@ fun CustomInput(
 
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun InputEmail(
     emailValue: String,
     valueChanged: (String) -> Unit,
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
         label = { Text(text = "Email") },
         value = emailValue,
         singleLine = true,
         onValueChange = valueChanged,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Email,
+            imeAction = ImeAction.Done
+        ),
+        keyboardActions = HideKeyBoard(keyboardController)
     )
 }
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun InputPassword(
     passwordValue:String,
     valueChanged:(String) -> Unit
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
         label = { Text(text = "Password") },
         value = passwordValue,
         onValueChange = valueChanged,
         visualTransformation = PasswordVisualTransformation(),
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
+        ),
+        keyboardActions = HideKeyBoard(keyboardController)
     )
 }
 
@@ -66,3 +83,14 @@ private fun InputText(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
     )
 }
+
+
+
+
+/** ************************** Utils **************************************** **/
+
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+private fun HideKeyBoard(keyboardController: SoftwareKeyboardController?) =
+    KeyboardActions(onDone = { keyboardController?.hide() })
+/** ************************** Utils **************************************** **/
