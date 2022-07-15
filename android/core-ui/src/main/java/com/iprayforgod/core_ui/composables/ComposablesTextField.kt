@@ -7,19 +7,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 
-enum class INPUT_FIELD_PARAMS { EMAIL, PASSWORD, TEXT}
+enum class InputFieldParams { EMAIL, PASSWORD, TEXT}
 
 @Composable
 fun CustomInput(
     contentValue:String,
     valueChanged:(String) -> Unit,
-    params:INPUT_FIELD_PARAMS = INPUT_FIELD_PARAMS.TEXT
+    params:InputFieldParams = InputFieldParams.TEXT
 ){
 
     when(params){
-        INPUT_FIELD_PARAMS.EMAIL -> InputEmail(contentValue,valueChanged)
-        INPUT_FIELD_PARAMS.PASSWORD -> InputPassword(contentValue,valueChanged)
-        INPUT_FIELD_PARAMS.TEXT -> InputText(contentValue,valueChanged)
+        InputFieldParams.EMAIL -> InputEmail(contentValue,valueChanged)
+        InputFieldParams.PASSWORD -> InputPassword(contentValue,valueChanged)
+        InputFieldParams.TEXT -> InputText(contentValue,valueChanged)
     }
 
 }

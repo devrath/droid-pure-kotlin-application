@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -40,19 +39,16 @@ fun LoginPageContent(
         .background(Color.Gray)) {
 
         Box(modifier = Modifier.fillMaxSize()) {
-            ClickableText(
-                text = AnnotatedString("Sign up here"),
+            CustomClickableText(
+                contentValue = "Sign up here",
+                textColor = Color.Black,
+                fontSize = 14.sp,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(20.dp),
-                onClick = { },
-                style = TextStyle(
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily.Default,
-                    textDecoration = TextDecoration.Underline,
-                    color = Color.Black
-                )
-            )
+                    .padding(20.dp)
+            ){
+
+            }
         }
 
         Column(
@@ -60,23 +56,17 @@ fun LoginPageContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Text(
-                text = "Login",
-                style = TextStyle(
-                    fontSize = 40.sp,
-                    fontFamily = FontFamily.Monospace
-                )
-            )
+            CustomText(contentValue = "Login", textColor = Color.Black, fontSize = 40.sp)
 
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
                 contentValue = email, valueChanged = onEmailChanged,
-                params = INPUT_FIELD_PARAMS.EMAIL
+                params = InputFieldParams.EMAIL
             )
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
                 contentValue = password, valueChanged = onPwdChanged,
-                params = INPUT_FIELD_PARAMS.PASSWORD
+                params = InputFieldParams.PASSWORD
             )
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -98,18 +88,15 @@ fun LoginPageContent(
                verticalAlignment = Alignment.CenterVertically
            ) {
 
-               ClickableText(
-                   text = AnnotatedString("Forgot password"),
-                   onClick = {},
-                   style = TextStyle(
-                       fontSize = 14.sp,
-                       fontFamily = FontFamily.Default
-                   )
-               )
+               CustomClickableText(
+                   contentValue = "Forgot password",
+                   textColor= Color.Black,
+                   fontSize = 14.sp
+               ){
+
+               }
            }
-
         }
-
     }
 }
 
