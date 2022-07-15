@@ -2,13 +2,9 @@ package com.droid.login_presentation.components.mainComponents
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,13 +12,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.iprayforgod.core_ui.composables.*
 
 @Composable
 fun LoginScreenContent(
@@ -74,39 +69,25 @@ fun LoginPageContent(
             )
 
             Spacer(modifier = Modifier.height(20.dp))
-
-            TextField(
-                label = { Text(text = "Email") },
-                value = email,
-                singleLine = true,
-                onValueChange = onEmailChanged,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+            CustomInput(
+                contentValue = email, valueChanged = onEmailChanged,
+                params = INPUT_FIELD_PARAMS.EMAIL
             )
-
             Spacer(modifier = Modifier.height(20.dp))
-
-            TextField(
-                label = { Text(text = "Password") },
-                value = password,
-                onValueChange = onPwdChanged,
-                visualTransformation = PasswordVisualTransformation(),
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+            CustomInput(
+                contentValue = password, valueChanged = onPwdChanged,
+                params = INPUT_FIELD_PARAMS.PASSWORD
             )
-
             Spacer(modifier = Modifier.height(20.dp))
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-                Button(
-                    onClick = { },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(50.dp),
-                    shape = RoundedCornerShape(50.dp)
-                ) {
-                    Text(
-                        text = "Login",
-                        textAlign = TextAlign.Center
-                    )
+                CustomButton(
+                    buttonText = "Login",
+                    isButtonRounded = true,
+                    cornersInDp = 50.dp,
+                    buttonPaddingInDp = 20.dp
+                ){
+                    // Click action is received here
                 }
             }
 
