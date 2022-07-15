@@ -15,6 +15,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.droid.login_presentation.view.LoginScreen
 import com.iprayforgod.app.navigation.Route
 import com.iprayforgod.core_ui.theme.AppTheme
 import com.iprayforgod.view.OnBoardingScreen
@@ -47,9 +48,10 @@ class MainActivity : ComponentActivity() {
             ) {
                 NavHost(
                     navController = navController,
-                    startDestination = Route.ON_BOARDING
+                    startDestination = Route.LOGIN
                 ){
-                    composable(Route.ON_BOARDING) { OnBoardingScreen() }
+                    //composable(Route.ON_BOARDING) { OnBoardingScreen() }
+                    composable(Route.LOGIN) { LoginScreen() }
                 }
             }
         }
