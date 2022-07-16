@@ -3,6 +3,7 @@ package com.droid.login_presentation.vm
 import com.droid.login_presentation.states.LoginViewStates
 import com.iprayforgod.core.base.BaseViewModel
 import com.iprayforgod.core.data.repositories.PreferenceRepository
+import com.iprayforgod.core.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,5 +25,22 @@ class LoginVm @Inject constructor(
     val pwd = _pwd.asStateFlow()
     fun setPwd(name: String) { _pwd.value = name }
 
+
+    fun actionLogin() {
+
+    }
+
+    fun actionSignUp() {
+
+    }
+
+    fun actionForgotPwd() {
+
+    }
+
+
+    fun serverError(message:String) {
+        _viewState.value = LoginViewStates.ErrorState(UiText.DynamicString(message))
+    }
 
 }

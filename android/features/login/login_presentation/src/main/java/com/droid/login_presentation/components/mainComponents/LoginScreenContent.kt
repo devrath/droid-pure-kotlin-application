@@ -22,16 +22,25 @@ import com.iprayforgod.core_ui.composables.*
 fun LoginScreenContent(
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
-    onPwdChanged : (String) -> Unit
+    onPwdChanged : (String) -> Unit,
+    clickSignUp : (Int) -> Unit,
+    clickForgotPwd : (Int) -> Unit,
+    clickLoginAction : () -> Unit
 ) {
-    LoginPageContent(email,password,onEmailChanged,onPwdChanged)
+    LoginPageContent(
+        email,password,onEmailChanged,
+        onPwdChanged,clickSignUp,clickForgotPwd,clickLoginAction
+    )
 }
 
 @Composable
 fun LoginPageContent(
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
-    onPwdChanged : (String) -> Unit
+    onPwdChanged : (String) -> Unit,
+    clickSignUp : (Int) -> Unit,
+    clickForgotPwd : (Int) -> Unit,
+    clickLoginAction : () -> Unit
 ) {
 
     Surface(modifier = Modifier
@@ -45,10 +54,9 @@ fun LoginPageContent(
                 fontSize = 14.sp,
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
-                    .padding(20.dp)
-            ){
-
-            }
+                    .padding(20.dp),
+                onClick = clickSignUp
+            )
         }
 
         Column(
@@ -75,10 +83,9 @@ fun LoginPageContent(
                     buttonText = "Login",
                     isButtonRounded = true,
                     cornersInDp = 50.dp,
-                    buttonPaddingInDp = 20.dp
-                ){
-                    // Click action is received here
-                }
+                    buttonPaddingInDp = 20.dp,
+                    onClickAction = clickLoginAction
+                )
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -91,10 +98,9 @@ fun LoginPageContent(
                CustomClickableText(
                    contentValue = "Forgot password",
                    textColor= Color.Black,
-                   fontSize = 14.sp
-               ){
-
-               }
+                   fontSize = 14.sp,
+                   onClick = clickForgotPwd
+               )
            }
         }
     }
@@ -105,4 +111,4 @@ fun LoginPageContent(
 
 @Composable
 @Preview(showBackground = true)
-fun LoginPagePreview() { LoginPageContent("userName", "password",{},{}) }
+fun LoginPagePreview() { LoginPageContent("userName", "password",{},{},{},{},{}) }
