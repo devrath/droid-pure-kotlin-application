@@ -47,10 +47,11 @@ class LoginVm @Inject constructor(
     fun actionLogin() {
         viewModelScope.launch {
             val emailValidation = withContext(Dispatchers.Default) { validateEmail(email.value) }
-            val pwdValidation = withContext(Dispatchers.Default) { validatePassword(pwd.value) }
-
-            if (emailValidation && pwdValidation){
-                _viewState.value = LoginViewStates.LoginValidationSuccessful
+            if(emailValidation){
+                val pwdValidation = withContext(Dispatchers.Default) { validatePassword(pwd.value) }
+                if(pwdValidation){
+                    _viewState.value = LoginViewStates.LoginValidationSuccessful
+                }
             }
         }
     }
