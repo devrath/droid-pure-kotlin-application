@@ -1,38 +1,15 @@
 package com.iprayforgod.core.logger
 
-import android.content.Context
-import com.iprayforgod.core.logger.modules.OrHaNoButModule
-import com.iprayforgod.core.logger.modules.TimberModule
-import com.orhanobut.logger.*
+import com.iprayforgod.core.logger.AppLoggerConfig.Companion.TAG_LOG_CAT
 import timber.log.Timber
 
 /**
- * Types of logs
- Log.e(String, String) - display errors
- Log.w(String, String) - display warnings
- Log.i(String, String) -display information
- Log.d(String, String) -displays debug information
- Log.v(String, String) - for verbose
+ * Android Log wrapper class that can use [String.format] in logging message
  */
-class AppLogger {
-
-    companion object {
-        // used to search the logs in log-cat
-        const val TAG_LOG_CAT = "DEBUG-LOGS"
-        // Parent Directory Name
-        const val LOG_DIRECTORY_PARENT_NAME = "android-native"
-        // Child Directory Name
-        const val LOG_DIRECTORY_NAME = "logs"
-        /***********************************************/
-        const val DISK_LOG_FILE_SIZE = 500 * 1024
-        /***********************************************/
-        const val CsvStrategyTag = "tag"
-    }
-
-
-    fun initializeLogging(context:Context) {
-        OrHaNoButModule().initialize(context)
-        TimberModule().initialize()
-    }
-
+object AppLogger {
+    fun d(msg: String?) { msg?.let { Timber.tag(TAG_LOG_CAT).d(it) } }
+    fun e(msg: String?) { msg?.let{ Timber.tag(TAG_LOG_CAT).e(it) } }
+    fun w(msg: String?) { msg?.let{ Timber.tag(TAG_LOG_CAT).w(it) } }
+    fun v(msg: String?) { msg?.let{ Timber.tag(TAG_LOG_CAT).v(it) } }
+    fun i(msg: String?) { msg?.let{ Timber.tag(TAG_LOG_CAT).i(it) } }
 }

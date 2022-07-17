@@ -1,6 +1,6 @@
 package com.iprayforgod.core.logger.adapters
 
-import com.iprayforgod.core.logger.AppLogger
+import com.iprayforgod.core.logger.AppLoggerConfig
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -13,7 +13,7 @@ class AndroidLogCatAdapter {
             .methodCount(2) // (Optional) How many method line to show. Default 2
             .methodOffset(5) // (Optional) Skips some method invokes in stack trace. Default 5
             // .logStrategy(customLog) // (Optional) Changes the log strategy to print out. Default LogCat
-            .tag(AppLogger.TAG_LOG_CAT) // (Optional) Custom tag for each log. Default PRETTY_LOGGER
+            .tag(AppLoggerConfig.TAG_LOG_CAT) // (Optional) Custom tag for each log. Default PRETTY_LOGGER
             .build()
         return AndroidLogAdapter(formatStrategy)
     }
