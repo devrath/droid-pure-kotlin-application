@@ -36,6 +36,9 @@ dependencies {
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
 
+    implementation CustomLogging.orhanobut
+    implementation CustomLogging.timber
+
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt
     testImplementation Testing.truth
