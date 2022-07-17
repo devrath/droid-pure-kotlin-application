@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">iPrayForGod</string>
-
-
     <string name="screen_on_boarding">On boarding</string>
+
+    <string name="error_msg_email">Invalid Email Address</string>
+
 </resources>
