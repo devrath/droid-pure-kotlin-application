@@ -4,4 +4,12 @@
 
     <string name="error_msg_email">Invalid Email Address</string>
 
+
+
+    <string name="error_msg_email_cant_be_blank">The email can\'t be blank</string>
+    <string name="error_msg_email_is_not_valid">That\'s not a valid email</string>
+    <string name="error_msg_pwd_no_of_chars">The password needs to consist of at least 8 characters</string>
+    <string name="error_msg_pwd_with_letter_and_digit">The password needs to contain at least one letter and digit</string>
+
+
 </resources>

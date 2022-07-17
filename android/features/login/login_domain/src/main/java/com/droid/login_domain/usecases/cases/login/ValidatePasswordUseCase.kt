@@ -1,10 +1,12 @@
-package com.droid.login_domain.usecases.cases
+package com.droid.login_domain.usecases.cases.login
 
+import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.functional.SuspendUseCase
 import com.iprayforgod.core.functional.UseCaseResult
+import com.iprayforgod.core.ui.uiEvent.UiText
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.resume
@@ -18,18 +20,14 @@ import kotlin.coroutines.resumeWithException
  */
 open class ValidatePasswordUseCase @Inject constructor(
     @IoDispatcher val dispatcher: CoroutineDispatcher
-) : SuspendUseCase<String, UseCaseResult<Boolean>>(dispatcher) {
+) : SuspendUseCase<String, UseCaseResult<LoginViewStates>>(dispatcher) {
 
-    override suspend fun execute(password: String): UseCaseResult<Boolean> =
+    override suspend fun execute(password: String): UseCaseResult<LoginViewStates> =
         suspendCancellableCoroutine { coroutine ->
             CoroutineScope(dispatcher).launch {
                 try {
                     val result = initiatePasswordValidation(password)
-                    if(result.successful){
-                        coroutine.resume(UseCaseResult.Success(true))
-                    }else{
-                        coroutine.resumeWithException(Exception(result.errorMessage))
-                    }
+                    coroutine.resume(UseCaseResult.Success(LoginViewStates.PasswordValidationStatus(result)))
                 } catch (ex: Exception) {
                     coroutine.resumeWithException(Exception(ex.message))
                 }
@@ -41,7 +39,7 @@ open class ValidatePasswordUseCase @Inject constructor(
         if(password.length < 8) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "The password needs to consist of at least 8 characters"
+                errorMessage = UiText.StringResource(R.string.error_msg_pwd_no_of_chars)
             )
         }
         // -> Password needs to contain minimum of one letter and one digit
@@ -49,7 +47,7 @@ open class ValidatePasswordUseCase @Inject constructor(
         if(!containsLettersAndDigits) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "The password needs to contain at least one letter and digit"
+                errorMessage = UiText.StringResource(R.string.error_msg_pwd_with_letter_and_digit)
             )
         }
         return ValidationResult(successful = true)

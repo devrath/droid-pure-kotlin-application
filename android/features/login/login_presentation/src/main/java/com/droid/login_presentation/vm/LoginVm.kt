@@ -1,11 +1,12 @@
 package com.droid.login_presentation.vm
 
 import androidx.lifecycle.viewModelScope
-import com.droid.login_domain.usecases.cases.ValidateEmailUseCase
-import com.droid.login_domain.usecases.cases.ValidatePasswordUseCase
+import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
+import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.iprayforgod.core.base.BaseViewModel
 import com.iprayforgod.core.functional.UseCaseResult
+import com.iprayforgod.core.functional.data
 import com.iprayforgod.core.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -47,10 +48,11 @@ class LoginVm @Inject constructor(
     fun actionLogin() {
         viewModelScope.launch {
             val emailValidation = withContext(Dispatchers.Default) { validateEmail(email.value) }
-            val pwdValidation = withContext(Dispatchers.Default) { validatePassword(pwd.value) }
-
-            if (emailValidation && pwdValidation){
-                _viewState.value = LoginViewStates.LoginValidationSuccessful
+            if(emailValidation){
+                val pwdValidation = withContext(Dispatchers.Default) { validatePassword(pwd.value) }
+                if(pwdValidation){
+                    _viewState.value = LoginViewStates.LoginValidationSuccessful
+                }
             }
         }
     }
@@ -63,13 +65,21 @@ class LoginVm @Inject constructor(
     }
     /** ********************************** BUTTON-ACTIONS *****************************************/
 
-
+    /** ********************************** USE CASES **********************************************/
     /**
      * USE CASE: use case for email field validations
      */
     private suspend fun validateEmail(email: String): Boolean {
         when (val result = validateEmailUseCase.invoke(email)) {
-            is UseCaseResult.Success -> return true
+            is UseCaseResult.Success -> {
+                val emailValidationResult = result.value.data as LoginViewStates.EmailValidationStatus
+                if(emailValidationResult.result.successful){
+                    return true
+                }else{
+                    useCaseErrorMessage(emailValidationResult.result.errorMessage)
+                    return false
+                }
+            }
             is UseCaseResult.Error -> {
                 useCaseError(result)
                 return false
@@ -83,13 +93,33 @@ class LoginVm @Inject constructor(
      */
     private suspend fun validatePassword(password: String): Boolean {
         when (val result = validatePasswordUseCase.invoke(password)) {
-            is UseCaseResult.Success -> return true
+            is UseCaseResult.Success -> {
+                val pwdValidationResult = result.value.data as LoginViewStates.PasswordValidationStatus
+                if(pwdValidationResult.result.successful){
+                    return true
+                }else{
+                    useCaseErrorMessage(pwdValidationResult.result.errorMessage)
+                    return false
+                }
+            }
             is UseCaseResult.Error -> {
                 useCaseError(result)
                 return false
             }
         }
         return false
+    }
+
+
+
+    /**
+     * ERROR HANDLING:
+     * Displaying messages to the snack-bar
+     */
+    private suspend fun useCaseErrorMessage(result:UiText?) {
+        result?.let {
+            _viewState.value = LoginViewStates.ErrorState(errorMessage = it)
+        }
     }
 
     /**
@@ -100,10 +130,7 @@ class LoginVm @Inject constructor(
         val uiEvent = UiText.DynamicString(result.exception.message.toString())
         _viewState.value = LoginViewStates.ErrorState(errorMessage = uiEvent)
     }
+    /** ********************************** USE CASES **********************************************/
 
-
-    fun serverError(message:String) {
-        _viewState.value = LoginViewStates.ErrorState(UiText.DynamicString(message))
-    }
 
 }
