@@ -1,6 +1,7 @@
 package com.droid.login_presentation.view
 
 import android.content.Context
+import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
@@ -11,7 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.components.mainComponents.LoginScreenContent
-import com.droid.login_presentation.states.LoginViewStates
+import com.droid.login_domain.usecases.states.LoginViewStates
 import com.droid.login_presentation.vm.LoginVm
 import com.iprayforgod.core.ui.uiEvent.UiText
 
@@ -39,6 +40,9 @@ fun LoginScreen(
                 is LoginViewStates.InitialState -> {}
                 is LoginViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is LoginViewStates.NoConnectivity -> {}
+                is LoginViewStates.LoginValidationSuccessful -> {
+                    Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
