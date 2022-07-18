@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "745008090735",
+    "project_id": "playstore-review-4e4fa",
+    "storage_bucket": "playstore-review-4e4fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745008090735:android:e778a40bf9f4ff90a5079a",
+        "android_client_info": {
+          "package_name": "com.iprayforgod.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745008090735-c85mej4ul6m07kgut9i211ig30efkb8v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh5VaftZg48E_L2Yalkahe50WU_iessOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745008090735-c85mej4ul6m07kgut9i211ig30efkb8v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
