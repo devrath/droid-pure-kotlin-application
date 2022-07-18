@@ -11,7 +11,11 @@ class IPrayForGodApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        if (BuildConfig.DEBUG) {
+            AppLoggerConfig(this).initializeLogging()
+        }else{
 
+        }
     }
 
 

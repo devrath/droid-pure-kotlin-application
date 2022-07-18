@@ -77,6 +77,9 @@ dependencies {
     implementation(Compose.activityCompose)
 
     implementation(Firebase.googleFirebase)
+    implementation(Firebase.firebaseKtx)
+    implementation(Firebase.firebaseDatabaseKtx)
+    implementation(Firebase.firebaseAnalytics)
 
     debugImplementation(Compose.uiTooling)
     implementation(Compose.uiToolingPreview)

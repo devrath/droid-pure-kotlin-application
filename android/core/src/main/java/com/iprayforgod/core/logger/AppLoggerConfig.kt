@@ -3,8 +3,6 @@ package com.iprayforgod.core.logger
 import android.content.Context
 import com.iprayforgod.core.logger.modules.OrHaNoButModule
 import com.iprayforgod.core.logger.modules.TimberModule
-import com.orhanobut.logger.*
-import timber.log.Timber
 
 class AppLoggerConfig(val context: Context?) {
 
@@ -25,7 +23,7 @@ class AppLoggerConfig(val context: Context?) {
     fun initializeLogging() {
         context?.let {
             OrHaNoButModule().initialize(it)
-            TimberModule().initialize()
+            TimberModule().initialize(it)
         }
     }
 

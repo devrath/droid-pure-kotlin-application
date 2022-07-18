@@ -39,6 +39,11 @@ dependencies {
     implementation CustomLogging.orhanobut
     implementation CustomLogging.timber
 
+    implementation Firebase.googleFirebase
+    implementation Firebase.firebaseKtx
+    implementation Firebase.firebaseDatabaseKtx
+    implementation Firebase.firebaseAnalytics
+
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt
     testImplementation Testing.truth
