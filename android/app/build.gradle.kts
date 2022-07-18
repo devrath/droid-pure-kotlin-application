@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("dagger.hilt.android.plugin")
-    id("kotlin-kapt")
+    id(Build.BuildPlugins.androidApplication)
+    kotlin(Build.BuildModule.kotlinAndroid)
+    id(Build.BuildPlugins.daggerHiltAndroidPlugin)
+    id(Build.BuildPlugins.kotlinKapt)
 }
 
 android {
@@ -15,37 +15,53 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "com.com.iprayforgod.app.HiltTestRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        testInstrumentationRunner = ProjectConfig.testRunner
+        vectorDrawables { useSupportLibrary = true }
     }
 
+    /** ************************* FLAVOURS ************************* **/
     buildTypes {
-        getByName("release") {
+        getByName(FlavourUtils.BuildTypes.DEBUG) {
             isMinifyEnabled = false
+            applicationIdSuffix = ".${FlavourUtils.BuildTypes.DEBUG}"
+            isDebuggable = true
+        }
+        getByName(FlavourUtils.BuildTypes.RELEASE) {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    buildFeatures {
-        compose = true
+    flavorDimensions.add(FlavourUtils.FlavorDimensions.DEFAULT)
+    productFlavors {
+        create(FlavourUtils.ProductFlavors.DEV) {
+            dimension = FlavourUtils.FlavorDimensions.DEFAULT
+            applicationIdSuffix = ".${FlavourUtils.ProductFlavors.DEV}"
+            versionNameSuffix = "-${FlavourUtils.ProductFlavors.DEV}"
+        }
+        create(FlavourUtils.ProductFlavors.INTERNAL) {
+            dimension = FlavourUtils.FlavorDimensions.DEFAULT
+            applicationIdSuffix = ".${FlavourUtils.ProductFlavors.INTERNAL}"
+            versionNameSuffix = "-${FlavourUtils.ProductFlavors.INTERNAL}"
+        }
+        create(FlavourUtils.ProductFlavors.PUBLIC) {
+            dimension = FlavourUtils.FlavorDimensions.DEFAULT
+        }
     }
+    /** ************************* FLAVOURS ************************* **/
+
+    buildFeatures { compose = true }
+    kotlinOptions { jvmTarget = ProjectConfig.jvmTarget }
+    composeOptions { kotlinCompilerExtensionVersion = Compose.composeCompilerVersion }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
-    }
     packagingOptions {
-        exclude("META-INF/AL2.0")
-        exclude("META-INF/LGPL2.1")
-        exclude("**/attach_hotspot_windows.dll")
-        exclude("META-INF/licenses/ASM")
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+        resources.excludes.add("**/attach_hotspot_windows.dll")
+        resources.excludes.add("META-INF/licenses/ASM")
     }
-    //namespace ProjectConfig.appId
 }
 
 dependencies {
