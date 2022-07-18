@@ -1,8 +1,11 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("dagger.hilt.android.plugin")
-    id("kotlin-kapt")
+    id(Build.BuildPlugins.androidApplication)
+    kotlin(Build.BuildModule.kotlinAndroid)
+    id(Build.BuildPlugins.daggerHiltAndroidPlugin)
+    id(Build.BuildPlugins.kotlinKapt)
+
+    id(ScriptPlugins.variants)
+
 }
 
 android {
