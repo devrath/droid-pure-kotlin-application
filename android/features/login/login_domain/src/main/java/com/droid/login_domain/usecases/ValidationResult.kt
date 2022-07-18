@@ -1,6 +1,6 @@
 package com.droid.login_domain.usecases
 
-import com.iprayforgod.core.ui.uiEvent.UiText
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 
 data class ValidationResult(
     val successful: Boolean,

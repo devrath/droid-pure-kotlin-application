@@ -3,10 +3,9 @@ package com.iprayforgod.core.data.implementations
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import com.iprayforgod.core.domain.PreferenceDatastore
-import com.iprayforgod.core.keys.KeysPreferences.KEY_TEXT
+import com.iprayforgod.core.modules.keys.KeysPreferences.KEY_TEXT
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 

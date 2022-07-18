@@ -4,10 +4,10 @@ import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
 import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
 import com.droid.login_domain.usecases.states.LoginViewStates
-import com.iprayforgod.core.base.BaseViewModel
-import com.iprayforgod.core.functional.UseCaseResult
-import com.iprayforgod.core.functional.data
-import com.iprayforgod.core.ui.uiEvent.UiText
+import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.platform.functional.UseCaseResult
+import com.iprayforgod.core.platform.functional.data
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

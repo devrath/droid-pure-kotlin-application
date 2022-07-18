@@ -5,9 +5,9 @@ import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
-import com.iprayforgod.core.functional.SuspendUseCase
-import com.iprayforgod.core.functional.UseCaseResult
-import com.iprayforgod.core.ui.uiEvent.UiText
+import com.iprayforgod.core.platform.functional.SuspendUseCase
+import com.iprayforgod.core.platform.functional.UseCaseResult
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

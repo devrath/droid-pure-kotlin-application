@@ -11,7 +11,7 @@ import androidx.datastore.preferences.preferencesDataStoreFile
 import com.iprayforgod.core.data.implementations.PreferenceDatastoreImpl
 import com.iprayforgod.core.data.repositories.PreferenceRepository
 import com.iprayforgod.core.domain.PreferenceDatastore
-import com.iprayforgod.core.keys.KeysPreferences
+import com.iprayforgod.core.modules.keys.KeysPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
