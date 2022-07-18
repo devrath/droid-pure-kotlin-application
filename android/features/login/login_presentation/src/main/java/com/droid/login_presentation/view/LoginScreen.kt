@@ -47,7 +47,6 @@ fun LoginScreen(
                     AppLogger.w("DEBUG")
                     AppLogger.v("DEBUG")
                     AppLogger.i("DEBUG")
-
                     Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
                 }
             }

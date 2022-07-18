@@ -4,6 +4,7 @@ plugins {
     id(Build.BuildPlugins.daggerHiltAndroidPlugin)
     id(Build.BuildPlugins.kotlinKapt)
     id(Build.BuildPlugins.googleServices)
+    id(Build.BuildPlugins.crashlytics)
 }
 
 android {
@@ -76,10 +77,12 @@ dependencies {
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
 
-    implementation(Firebase.googleFirebase)
+    implementation(platform(Firebase.googleFirebase))
     implementation(Firebase.firebaseKtx)
     implementation(Firebase.firebaseDatabaseKtx)
     implementation(Firebase.firebaseAnalytics)
+    implementation(Firebase.firebaseCrashlyticsKtx)
+    implementation(Firebase.firebaseAnalyticsKtx)
 
     debugImplementation(Compose.uiTooling)
     implementation(Compose.uiToolingPreview)
