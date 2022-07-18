@@ -3,10 +3,8 @@ package com.iprayforgod.core.logger
 import android.content.Context
 import com.iprayforgod.core.logger.modules.OrHaNoButModule
 import com.iprayforgod.core.logger.modules.TimberModule
-import com.orhanobut.logger.*
-import timber.log.Timber
 
-class AppLoggerConfig {
+class AppLoggerConfig(val context: Context?) {
 
     companion object {
         // used to search the logs in log-cat
@@ -22,9 +20,11 @@ class AppLoggerConfig {
     }
 
 
-    fun initializeLogging(context:Context) {
-        OrHaNoButModule().initialize(context)
-        TimberModule().initialize()
+    fun initializeLogging() {
+        context?.let {
+            OrHaNoButModule().initialize(it)
+            TimberModule().initialize(it)
+        }
     }
 
 }

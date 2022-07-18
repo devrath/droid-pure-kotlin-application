@@ -3,6 +3,8 @@ plugins {
     kotlin(Build.BuildModule.kotlinAndroid)
     id(Build.BuildPlugins.daggerHiltAndroidPlugin)
     id(Build.BuildPlugins.kotlinKapt)
+    id(Build.BuildPlugins.googleServices)
+    id(Build.BuildPlugins.crashlytics)
 }
 
 android {
@@ -23,7 +25,7 @@ android {
     buildTypes {
         getByName(FlavourUtils.BuildTypes.DEBUG) {
             isMinifyEnabled = false
-            applicationIdSuffix = ".${FlavourUtils.BuildTypes.DEBUG}"
+            //applicationIdSuffix = ".${FlavourUtils.BuildTypes.DEBUG}"
             isDebuggable = true
         }
         getByName(FlavourUtils.BuildTypes.RELEASE) {
@@ -35,13 +37,13 @@ android {
     productFlavors {
         create(FlavourUtils.ProductFlavors.DEV) {
             dimension = FlavourUtils.FlavorDimensions.DEFAULT
-            applicationIdSuffix = ".${FlavourUtils.ProductFlavors.DEV}"
-            versionNameSuffix = "-${FlavourUtils.ProductFlavors.DEV}"
+            //applicationIdSuffix = ".${FlavourUtils.ProductFlavors.DEV}"
+            //versionNameSuffix = "-${FlavourUtils.ProductFlavors.DEV}"
         }
         create(FlavourUtils.ProductFlavors.INTERNAL) {
             dimension = FlavourUtils.FlavorDimensions.DEFAULT
-            applicationIdSuffix = ".${FlavourUtils.ProductFlavors.INTERNAL}"
-            versionNameSuffix = "-${FlavourUtils.ProductFlavors.INTERNAL}"
+            //applicationIdSuffix = ".${FlavourUtils.ProductFlavors.INTERNAL}"
+            //versionNameSuffix = "-${FlavourUtils.ProductFlavors.INTERNAL}"
         }
         create(FlavourUtils.ProductFlavors.PUBLIC) {
             dimension = FlavourUtils.FlavorDimensions.DEFAULT
@@ -74,6 +76,13 @@ dependencies {
     implementation(Compose.navigation)
     implementation(Compose.viewModelCompose)
     implementation(Compose.activityCompose)
+
+    implementation(platform(Firebase.googleFirebase))
+    implementation(Firebase.firebaseKtx)
+    implementation(Firebase.firebaseDatabaseKtx)
+    implementation(Firebase.firebaseAnalytics)
+    implementation(Firebase.firebaseCrashlyticsKtx)
+    implementation(Firebase.firebaseAnalyticsKtx)
 
     debugImplementation(Compose.uiTooling)
     implementation(Compose.uiToolingPreview)

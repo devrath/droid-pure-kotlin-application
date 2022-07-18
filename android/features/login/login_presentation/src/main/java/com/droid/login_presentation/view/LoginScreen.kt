@@ -14,6 +14,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.droid.login_presentation.vm.LoginVm
+import com.iprayforgod.core.logger.AppLogger
 import com.iprayforgod.core.ui.uiEvent.UiText
 
 @Composable
@@ -41,6 +42,11 @@ fun LoginScreen(
                 is LoginViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is LoginViewStates.NoConnectivity -> {}
                 is LoginViewStates.LoginValidationSuccessful -> {
+                    AppLogger.d("DEBUG")
+                    AppLogger.e("DEBUG")
+                    AppLogger.w("DEBUG")
+                    AppLogger.v("DEBUG")
+                    AppLogger.i("DEBUG")
                     Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
                 }
             }
