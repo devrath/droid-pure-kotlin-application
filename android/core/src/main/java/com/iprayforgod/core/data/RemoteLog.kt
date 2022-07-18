@@ -1,4 +1,4 @@
-package com.iprayforgod.core.modules.logger.models
+package com.iprayforgod.core.data
 
 data class RemoteLog(
     var priority: String,

@@ -1,4 +1,4 @@
-package com.iprayforgod.core.data.repositories
+package com.iprayforgod.core.modules.preference.repository
 
 import com.iprayforgod.core.domain.PreferenceDatastore
 import kotlinx.coroutines.flow.Flow

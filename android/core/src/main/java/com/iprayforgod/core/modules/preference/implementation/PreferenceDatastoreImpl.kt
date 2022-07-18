@@ -1,4 +1,4 @@
-package com.iprayforgod.core.data.implementations
+package com.iprayforgod.core.modules.preference.implementation
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*

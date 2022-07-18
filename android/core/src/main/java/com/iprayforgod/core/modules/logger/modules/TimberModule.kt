@@ -3,7 +3,7 @@ package com.iprayforgod.core.modules.logger.modules
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
-import com.iprayforgod.core.data.models.DeviceDetails
+import com.iprayforgod.core.data.DeviceDetails
 import com.orhanobut.logger.Logger
 import timber.log.Timber
 

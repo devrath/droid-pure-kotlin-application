@@ -1,4 +1,4 @@
-package com.iprayforgod.core.data.models
+package com.iprayforgod.core.data
 
 import android.os.Build
 

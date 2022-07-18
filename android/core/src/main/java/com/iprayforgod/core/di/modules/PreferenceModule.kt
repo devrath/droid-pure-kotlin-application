@@ -1,4 +1,4 @@
-package com.iprayforgod.core.di
+package com.iprayforgod.core.di.modules
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -8,8 +8,8 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.iprayforgod.core.data.implementations.PreferenceDatastoreImpl
-import com.iprayforgod.core.data.repositories.PreferenceRepository
+import com.iprayforgod.core.modules.preference.implementation.PreferenceDatastoreImpl
+import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
 import com.iprayforgod.core.domain.PreferenceDatastore
 import com.iprayforgod.core.modules.keys.KeysPreferences
 import dagger.Module

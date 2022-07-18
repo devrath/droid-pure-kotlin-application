@@ -3,8 +3,8 @@ package com.iprayforgod.core.modules.logger.modules
 import android.util.Log
 import com.google.firebase.database.FirebaseDatabase
 import com.iprayforgod.core.BuildConfig
-import com.iprayforgod.core.modules.logger.models.RemoteLog
-import com.iprayforgod.core.data.models.DeviceDetails
+import com.iprayforgod.core.data.RemoteLog
+import com.iprayforgod.core.data.DeviceDetails
 import com.orhanobut.logger.Logger
 import timber.log.Timber
 import java.text.SimpleDateFormat
