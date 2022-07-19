@@ -1,9 +1,9 @@
 package com.iprayforgod.core.domain
 
 interface LoggerFeature {
-    fun d(msg: String?)
-    fun e(msg: String?)
-    fun w(msg: String?)
-    fun v(msg: String?)
-    fun i(msg: String?)
+    fun d(featureName: String?, msg: String?)
+    fun e(featureName: String?, msg: String?)
+    fun w(featureName: String?, msg: String?)
+    fun v(featureName: String?, msg: String?)
+    fun i(featureName: String?, msg: String?)
 }

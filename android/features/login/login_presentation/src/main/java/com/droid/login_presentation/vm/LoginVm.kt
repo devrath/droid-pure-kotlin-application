@@ -4,6 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
 import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
 import com.droid.login_domain.usecases.states.LoginViewStates
+import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
+import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.functional.data
@@ -18,8 +20,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginVm @Inject constructor(
+    // Validate the email
     private var  validateEmailUseCase: ValidateEmailUseCase,
+    // Validate the password
     private var  validatePasswordUseCase: ValidatePasswordUseCase,
+
+    private var  log: LoggerRepository,
 ) : BaseViewModel()  {
 
     private val _viewState = MutableStateFlow<LoginViewStates>(LoginViewStates.InitialState)
@@ -39,6 +45,7 @@ class LoginVm @Inject constructor(
      * ACTION - SignUp
      */
     fun actionSignUp() {
+        log.d(FEATURE_LOGIN,"ACTION:->  Sign up action functionality is invoked")
 
     }
 
@@ -46,6 +53,8 @@ class LoginVm @Inject constructor(
      * ACTION - Login
      */
     fun actionLogin() {
+        log.d(FEATURE_LOGIN,"ACTION:->  Login action functionality is invoked")
+
         viewModelScope.launch {
             val emailValidation = withContext(Dispatchers.Default) { validateEmail(email.value) }
             if(emailValidation){
@@ -61,6 +70,7 @@ class LoginVm @Inject constructor(
      * ACTION - Forgot Password
      */
     fun actionForgotPwd() {
+        log.d(FEATURE_LOGIN,"ACTION:->  Forgot password action functionality is invoked")
 
     }
     /** ********************************** BUTTON-ACTIONS *****************************************/
@@ -70,6 +80,9 @@ class LoginVm @Inject constructor(
      * USE CASE: use case for email field validations
      */
     private suspend fun validateEmail(email: String): Boolean {
+        log.d(FEATURE_LOGIN,"USE CASE:->  validate email is invoked")
+
+
         when (val result = validateEmailUseCase.invoke(email)) {
             is UseCaseResult.Success -> {
                 val emailValidationResult = result.value.data as LoginViewStates.EmailValidationStatus
@@ -92,14 +105,16 @@ class LoginVm @Inject constructor(
      * USE CASE: use case for password field validations
      */
     private suspend fun validatePassword(password: String): Boolean {
+        log.d(FEATURE_LOGIN,"USE CASE:->  validate password is invoked")
+
         when (val result = validatePasswordUseCase.invoke(password)) {
             is UseCaseResult.Success -> {
                 val pwdValidationResult = result.value.data as LoginViewStates.PasswordValidationStatus
-                if(pwdValidationResult.result.successful){
-                    return true
+                return if(pwdValidationResult.result.successful){
+                    true
                 }else{
                     useCaseErrorMessage(pwdValidationResult.result.errorMessage)
-                    return false
+                    false
                 }
             }
             is UseCaseResult.Error -> {
