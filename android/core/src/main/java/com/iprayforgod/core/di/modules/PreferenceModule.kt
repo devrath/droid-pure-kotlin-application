@@ -8,10 +8,10 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.iprayforgod.core.modules.preference.implementation.PreferenceDatastoreImpl
-import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
 import com.iprayforgod.core.domain.PreferenceDatastore
 import com.iprayforgod.core.modules.keys.KeysPreferences
+import com.iprayforgod.core.modules.preference.implementation.PreferenceDatastoreImpl
+import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +22,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Singleton
 
-
 /**
  * How module works: Instance creation happens from the bottom to the top
  * This Module provides the instance of repository to be used
@@ -30,7 +29,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object PreferenceModule {
-
 
     /**
      * STEP-3: ---> <Final Step>
@@ -40,7 +38,9 @@ object PreferenceModule {
      */
     @Provides
     @Singleton
-    fun provideRepositoryDatastore(@ApplicationContext context: Context, store: PreferenceDatastore
+    fun provideRepositoryDatastore(
+        @ApplicationContext context: Context,
+        store: PreferenceDatastore
     ) = PreferenceRepository(preference = store)
 
     /**
@@ -54,7 +54,6 @@ object PreferenceModule {
     fun provideDataStorePreferences(dataStore: DataStore<Preferences>): PreferenceDatastore {
         return PreferenceDatastoreImpl(dataStore)
     }
-
 
     /**
      * STEP-1: --->
@@ -76,6 +75,4 @@ object PreferenceModule {
             produceFile = { appContext.preferencesDataStoreFile(KeysPreferences.SHARED_PREFERENCES_NAME) }
         )
     }
-
-
 }

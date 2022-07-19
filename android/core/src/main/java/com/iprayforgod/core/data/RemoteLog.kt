@@ -5,5 +5,5 @@ data class RemoteLog(
     var tag: String?,
     var message: String,
     var throwable: String?,
-    val time : String
+    val time: String
 )

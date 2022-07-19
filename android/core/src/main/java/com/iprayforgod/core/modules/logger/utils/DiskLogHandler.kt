@@ -1,19 +1,19 @@
 package com.iprayforgod.core.modules.logger.utils
 
 import android.os.Handler
-import android.os.Looper
-import kotlin.Throws
 import android.os.HandlerThread
+import android.os.Looper
 import android.os.Message
 import java.io.File
 import java.io.FileWriter
 import java.io.IOException
 
 class DiskLogHandler(
-    looper: Looper, private val folder: String?,
-    private val fileName: String?, private val maxFileSize: Int
+    looper: Looper,
+    private val folder: String?,
+    private val fileName: String?,
+    private val maxFileSize: Int
 ) : Handler(looper) {
-
 
     companion object {
         private val defaultLooper: Looper
@@ -29,7 +29,7 @@ class DiskLogHandler(
     )
 
     override fun handleMessage(msg: Message) {
-        if(folder!=null && fileName!=null){
+        if (folder != null && fileName != null) {
             val content = msg.obj as String
             var fileWriter: FileWriter? = null
             val logFile = getLogFile(folder, fileName)
@@ -44,13 +44,11 @@ class DiskLogHandler(
                     try {
                         it.flush()
                         it.close()
-                    } catch (e1: IOException) {
-                    /* fail silently */
-                    }
+                    } catch (e1: IOException) { /* fail silently */ }
                 }
             }
-        }else{
-            throw  IllegalArgumentException()
+        } else {
+            throw IllegalArgumentException()
         }
     }
 
@@ -82,7 +80,10 @@ class DiskLogHandler(
      * @param newFileCount --> Count
      * @return New file
      */
-    private fun createLogFile(folder: File, fileName: String, newFileCount: Int
+    private fun createLogFile(
+        folder: File,
+        fileName: String,
+        newFileCount: Int
     ) = File(folder, String.format("%s_%s.csv", fileName, newFileCount))
 
     /**

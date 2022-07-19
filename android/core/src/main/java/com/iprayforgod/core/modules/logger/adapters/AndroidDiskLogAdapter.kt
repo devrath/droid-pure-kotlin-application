@@ -11,28 +11,34 @@ import java.io.File
 
 class AndroidDiskLogAdapter {
 
-
     fun initiate(context: Context): DiskLogAdapter {
         // Location where the log file is created
-        val file = File(context.getExternalFilesDir(AppLoggerConfig.LOG_DIRECTORY_PARENT_NAME),
+        val file = File(
+            context.getExternalFilesDir(AppLoggerConfig.LOG_DIRECTORY_PARENT_NAME),
             AppLoggerConfig.LOG_DIRECTORY_NAME
         )
-        if (!file.exists()) { file.mkdir() }
+        if (!file.exists()) {
+            file.mkdir()
+        }
 
         return setUp(file)
     }
 
-
     private fun setUp(file: File) = object : DiskLogAdapter(
         CsvFormatStrategy.newBuilder()
             .tag(AppLoggerConfig.CsvStrategyTag)
-            .logStrategy(DiskLogStrategy(DiskLogHandler(
-                file.absolutePath, BuildConfig.APPLICATION_ID, AppLoggerConfig.DISK_LOG_FILE_SIZE))
+            .logStrategy(
+                DiskLogStrategy(
+                    DiskLogHandler(
+                        file.absolutePath,
+                        BuildConfig.APPLICATION_ID,
+                        AppLoggerConfig.DISK_LOG_FILE_SIZE
+                    )
+                )
             ).build()
     ) {
         override fun isLoggable(priority: Int, tag: String?): Boolean {
-            return true;
+            return true
         }
     }
-
 }

@@ -40,7 +40,6 @@ object LoggerModule {
         return LoggerFeatureImpl()
     }
 
-
     /**
      * STEP-1: --->
      * We don't do this here since we perform this from the application class of the app

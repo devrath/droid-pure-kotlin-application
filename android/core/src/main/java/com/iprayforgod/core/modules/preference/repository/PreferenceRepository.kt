@@ -20,5 +20,4 @@ class PreferenceRepository(
     suspend fun readOnBoardingState(): Flow<Boolean> {
         return preference.readOnBoardingState()
     }
-
 }

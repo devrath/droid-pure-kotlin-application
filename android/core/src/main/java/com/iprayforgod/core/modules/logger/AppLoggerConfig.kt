@@ -19,12 +19,10 @@ class AppLoggerConfig(val context: Context?) {
         const val CsvStrategyTag = "tag"
     }
 
-
     fun initializeLogging() {
         context?.let {
             OrHaNoButModule().initialize(it)
             TimberModule().initialize(it)
         }
     }
-
 }

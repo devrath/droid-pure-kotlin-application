@@ -1,7 +1,10 @@
 package com.iprayforgod.core.modules.preference.implementation
 
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.*
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.emptyPreferences
 import com.iprayforgod.core.domain.PreferenceDatastore
 import com.iprayforgod.core.modules.keys.KeysPreferences.KEY_TEXT
 import kotlinx.coroutines.flow.Flow
@@ -11,7 +14,7 @@ import java.io.IOException
 
 class PreferenceDatastoreImpl(
     private val dataStore: DataStore<Preferences>
-): PreferenceDatastore {
+) : PreferenceDatastore {
 
     companion object {
         private val KEY_REF_isOnBoardingShown = booleanPreferencesKey(KEY_TEXT)
@@ -21,7 +24,7 @@ class PreferenceDatastoreImpl(
         dataStore.edit { it[KEY_REF_isOnBoardingShown] = state }
     }
 
-    override suspend  fun readOnBoardingState(): Flow<Boolean> {
+    override suspend fun readOnBoardingState(): Flow<Boolean> {
         return dataStore.getValueFlow(KEY_REF_isOnBoardingShown, false)
     }
 
@@ -40,5 +43,4 @@ class PreferenceDatastoreImpl(
                 preferences[key] ?: defaultValue
             }
     }
-
 }

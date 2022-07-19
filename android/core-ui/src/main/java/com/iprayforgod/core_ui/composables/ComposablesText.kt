@@ -5,18 +5,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
-import java.lang.reflect.Modifier
-
 
 @Composable
 fun CustomText(
-    contentValue:String,
-    textColor:Color,
+    contentValue: String,
+    textColor: Color,
     fontSize: TextUnit = 9.sp
-){
+) {
     Text(
         text = contentValue,
         color = textColor,
@@ -25,7 +22,4 @@ fun CustomText(
             fontFamily = FontFamily.Monospace
         )
     )
-
 }
-
-

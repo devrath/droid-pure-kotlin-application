@@ -7,11 +7,10 @@ import com.orhanobut.logger.Logger
 
 class OrHaNoButModule {
 
-    fun initialize(context : Context){
+    fun initialize(context: Context) {
         // Log to be displayed in LogCat
         Logger.addLogAdapter(AndroidLogCatAdapter().initiate())
         // Log to be saved in the disk
         Logger.addLogAdapter(AndroidDiskLogAdapter().initiate(context))
     }
-
 }

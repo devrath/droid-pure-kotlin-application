@@ -12,21 +12,20 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 
-enum class InputFieldParams { EMAIL, PASSWORD, TEXT}
+enum class InputFieldParams { EMAIL, PASSWORD, TEXT }
 
 @Composable
 fun CustomInput(
-    contentValue:String,
-    valueChanged:(String) -> Unit,
-    params:InputFieldParams = InputFieldParams.TEXT
-){
+    contentValue: String,
+    valueChanged: (String) -> Unit,
+    params: InputFieldParams = InputFieldParams.TEXT
+) {
 
-    when(params){
-        InputFieldParams.EMAIL -> InputEmail(contentValue,valueChanged)
-        InputFieldParams.PASSWORD -> InputPassword(contentValue,valueChanged)
-        InputFieldParams.TEXT -> InputText(contentValue,valueChanged)
+    when (params) {
+        InputFieldParams.EMAIL -> InputEmail(contentValue, valueChanged)
+        InputFieldParams.PASSWORD -> InputPassword(contentValue, valueChanged)
+        InputFieldParams.TEXT -> InputText(contentValue, valueChanged)
     }
-
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -49,12 +48,11 @@ private fun InputEmail(
     )
 }
 
-
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun InputPassword(
-    passwordValue:String,
-    valueChanged:(String) -> Unit
+    passwordValue: String,
+    valueChanged: (String) -> Unit
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
@@ -72,8 +70,8 @@ private fun InputPassword(
 
 @Composable
 private fun InputText(
-    textValue:String,
-    valueChanged:(String) -> Unit
+    textValue: String,
+    valueChanged: (String) -> Unit
 ) {
     TextField(
         label = { Text(text = "Password") },
@@ -83,9 +81,6 @@ private fun InputText(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
     )
 }
-
-
-
 
 /** ************************** Utils **************************************** **/
 

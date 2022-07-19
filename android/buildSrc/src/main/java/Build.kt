@@ -13,6 +13,9 @@ object Build {
     private const val crashlyticsVersion = "2.9.1"
     const val crashlyticsPlugin = "com.google.firebase:firebase-crashlytics-gradle:$crashlyticsVersion"
 
+    private const val ktLintVersion = "10.3.0"
+    const val ktLintPlugin = "org.jlleitschuh.gradle:ktlint-gradle:$ktLintVersion"
+
     object BuildPlugins {
         const val androidLibrary = "com.android.library"
         const val androidApplication = "com.android.application"
@@ -20,6 +23,7 @@ object Build {
         const val kotlinKapt = "kotlin-kapt"
         const val googleServices = "com.google.gms.google-services"
         const val crashlytics = "com.google.firebase.crashlytics"
+        const val ktLint = "org.jlleitschuh.gradle.ktlint"
 
         const val kotlinAndroid = "kotlin-android"
         const val kotlinAndroidExtensions = "kotlin-android-extensions"
