@@ -39,7 +39,7 @@ fun CaloryTrackerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Com
     } else {
         LightColorPalette
     }
-    CompositionLocalProvider ( LocalSpacing provides Dimensions()) {
+    CompositionLocalProvider( LocalSpacing provides Dimensions()) {
         MaterialTheme(
             colors = colors,
             typography = Typography,

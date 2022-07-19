@@ -14,8 +14,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.droid.login_presentation.vm.LoginVm
-import com.iprayforgod.core.logger.AppLogger
-import com.iprayforgod.core.ui.uiEvent.UiText
+import com.iprayforgod.core.modules.logger.AppLogger
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 
 @Composable
 fun LoginScreen(

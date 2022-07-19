@@ -1,11 +1,10 @@
 package com.iprayforgod.vm
 
 import androidx.lifecycle.viewModelScope
-import com.iprayforgod.core.base.BaseViewModel
-import com.iprayforgod.core.data.repositories.PreferenceRepository
+import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
 import com.iprayforgod.mock.OnBoardingMockData.addDataForDemo
 import com.iprayforgod.onboarding_domain.models.OnBoardingPageData
-import com.iprayforgod.onboarding_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

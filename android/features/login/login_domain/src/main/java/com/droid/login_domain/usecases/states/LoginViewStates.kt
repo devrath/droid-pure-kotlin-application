@@ -1,7 +1,7 @@
 package com.droid.login_domain.usecases.states
 
 import com.droid.login_domain.usecases.ValidationResult
-import com.iprayforgod.core.ui.uiEvent.UiText
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 
 sealed class LoginViewStates {
     object InitialState : LoginViewStates()

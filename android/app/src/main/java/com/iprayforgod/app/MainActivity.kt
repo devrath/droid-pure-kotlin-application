@@ -18,7 +18,6 @@ import androidx.navigation.compose.rememberNavController
 import com.droid.login_presentation.view.LoginScreen
 import com.iprayforgod.app.navigation.Route
 import com.iprayforgod.core_ui.theme.AppTheme
-import com.iprayforgod.view.OnBoardingScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,8 +48,8 @@ class MainActivity : ComponentActivity() {
                 NavHost(
                     navController = navController,
                     startDestination = Route.LOGIN
-                ){
-                    //composable(Route.ON_BOARDING) { OnBoardingScreen() }
+                ) {
+                    // composable(Route.ON_BOARDING) { OnBoardingScreen() }
                     composable(Route.LOGIN) { LoginScreen() }
                 }
             }

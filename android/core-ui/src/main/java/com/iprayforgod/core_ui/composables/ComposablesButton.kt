@@ -14,11 +14,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustomButton(
-    buttonText:String,
-    isButtonRounded:Boolean=false,
-    cornersInDp : Dp=0.dp,
-    buttonPaddingInDp : Dp = 0.dp,
-    onClickAction:() -> Unit
+    buttonText: String,
+    isButtonRounded: Boolean = false,
+    cornersInDp: Dp = 0.dp,
+    buttonPaddingInDp: Dp = 0.dp,
+    onClickAction: () -> Unit
 ) {
     Button(
         // Click action
@@ -27,9 +27,8 @@ fun CustomButton(
         modifier = Modifier.fillMaxWidth()
                          .padding(buttonPaddingInDp),
         // Shape of the button
-        shape = setButtonShape(
-                    isRounded = isButtonRounded, roundedCornersInDp = cornersInDp
-                )
+        shape = setButtonShape( isRounded = isButtonRounded, roundedCornersInDp = cornersInDp
+        )
     ) {
         SetText(buttonText)
     }
@@ -43,11 +42,11 @@ fun CustomButton(
  */
 @Composable
 private fun setButtonShape(
-    isRounded:Boolean,
-    roundedCornersInDp:Dp
+    isRounded: Boolean,
+    roundedCornersInDp: Dp
 ) = when {
     isRounded -> { RoundedCornerShape(roundedCornersInDp) }
-    else ->  MaterialTheme.shapes.small
+    else -> MaterialTheme.shapes.small
 }
 
 /**

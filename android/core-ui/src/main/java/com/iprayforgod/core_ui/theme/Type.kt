@@ -9,7 +9,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.iprayforgod.core_ui.R
 
-
 val fonts = FontFamily(
     Font(R.font.roboto_bold, weight = FontWeight.Bold),
     Font(R.font.roboto_italic, weight = FontWeight.Normal, style = FontStyle.Italic),
