@@ -16,6 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.droid.login_presentation.view.LoginScreen
+import com.droid.login_presentation.view.RegistrationScreen
 import com.iprayforgod.app.navigation.Route
 import com.iprayforgod.core_ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,7 +34,9 @@ class MainActivity : ComponentActivity() {
 
     @Preview(showBackground = true)
     @Composable
-    fun DefaultPreview() { CurrentScreen() }
+    fun DefaultPreview() {
+        CurrentScreen()
+    }
 
     @Composable
     private fun CurrentScreen() {
@@ -49,8 +52,21 @@ class MainActivity : ComponentActivity() {
                     navController = navController,
                     startDestination = Route.LOGIN
                 ) {
-                    // composable(Route.ON_BOARDING) { OnBoardingScreen() }
-                    composable(Route.LOGIN) { LoginScreen() }
+                    // --> LOGIN - SCREEN
+                    composable(Route.LOGIN) {
+                        LoginScreen(
+                            onLoginClick = {},
+                            onSignUpClick = {
+                                navController.navigate(Route.REGISTRATION)
+                            }
+                        )
+                    }
+                    // --> REGISTRATION - SCREEN
+                    composable(Route.REGISTRATION) {
+                        RegistrationScreen(onLoginClick = {
+                            navController.navigate(Route.LOGIN)
+                        })
+                    }
                 }
             }
         }

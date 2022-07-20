@@ -11,14 +11,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_domain.usecases.states.LoginViewStates
+import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_presentation.vm.LoginVm
-import com.iprayforgod.core.modules.logger.AppLogger
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 
 @Composable
 fun LoginScreen(
+    onLoginClick: () -> Unit, onSignUpClick: (Int) -> Unit,
     viewModel: LoginVm = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -30,8 +30,8 @@ fun LoginScreen(
     Scaffold(scaffoldState = scaffoldState) {
         LoginScreenContent(
             email.value, pwd.value, viewModel::setEmail,
-            viewModel::setPwd,
-            {signUpAction(viewModel)}, {forgotPwdAction(viewModel)}, {loginAction(viewModel)}
+            viewModel::setPwd, onSignUpClick,
+            {forgotPwdAction(viewModel)}, {loginAction(viewModel)}
         )
     }
 
@@ -42,11 +42,6 @@ fun LoginScreen(
                 is LoginViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is LoginViewStates.NoConnectivity -> {}
                 is LoginViewStates.LoginValidationSuccessful -> {
-                    AppLogger.d("DEBUG")
-                    AppLogger.e("DEBUG")
-                    AppLogger.w("DEBUG")
-                    AppLogger.v("DEBUG")
-                    AppLogger.i("DEBUG")
                     Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
                 }
             }
@@ -66,6 +61,7 @@ fun loginAction(viewModel: LoginVm) { viewModel.actionLogin() }
  * CLICK-ACTION ---> ForgotPwd
  */
 fun forgotPwdAction(viewModel: LoginVm) { viewModel.actionForgotPwd() }
+
 
 /**
  * Displaying the snack-bar message
