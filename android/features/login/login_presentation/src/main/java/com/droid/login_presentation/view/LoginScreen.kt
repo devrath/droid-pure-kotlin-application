@@ -27,10 +27,22 @@ fun LoginScreen(
 
     val scaffoldState = rememberScaffoldState()
 
+    val emailLabel = "Email"
+    val pwdLabel = "Password"
+
+    val loginHeaderStr = "Login"
+    val loginBtnStr = "Login"
+    val forgotPwdTxtStr = "Forgot Password"
+    val signUpHereTxtStr = "Sign up here"
+
     Scaffold(scaffoldState = scaffoldState) {
         LoginScreenContent(
-            email.value, pwd.value, viewModel::setEmail,
-            viewModel::setPwd, onSignUpClick,
+            emailLabel,pwdLabel,
+            loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+            email.value, pwd.value,
+            viewModel::setEmail,
+            viewModel::setPwd,
+            onSignUpClick,
             {forgotPwdAction(viewModel)}, {loginAction(viewModel)}
         )
     }
@@ -77,5 +89,19 @@ suspend fun showMsg(
 @Composable
 @Preview(showBackground = true)
 fun LoginScreenContentPreview() {
-    LoginScreenContent("Email", "Password", {}, {}, {}, {}, {})
+
+    val emailLabel = "Email"
+    val pwdLabel = "Password"
+
+    val loginHeaderStr = "Login"
+    val loginBtnStr = "Login"
+    val forgotPwdTxtStr = "Forgot Password"
+    val signUpHereTxtStr = "Sign up here"
+
+    LoginScreenContent(
+        emailLabel,pwdLabel,
+        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+        "Email", "Password",
+        {}, {}, {}, {}, {}
+    )
 }

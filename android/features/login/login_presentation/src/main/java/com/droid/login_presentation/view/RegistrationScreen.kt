@@ -24,8 +24,20 @@ fun RegistrationScreen(
 
     val scaffoldState = rememberScaffoldState()
 
+    val firstNameLabel = "First Name"
+    val lastNameLabel = "Last Name"
+    val emailLabel = "Email"
+    val passwordLabel = "Password"
+    val confirmPasswordLabel = "Confirm Password"
+
+    val registerHeaderStr = "CREATE AN ACCOUNT"
+    val registerBtnStr = "Register"
+    val loginTxtStr = "Login"
+
     Scaffold(scaffoldState = scaffoldState) {
         RegistrationScreenContent(
+            firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
+            registerHeaderStr,registerBtnStr,loginTxtStr,
             firstName.value, lastName.value,email.value ,pwd.value,confirmPwd.value,
             viewModel::setFirstName, viewModel::setLastName,
             viewModel::setEmail, viewModel::setPwd, viewModel::setConfirmPwd,
@@ -42,7 +54,21 @@ fun register(viewModel: RegistrationVm) {
 @Composable
 @Preview(showBackground = true)
 fun RegistrationScreenContentPreview() {
+
+    val firstNameLabel = "First Name"
+    val lastNameLabel = "Last Name"
+    val emailLabel = "Email"
+    val passwordLabel = "Password"
+    val confirmPasswordLabel = "Confirm Password"
+
+    val registerHeaderStr = "CREATE AN ACCOUNT"
+    val registerBtnStr = "Register"
+    val loginTxtStr = "Login"
+
+
     RegistrationScreenContent(
+        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
+        registerHeaderStr,registerBtnStr,loginTxtStr,
         "First Name", "Last Name", "Email",
         "Password", "Confirm Password", {}, {}, {}, {}, {},{},{}
     )

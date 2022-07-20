@@ -25,6 +25,9 @@ import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
 fun LoginScreenContent(
+    emailLabel:String, pwdLabel:String,
+    loginHeaderStr: String,loginBtnStr: String,
+    forgotPwdTxtStr: String,signUpHereTxtStr: String,
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
     onPwdChanged : (String) -> Unit,
@@ -33,6 +36,8 @@ fun LoginScreenContent(
     clickLoginAction : () -> Unit
 ) {
     LoginPageContent(
+        emailLabel,pwdLabel,
+        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
         email,password,onEmailChanged,
         onPwdChanged,clickSignUp,clickForgotPwd,clickLoginAction
     )
@@ -40,6 +45,9 @@ fun LoginScreenContent(
 
 @Composable
 fun LoginPageContent(
+    emailLabel: String,pwdLabel: String,
+    loginHeaderStr: String,loginBtnStr: String,
+    forgotPwdTxtStr: String,signUpHereTxtStr: String,
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
     onPwdChanged : (String) -> Unit,
@@ -54,7 +62,7 @@ fun LoginPageContent(
 
         Box(modifier = Modifier.fillMaxSize()) {
             CustomClickableText(
-                contentValue = "Sign up here",
+                contentValue = signUpHereTxtStr,
                 textColor = Color.Black,
                 fontSize = 14.sp,
                 modifier = Modifier
@@ -69,15 +77,17 @@ fun LoginPageContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            CustomText(contentValue = "Login", textColor = Color.Black, fontSize = 40.sp)
+            CustomText(contentValue = loginHeaderStr, textColor = Color.Black, fontSize = 40.sp)
 
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
+                label = emailLabel,
                 contentValue = email, valueChanged = onEmailChanged,
                 params = InputFieldParams.EMAIL
             )
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
+                label = pwdLabel,
                 contentValue = password, valueChanged = onPwdChanged,
                 params = InputFieldParams.PASSWORD
             )
@@ -85,7 +95,7 @@ fun LoginPageContent(
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                 CustomButton(
-                    buttonText = "Login",
+                    buttonText = loginBtnStr,
                     isButtonRounded = true,
                     cornersInDp = 50.dp,
                     buttonPaddingInDp = 20.dp,
@@ -101,74 +111,12 @@ fun LoginPageContent(
            ) {
 
                CustomClickableText(
-                   contentValue = "Forgot password",
+                   contentValue = forgotPwdTxtStr,
                    textColor= Color.Black,
                    fontSize = 14.sp,
                    onClick = clickForgotPwd
                )
            }
-        }
-    }
-
-    Surface(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)) {
-
-        Box(modifier = Modifier.fillMaxSize()) {
-            CustomClickableText(
-                contentValue = "Sign up here",
-                textColor = Color.Black,
-                fontSize = 14.sp,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(20.dp),
-                onClick = clickSignUp
-            )
-        }
-
-        Column(
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-
-            CustomText(contentValue = "Login", textColor = Color.Black, fontSize = 40.sp)
-
-            Spacer(modifier = Modifier.height(20.dp))
-            CustomInput(
-                contentValue = email, valueChanged = onEmailChanged,
-                params = InputFieldParams.EMAIL
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            CustomInput(
-                contentValue = password, valueChanged = onPwdChanged,
-                params = InputFieldParams.PASSWORD
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-                CustomButton(
-                    buttonText = "Login",
-                    isButtonRounded = true,
-                    cornersInDp = 50.dp,
-                    buttonPaddingInDp = 20.dp,
-                    onClickAction = clickLoginAction
-                )
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-
-                CustomClickableText(
-                    contentValue = "Forgot password",
-                    textColor= Color.Black,
-                    fontSize = 14.sp,
-                    onClick = clickForgotPwd
-                )
-            }
         }
     }
 }
@@ -178,4 +126,19 @@ fun LoginPageContent(
 
 @Composable
 @Preview(showBackground = true)
-fun LoginPagePreview() { LoginPageContent("userName", "password",{},{},{},{},{}) }
+fun LoginPagePreview() {
+    val emailLabel = "Email"
+    val pwdLabel = "Password"
+
+    val loginHeaderStr = "Login"
+    val loginBtnStr = "Login"
+    val forgotPwdTxtStr = "Forgot Password"
+    val signUpHereTxtStr = "Sign up here"
+
+    LoginPageContent(
+        emailLabel,pwdLabel,
+        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+        "userName", "password",
+        {},{},{},{},{}
+    )
+}

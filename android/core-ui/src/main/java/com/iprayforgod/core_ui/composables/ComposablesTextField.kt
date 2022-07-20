@@ -16,27 +16,29 @@ enum class InputFieldParams { EMAIL, PASSWORD, TEXT }
 
 @Composable
 fun CustomInput(
+    label: String,
     contentValue: String,
     valueChanged: (String) -> Unit,
     params: InputFieldParams = InputFieldParams.TEXT
 ) {
 
     when (params) {
-        InputFieldParams.EMAIL -> InputEmail(contentValue, valueChanged)
-        InputFieldParams.PASSWORD -> InputPassword(contentValue, valueChanged)
-        InputFieldParams.TEXT -> InputText(contentValue, valueChanged)
+        InputFieldParams.EMAIL -> InputEmail(label, contentValue, valueChanged)
+        InputFieldParams.PASSWORD -> InputPassword(label, contentValue, valueChanged)
+        InputFieldParams.TEXT -> InputText(label, contentValue, valueChanged)
     }
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun InputEmail(
+    label: String,
     emailValue: String,
     valueChanged: (String) -> Unit,
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
-        label = { Text(text = "Email") },
+        label = { Text(text = label) },
         value = emailValue,
         singleLine = true,
         onValueChange = valueChanged,
@@ -51,12 +53,13 @@ private fun InputEmail(
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun InputPassword(
+    label: String,
     passwordValue: String,
     valueChanged: (String) -> Unit
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
     TextField(
-        label = { Text(text = "Password") },
+        label = { Text(text = label) },
         value = passwordValue,
         onValueChange = valueChanged,
         visualTransformation = PasswordVisualTransformation(),
@@ -70,11 +73,12 @@ private fun InputPassword(
 
 @Composable
 private fun InputText(
+    label: String,
     textValue: String,
     valueChanged: (String) -> Unit
 ) {
     TextField(
-        label = { Text(text = "Password") },
+        label = { Text(text = label) },
         value = textValue,
         onValueChange = valueChanged,
         visualTransformation = PasswordVisualTransformation(),

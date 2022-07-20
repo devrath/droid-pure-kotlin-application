@@ -24,6 +24,8 @@ import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
 fun RegistrationScreenContent(
+    firstNameLabel: String,lastNameLabel: String,emailLabel: String,passwordLabel: String,
+    confirmPasswordLabel: String, registerHeaderStr: String,registerBtnStr: String,loginTxtStr: String,
     firstName: String, lastName: String, email: String, pwd: String, confirmPwd: String,
     firstNameChanged : (String) -> Unit, lastNameChanged : (String) -> Unit,
     onEmailChanged : (String) -> Unit, onPwdChanged : (String) -> Unit,
@@ -31,6 +33,8 @@ fun RegistrationScreenContent(
     clickRegistrationAction : () -> Unit, clickLoginAction : (Int) -> Unit
 ){
     RegistrationPageContent(
+        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
+        registerHeaderStr,registerBtnStr,loginTxtStr,
         firstName, lastName, email, pwd, confirmPwd,
         firstNameChanged, lastNameChanged, onEmailChanged, onPwdChanged,onConfirmPwdChanged,
         clickRegistrationAction,clickLoginAction
@@ -39,6 +43,8 @@ fun RegistrationScreenContent(
 
 @Composable
 fun RegistrationPageContent(
+    firstNameLabel: String,lastNameLabel: String,emailLabel: String,passwordLabel: String,
+    confirmPasswordLabel: String, registerHeaderStr: String,registerBtnStr: String,loginTxtStr: String,
     firstName: String,
     lastName: String,
     email: String,
@@ -59,7 +65,7 @@ fun RegistrationPageContent(
 
         Box(modifier = Modifier.fillMaxSize()) {
             CustomClickableText(
-                contentValue = "Login",
+                contentValue = loginTxtStr,
                 textColor = Color.Black,
                 fontSize = 14.sp,
                 modifier = Modifier
@@ -74,37 +80,42 @@ fun RegistrationPageContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            CustomText(contentValue = "CREATE AN ACCOUNT", textColor = Color.Black, fontSize = 25.sp)
+            CustomText(contentValue = registerHeaderStr, textColor = Color.Black, fontSize = 25.sp)
 
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
+                label = firstNameLabel,
                 contentValue = firstName, valueChanged = firstNameChanged,
                 params = InputFieldParams.TEXT
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
+                label = lastNameLabel,
                 contentValue = lastName, valueChanged = lastNameChanged,
                 params = InputFieldParams.TEXT
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
+                label = emailLabel,
                 contentValue = email, valueChanged = onEmailChanged,
                 params = InputFieldParams.EMAIL
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
+                label = passwordLabel,
                 contentValue = pwd, valueChanged = onPwdChanged,
                 params = InputFieldParams.PASSWORD
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
+                label = confirmPasswordLabel,
                 contentValue = confirmPwd, valueChanged = onConfirmPwdChanged,
                 params = InputFieldParams.PASSWORD
             )
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                 CustomButton(
-                    buttonText = "Register",
+                    buttonText = registerBtnStr,
                     isButtonRounded = true,
                     cornersInDp = 50.dp,
                     buttonPaddingInDp = 20.dp,
@@ -119,7 +130,18 @@ fun RegistrationPageContent(
 @Composable
 @Preview(showBackground = true)
 fun RegistrationPagePreview() {
+    val firstNameLabel = "First Name"
+    val lastNameLabel = "Last Name"
+    val emailLabel = "Email"
+    val passwordLabel = "Password"
+    val confirmPasswordLabel = "Confirm Password"
+
+    val registerHeaderStr = "CREATE AN ACCOUNT"
+    val registerBtnStr = "Register"
+    val loginTxtStr = "Login"
     RegistrationPageContent(
+        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
+        registerHeaderStr,registerBtnStr,loginTxtStr,
         "First name", "Last name","Email",
         "Password", "Confirm Password",{},{},{},{},{},{},{}
     )
