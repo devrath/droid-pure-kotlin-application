@@ -15,6 +15,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.droid.home_presentation.view.HomeScreen
 import com.droid.login_presentation.view.LoginScreen
 import com.droid.login_presentation.view.RegistrationScreen
 import com.iprayforgod.app.navigation.Route
@@ -50,7 +51,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 NavHost(
                     navController = navController,
-                    startDestination = Route.LOGIN
+                    startDestination = Route.HOME
                 ) {
                     // --> LOGIN - SCREEN
                     composable(Route.LOGIN) {
@@ -66,6 +67,10 @@ class MainActivity : ComponentActivity() {
                         RegistrationScreen(onLoginClick = {
                             navController.navigate(Route.LOGIN)
                         })
+                    }
+                    // --> HOME - SCREEN
+                    composable(Route.HOME) {
+                        HomeScreen()
                     }
                 }
             }
