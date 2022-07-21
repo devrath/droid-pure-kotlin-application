@@ -1,25 +1,33 @@
 package com.droid.login_presentation.components.mainComponents
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.ClickableText
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.iprayforgod.core_ui.composables.*
+import com.iprayforgod.core_ui.composables.CustomButton
+import com.iprayforgod.core_ui.composables.CustomClickableText
+import com.iprayforgod.core_ui.composables.CustomInput
+import com.iprayforgod.core_ui.composables.CustomText
+import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
 fun LoginScreenContent(
+    emailLabel:String, pwdLabel:String,
+    loginHeaderStr: String,loginBtnStr: String,
+    forgotPwdTxtStr: String,signUpHereTxtStr: String,
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
     onPwdChanged : (String) -> Unit,
@@ -28,6 +36,8 @@ fun LoginScreenContent(
     clickLoginAction : () -> Unit
 ) {
     LoginPageContent(
+        emailLabel,pwdLabel,
+        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
         email,password,onEmailChanged,
         onPwdChanged,clickSignUp,clickForgotPwd,clickLoginAction
     )
@@ -35,6 +45,9 @@ fun LoginScreenContent(
 
 @Composable
 fun LoginPageContent(
+    emailLabel: String,pwdLabel: String,
+    loginHeaderStr: String,loginBtnStr: String,
+    forgotPwdTxtStr: String,signUpHereTxtStr: String,
     email: String, password: String,
     onEmailChanged : (String) -> Unit,
     onPwdChanged : (String) -> Unit,
@@ -45,11 +58,11 @@ fun LoginPageContent(
 
     Surface(modifier = Modifier
         .fillMaxSize()
-        .background(Color.Gray)) {
+        .background(Color.White)) {
 
         Box(modifier = Modifier.fillMaxSize()) {
             CustomClickableText(
-                contentValue = "Sign up here",
+                contentValue = signUpHereTxtStr,
                 textColor = Color.Black,
                 fontSize = 14.sp,
                 modifier = Modifier
@@ -64,15 +77,17 @@ fun LoginPageContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            CustomText(contentValue = "Login", textColor = Color.Black, fontSize = 40.sp)
+            CustomText(contentValue = loginHeaderStr, textColor = Color.Black, fontSize = 40.sp)
 
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
+                label = emailLabel,
                 contentValue = email, valueChanged = onEmailChanged,
                 params = InputFieldParams.EMAIL
             )
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
+                label = pwdLabel,
                 contentValue = password, valueChanged = onPwdChanged,
                 params = InputFieldParams.PASSWORD
             )
@@ -80,7 +95,7 @@ fun LoginPageContent(
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
                 CustomButton(
-                    buttonText = "Login",
+                    buttonText = loginBtnStr,
                     isButtonRounded = true,
                     cornersInDp = 50.dp,
                     buttonPaddingInDp = 20.dp,
@@ -96,7 +111,7 @@ fun LoginPageContent(
            ) {
 
                CustomClickableText(
-                   contentValue = "Forgot password",
+                   contentValue = forgotPwdTxtStr,
                    textColor= Color.Black,
                    fontSize = 14.sp,
                    onClick = clickForgotPwd
@@ -111,4 +126,19 @@ fun LoginPageContent(
 
 @Composable
 @Preview(showBackground = true)
-fun LoginPagePreview() { LoginPageContent("userName", "password",{},{},{},{},{}) }
+fun LoginPagePreview() {
+    val emailLabel = "Email"
+    val pwdLabel = "Password"
+
+    val loginHeaderStr = "Login"
+    val loginBtnStr = "Login"
+    val forgotPwdTxtStr = "Forgot Password"
+    val signUpHereTxtStr = "Sign up here"
+
+    LoginPageContent(
+        emailLabel,pwdLabel,
+        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+        "userName", "password",
+        {},{},{},{},{}
+    )
+}
