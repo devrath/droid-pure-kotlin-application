@@ -20,10 +20,10 @@ object Modules {
 
 
     // -------------------- Home -------------------------->
-    const val featureHome = ":features:home"
-    const val featureHomeData = ":features:home:home_data"
-    const val featureHomeDomain = ":features:home:home_domain"
-    const val featureHomePresentation = ":features:home:home_presentation"
+    const val featureNavigation = ":features:navigation"
+    const val featureNavigationData = ":features:navigation:navigation_data"
+    const val featureNavigationDomain = ":features:navigation:navigation_domain"
+    const val featureNavigationPresentation = ":features:navigation:navigation_presentation"
     // -------------------- Home -------------------------->
 
 
