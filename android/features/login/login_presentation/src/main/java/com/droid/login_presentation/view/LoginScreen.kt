@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_domain.usecases.states.LoginViewStates
+import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_presentation.vm.LoginVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
@@ -27,17 +28,16 @@ fun LoginScreen(
 
     val scaffoldState = rememberScaffoldState()
 
-    val emailLabel = "Email"
-    val pwdLabel = "Password"
-
-    val loginHeaderStr = "Login"
-    val loginBtnStr = "Login"
-    val forgotPwdTxtStr = "Forgot Password"
-    val signUpHereTxtStr = "Sign up here"
+    val emailLabel = context.resources.getString(R.string.str_email)
+    val passwordLabel = context.resources.getString(R.string.str_pwd)
+    val loginHeaderStr = context.resources.getString(R.string.str_header_login)
+    val loginBtnStr = context.resources.getString(R.string.str_login)
+    val forgotPwdTxtStr = context.resources.getString(R.string.str_forgot_pwd)
+    val signUpHereTxtStr = context.resources.getString(R.string.str_sign_up_here)
 
     Scaffold(scaffoldState = scaffoldState) {
         LoginScreenContent(
-            emailLabel,pwdLabel,
+            emailLabel,passwordLabel,
             loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
             email.value, pwd.value,
             viewModel::setEmail,

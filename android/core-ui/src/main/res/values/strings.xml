@@ -2,4 +2,18 @@
 <resources>
     <string name="str_welcome_txt">Welcome</string>
     <string name="str_next">Next</string>
+
+
+    <string name="str_first_name">First Name</string>
+    <string name="str_last_name">Last Name</string>
+    <string name="str_email">Email</string>
+    <string name="str_pwd">Password</string>
+    <string name="str_confirm_pwd">Confirm Password</string>
+    <string name="str_create_an_account">CREATE AN ACCOUNT</string>
+    <string name="str_register">Register</string>
+    <string name="str_login">Login</string>
+    <string name="str_header_login">Login</string>
+    <string name="str_forgot_pwd">Forgot Password</string>
+    <string name="str_sign_up_here">Sign up here</string>
+
 </resources>
