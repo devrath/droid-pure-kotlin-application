@@ -67,6 +67,10 @@ class MainActivity : ComponentActivity() {
                             navController.navigate(Route.LOGIN)
                         })
                     }
+                    // --> HOME - SCREEN
+                    composable(Route.HOME) {
+                        //HomeScreen()
+                    }
                 }
             }
         }

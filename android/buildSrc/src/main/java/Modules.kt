@@ -18,4 +18,14 @@ object Modules {
     const val featureLoginPresentation = ":features:login:login_presentation"
     // -------------------- Login -------------------------->
 
+    // -------------------- Home -------------------------->
+    const val featureHome = ":features:home"
+    const val featureHomeData = ":features:home:home_data"
+    const val featureHomeDomain = ":features:home:home_domain"
+    const val featureHomePresentation = ":features:home:home_presentation"
+    // -------------------- Home -------------------------->
+
+    // ---------------- Home Detail------------------------>
+    const val featureHomeDetail = ":features:home_detail"
+    // ---------------- Home Detail------------------------>
 }
