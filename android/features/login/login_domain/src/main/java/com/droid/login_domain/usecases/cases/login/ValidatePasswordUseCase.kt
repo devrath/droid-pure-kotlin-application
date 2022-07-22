@@ -3,6 +3,7 @@ package com.droid.login_domain.usecases.cases.login
 import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
 import com.droid.login_domain.usecases.states.LoginViewStates
+import com.droid.login_domain.usecases.utils.UseCaseUtils.containsLettersAndDigits
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -32,7 +33,7 @@ open class ValidatePasswordUseCase @Inject constructor(
         suspendCancellableCoroutine { coroutine ->
             CoroutineScope(dispatcher).launch {
                 try {
-                    log.d(FEATURE_LOGIN,"VALIDATION:-> Password check invoked")
+                    log.d(FEATURE_LOGIN,"VALIDATION:-> Login validations invoked")
                     val result = initiatePasswordValidation(password)
                     coroutine.resume(UseCaseResult.Success(LoginViewStates.PasswordValidationStatus(result)))
                 } catch (ex: Exception) {
@@ -62,8 +63,5 @@ open class ValidatePasswordUseCase @Inject constructor(
         log.d(FEATURE_LOGIN,"VALIDATION:-> password validation successful")
         return ValidationResult(successful = true)
     }
-
-    private fun containsLettersAndDigits(password: String) = password.any { it.isDigit() } &&
-            password.any { it.isLetter() }
 
 }

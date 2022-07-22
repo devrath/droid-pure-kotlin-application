@@ -46,6 +46,7 @@ dependencies {
     implementation Firebase.firebaseAnalytics
     implementation Firebase.firebaseCrashlyticsKtx
     implementation Firebase.firebaseAnalyticsKtx
+    implementation Firebase.firebaseAuthKtx
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt
