@@ -1,12 +1,15 @@
 package com.droid.login_presentation.view
 
+import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
 import com.droid.login_presentation.vm.RegistrationVm
@@ -45,10 +48,23 @@ fun RegistrationScreen(
         )
     }
 
+    LaunchedEffect(key1 = scaffoldState) {
+        viewModel.viewState.collect {
+            when (it) {
+                is RegistrationViewStates.InitialState -> {}
+                is RegistrationViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
+                is RegistrationViewStates.NoConnectivity -> {}
+                is RegistrationViewStates.RegistrationValidationSuccessful -> {
+                    Toast.makeText(context, "Initiate registration", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
 }
 
 fun register(viewModel: RegistrationVm) {
-    viewModel.initiateRegistration()
+    viewModel.actionRegistration()
 }
 
 @Composable

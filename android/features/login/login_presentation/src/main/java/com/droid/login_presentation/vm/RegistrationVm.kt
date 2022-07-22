@@ -1,16 +1,32 @@
 package com.droid.login_presentation.vm
 
+import androidx.lifecycle.viewModelScope
+import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
+import com.droid.login_domain.usecases.entities.RegistrationInput
+import com.droid.login_domain.usecases.states.RegistrationViewStates
+import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.platform.functional.UseCaseResult
+import com.iprayforgod.core.platform.functional.data
+import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
 class RegistrationVm @Inject constructor(
+    // Validate the fields of the registration
+    private var  validateRegistrationEntriesUseCase: ValidateRegistrationEntriesUseCase,
     private var  log: LoggerRepository
 ) : BaseViewModel() {
+
+    private val _viewState = MutableStateFlow<RegistrationViewStates>(RegistrationViewStates.InitialState)
+    val viewState = _viewState.asStateFlow()
 
     private val _firstName = MutableStateFlow("")
     val firstName = _firstName.asStateFlow()
@@ -32,10 +48,65 @@ class RegistrationVm @Inject constructor(
     val confirmPwd = _confirmPwd.asStateFlow()
     fun setConfirmPwd(confirmPwd: String) { _confirmPwd.value = confirmPwd }
 
+    fun actionRegistration() {
+        log.d(FEATURE_LOGIN,"ACTION:->  Registration action functionality is invoked")
+        viewModelScope.launch {
+            val input = RegistrationInput(
+                firstName = firstName.value, lastName = lastName.value, email = email.value,
+                password = pwd.value, confirmPassword = confirmPwd.value
+            )
 
-
-
-    fun initiateRegistration() {
-        TODO("Not yet implemented")
+            val registrationValidation = withContext(Dispatchers.Default) { validateFieldsForRegistration(input) }
+            if(registrationValidation){
+                _viewState.value = RegistrationViewStates.RegistrationValidationSuccessful
+            }
+        }
     }
+
+
+    /** ********************************** USE CASES **********************************************/
+    /**
+     * USE CASE: use case for email field validations
+     */
+    private suspend fun validateFieldsForRegistration(input: RegistrationInput): Boolean {
+        log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
+
+        when (val result = validateRegistrationEntriesUseCase.invoke(input)) {
+            is UseCaseResult.Success -> {
+                val registrationValidationResult = result.value.data as RegistrationViewStates.RegistrationValidationStatus
+                if(registrationValidationResult.result.successful){
+                    return true
+                }else{
+                    useCaseErrorMessage(registrationValidationResult.result.errorMessage)
+                    return false
+                }
+            }
+            is UseCaseResult.Error -> {
+                useCaseError(result)
+                return false
+            }
+        }
+        return false
+    }
+
+    /**
+     * ERROR HANDLING:
+     * Displaying messages to the snack-bar
+     */
+    private suspend fun useCaseErrorMessage(result: UiText?) {
+        result?.let {
+            _viewState.value = RegistrationViewStates.ErrorState(errorMessage = it)
+        }
+    }
+
+    /**
+     * ERROR HANDLING:
+     * For the Use cases
+     */
+    private suspend fun useCaseError(result: UseCaseResult.Error) {
+        val uiEvent = UiText.DynamicString(result.exception.message.toString())
+        _viewState.value = RegistrationViewStates.ErrorState(errorMessage = uiEvent)
+    }
+    /** ********************************** USE CASES **********************************************/
+
 }
