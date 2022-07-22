@@ -48,6 +48,12 @@ dependencies {
     implementation Firebase.firebaseCrashlyticsKtx
     implementation Firebase.firebaseAnalyticsKtx
     implementation Firebase.firebaseAuthKtx
+    implementation Firebase.firebaseFirestoreKtx
+    implementation Firebase.firebaseStorageKtx
+
+    implementation Coroutines.coroutineLib
+    implementation AndroidX.coreKtx
+    implementation Coroutines.coroutineAndroidLib
 
     testImplementation Testing.junit4
     testImplementation Testing.junitAndroidExt

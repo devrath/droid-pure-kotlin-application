@@ -6,6 +6,7 @@ plugins {
     id(Build.BuildPlugins.googleServices)
     id(Build.BuildPlugins.crashlytics)
     id(Build.BuildPlugins.ktLint)
+    id(Build.BuildPlugins.kotlinParcelize)
 }
 
 android {

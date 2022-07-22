@@ -2,7 +2,7 @@ package com.droid.login_presentation.vm
 
 import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
-import com.droid.login_domain.usecases.entities.RegistrationInput
+import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository

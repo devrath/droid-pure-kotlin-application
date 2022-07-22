@@ -25,6 +25,7 @@ object Build {
         const val googleServices = "com.google.gms.google-services"
         const val crashlytics = "com.google.firebase.crashlytics"
         const val ktLint = "org.jlleitschuh.gradle.ktlint"
+        const val kotlinParcelize = "kotlin-parcelize"
 
         const val kotlinAndroid = "kotlin-android"
         const val kotlinAndroidExtensions = "kotlin-android-extensions"

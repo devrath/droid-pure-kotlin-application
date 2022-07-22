@@ -3,7 +3,7 @@ package com.droid.login_domain.usecases.cases.registration
 import android.util.Patterns
 import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
-import com.droid.login_domain.usecases.entities.RegistrationInput
+import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.droid.login_domain.usecases.utils.UseCaseUtils.containsLettersAndDigits
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
