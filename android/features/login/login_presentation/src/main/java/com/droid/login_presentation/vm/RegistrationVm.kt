@@ -52,8 +52,8 @@ class RegistrationVm @Inject constructor(
         log.d(FEATURE_LOGIN,"ACTION:->  Registration action functionality is invoked")
         viewModelScope.launch {
             val input = RegistrationInput(
-                firstName = firstName.value, lastName = lastName.value, email = email.value,
-                password = pwd.value, confirmPassword = confirmPwd.value
+                firstName = firstName.value.trim(), lastName = lastName.value.trim(), email = email.value.trim(),
+                password = pwd.value.trim(), confirmPassword = confirmPwd.value.trim()
             )
 
             val registrationValidation = withContext(Dispatchers.Default) { validateFieldsForRegistration(input) }

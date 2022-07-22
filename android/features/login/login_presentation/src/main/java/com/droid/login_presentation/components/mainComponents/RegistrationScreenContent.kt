@@ -11,8 +11,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -41,6 +46,7 @@ fun RegistrationScreenContent(
     )
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegistrationPageContent(
     firstNameLabel: String,lastNameLabel: String,emailLabel: String,passwordLabel: String,
@@ -58,6 +64,9 @@ fun RegistrationPageContent(
     onRegistrationAction: () -> Unit,
     onClickLoginAction: (Int) -> Unit
 ) {
+
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Surface(modifier = Modifier
         .fillMaxSize()
@@ -86,31 +95,46 @@ fun RegistrationPageContent(
             CustomInput(
                 label = firstNameLabel,
                 contentValue = firstName, valueChanged = firstNameChanged,
-                params = InputFieldParams.TEXT
+                params = InputFieldParams.TEXT,
+                imeAction = ImeAction.Next,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
                 label = lastNameLabel,
                 contentValue = lastName, valueChanged = lastNameChanged,
-                params = InputFieldParams.TEXT
+                params = InputFieldParams.TEXT,
+                imeAction = ImeAction.Next,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
                 label = emailLabel,
                 contentValue = email, valueChanged = onEmailChanged,
-                params = InputFieldParams.EMAIL
+                params = InputFieldParams.EMAIL,
+                imeAction = ImeAction.Next,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
                 label = passwordLabel,
                 contentValue = pwd, valueChanged = onPwdChanged,
-                params = InputFieldParams.PASSWORD
+                params = InputFieldParams.PASSWORD,
+                imeAction = ImeAction.Next,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(5.dp))
             CustomInput(
                 label = confirmPasswordLabel,
                 contentValue = confirmPwd, valueChanged = onConfirmPwdChanged,
-                params = InputFieldParams.PASSWORD
+                params = InputFieldParams.PASSWORD,
+                imeAction = ImeAction.Done,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
 
             Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
