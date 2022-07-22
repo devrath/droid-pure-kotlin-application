@@ -12,8 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,6 +48,7 @@ fun LoginScreenContent(
     )
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginPageContent(
     emailLabel: String,pwdLabel: String,
@@ -55,6 +61,8 @@ fun LoginPageContent(
     clickForgotPwd : (Int) -> Unit,
     clickLoginAction : () -> Unit
 ) {
+    val focusManager = LocalFocusManager.current
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Surface(modifier = Modifier
         .fillMaxSize()
@@ -83,13 +91,19 @@ fun LoginPageContent(
             CustomInput(
                 label = emailLabel,
                 contentValue = email, valueChanged = onEmailChanged,
-                params = InputFieldParams.EMAIL
+                params = InputFieldParams.EMAIL,
+                imeAction = ImeAction.Next,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(20.dp))
             CustomInput(
                 label = pwdLabel,
                 contentValue = password, valueChanged = onPwdChanged,
-                params = InputFieldParams.PASSWORD
+                params = InputFieldParams.PASSWORD,
+                imeAction = ImeAction.Done,
+                keyboardOnNext = { focusManager.moveFocus(FocusDirection.Down) },
+                keyboardOnDone = { keyboardController?.hide() }
             )
             Spacer(modifier = Modifier.height(20.dp))
 
