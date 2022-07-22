@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    //implementation Build.kotlinStdlibPlugin
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
 
