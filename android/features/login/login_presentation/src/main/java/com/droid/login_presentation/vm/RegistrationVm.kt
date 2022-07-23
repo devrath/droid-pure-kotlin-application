@@ -1,7 +1,7 @@
 package com.droid.login_presentation.vm
 
 import androidx.lifecycle.viewModelScope
-import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
+import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RegistrationVm @Inject constructor(
     // Validate the fields of the registration
-    private var  validateRegistrationEntriesUseCase: ValidateRegistrationEntriesUseCase,
+    private var  loginModuleUseCases: LoginModuleUseCases,
     private var  log: LoggerRepository
 ) : BaseViewModel() {
 
@@ -71,7 +71,7 @@ class RegistrationVm @Inject constructor(
     private suspend fun validateFieldsForRegistration(input: RegistrationInput): Boolean {
         log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
 
-        when (val result = validateRegistrationEntriesUseCase.invoke(input)) {
+        when (val result = loginModuleUseCases.validateRegistration.invoke(input)) {
             is UseCaseResult.Success -> {
                 val registrationValidationResult = result.value.data as RegistrationViewStates.RegistrationValidationStatus
                 if(registrationValidationResult.result.successful){
