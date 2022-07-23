@@ -8,4 +8,7 @@ object Firebase {
     const val firebaseCrashlyticsKtx = "com.google.firebase:firebase-crashlytics-ktx"
     const val firebaseAnalyticsKtx = "com.google.firebase:firebase-analytics-ktx"
     const val firebaseAuthKtx = "com.google.firebase:firebase-auth-ktx"
+
+    const val firebaseFirestoreKtx = "com.google.firebase:firebase-firestore-ktx"
+    const val firebaseStorageKtx = "com.google.firebase:firebase-storage-ktx"
 }

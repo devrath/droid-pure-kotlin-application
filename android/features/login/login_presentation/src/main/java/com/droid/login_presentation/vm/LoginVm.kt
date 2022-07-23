@@ -1,8 +1,7 @@
 package com.droid.login_presentation.vm
 
 import androidx.lifecycle.viewModelScope
-import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
-import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
+import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.states.LoginViewStates
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -20,11 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginVm @Inject constructor(
-    // Validate the email
-    private var  validateEmailUseCase: ValidateEmailUseCase,
-    // Validate the password
-    private var  validatePasswordUseCase: ValidatePasswordUseCase,
-
+    private var  loginModuleUseCases: LoginModuleUseCases,
     private var  log: LoggerRepository,
 ) : BaseViewModel()  {
 
@@ -83,7 +78,7 @@ class LoginVm @Inject constructor(
         log.d(FEATURE_LOGIN,"USE CASE:->  validate email is invoked")
 
 
-        when (val result = validateEmailUseCase.invoke(email)) {
+        when (val result = loginModuleUseCases.validateEmail.invoke(email)) {
             is UseCaseResult.Success -> {
                 val emailValidationResult = result.value.data as LoginViewStates.EmailValidationStatus
                 if(emailValidationResult.result.successful){
@@ -107,7 +102,7 @@ class LoginVm @Inject constructor(
     private suspend fun validatePassword(password: String): Boolean {
         log.d(FEATURE_LOGIN,"USE CASE:->  validate password is invoked")
 
-        when (val result = validatePasswordUseCase.invoke(password)) {
+        when (val result = loginModuleUseCases.validatePassword.invoke(password)) {
             is UseCaseResult.Success -> {
                 val pwdValidationResult = result.value.data as LoginViewStates.PasswordValidationStatus
                 return if(pwdValidationResult.result.successful){
