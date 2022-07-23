@@ -96,6 +96,7 @@ dependencies {
     implementation(project(Modules.coreUi))
     implementation(project(Modules.featuresOnboardingOnboardingPresentation))
     implementation(project(Modules.featureLoginPresentation))
+    implementation(project(Modules.featureLoginData))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)

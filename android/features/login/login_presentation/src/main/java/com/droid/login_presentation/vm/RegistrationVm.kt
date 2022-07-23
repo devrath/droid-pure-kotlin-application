@@ -50,10 +50,7 @@ class RegistrationVm @Inject constructor(
     fun actionRegistration() {
         log.d(FEATURE_LOGIN,"ACTION:->  Registration action functionality is invoked")
         viewModelScope.launch {
-            val input = RegistrationInput(
-                firstName = firstName.value.trim(), lastName = lastName.value.trim(), email = email.value.trim(),
-                password = pwd.value.trim(), confirmPassword = confirmPwd.value.trim()
-            )
+            val input = registrationInput()
 
             val registrationValidation = withContext(Dispatchers.Default) { validateFieldsForRegistration(input) }
             if(registrationValidation){
@@ -61,7 +58,6 @@ class RegistrationVm @Inject constructor(
             }
         }
     }
-
 
     /** ********************************** USE CASES **********************************************/
     /**
@@ -107,5 +103,11 @@ class RegistrationVm @Inject constructor(
         _viewState.value = RegistrationViewStates.ErrorState(errorMessage = uiEvent)
     }
     /** ********************************** USE CASES **********************************************/
+
+    private fun registrationInput() = RegistrationInput(
+        firstName = firstName.value.trim(), lastName = lastName.value.trim(),
+        email = email.value.trim(), password = pwd.value.trim(),
+        confirmPassword = confirmPwd.value.trim()
+    )
 
 }

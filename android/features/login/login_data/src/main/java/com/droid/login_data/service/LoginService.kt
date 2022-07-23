@@ -1,6 +1,7 @@
 package com.droid.login_data.service
 
 import com.droid.login_domain.usecases.entities.User
+import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.Dispatchers
@@ -14,12 +15,14 @@ class LoginService @Inject constructor(
 ) {
 
     fun registerUser(
-        firstName: String, lastName: String,
-        email: String, password: String
+        input: RegistrationInput
     ) = flow<State<User>>{
-        val result = service.getFirebaseAuth().createUserWithEmailAndPassword(email, password).result
+        val result = service.getFirebaseAuth().createUserWithEmailAndPassword(
+            input.email, input.password).result
         result.user?.let { firebaseUser ->
-            val user = User(firebaseUser.uid, firstName, lastName, email)
+            val user = User(
+                firebaseUser.uid, input.firstName, input.lastName, input.email
+            )
             emit(State.success(user))
         }
     }.catch {
