@@ -7,11 +7,13 @@ import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.functional.data
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -26,6 +28,8 @@ class RegistrationVm @Inject constructor(
 
     private val _viewState = MutableStateFlow<RegistrationViewStates>(RegistrationViewStates.InitialState)
     val viewState = _viewState.asStateFlow()
+
+    private var registrationJob: Job? = null
 
     private val _firstName = MutableStateFlow("")
     val firstName = _firstName.asStateFlow()
@@ -110,4 +114,29 @@ class RegistrationVm @Inject constructor(
         confirmPassword = confirmPwd.value.trim()
     )
 
+    fun initiateRegistration() {
+        val input = registrationInput()
+
+        viewModelScope.launch {
+            loginModuleUseCases.registerUseCase(input).collect { state ->
+                when(state){
+                    // <state.data> get the content
+                    is State.Success -> {
+                        log.d(FEATURE_LOGIN,"SUCCESS")
+                        log.d(FEATURE_LOGIN,state.data.email)
+                        log.d(FEATURE_LOGIN,state.data.firstName)
+                        log.d(FEATURE_LOGIN,state.data.lastName)
+                        log.d(FEATURE_LOGIN,state.data.id)
+                    }
+                    is State.Loading -> {
+                        log.d(FEATURE_LOGIN,"LOADING")
+                    }
+                    is State.Failed -> {
+                        log.d(FEATURE_LOGIN,"FAILED")
+                    }
+                }
+            }
+        }
+
+    }
 }

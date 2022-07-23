@@ -56,6 +56,7 @@ fun RegistrationScreen(
                 is RegistrationViewStates.NoConnectivity -> {}
                 is RegistrationViewStates.RegistrationValidationSuccessful -> {
                     Toast.makeText(context, "Initiate registration", Toast.LENGTH_LONG).show()
+                    viewModel.initiateRegistration()
                 }
             }
         }
