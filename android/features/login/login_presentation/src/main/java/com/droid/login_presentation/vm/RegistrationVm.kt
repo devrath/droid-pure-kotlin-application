@@ -20,7 +20,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegistrationVm @Inject constructor(
-    // Validate the fields of the registration
     private var  loginModuleUseCases: LoginModuleUseCases,
     private var  log: LoggerRepository
 ) : BaseViewModel() {

@@ -1,6 +1,8 @@
 package com.droid.login_domain.usecases.di
 
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
+import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
+import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
 import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -23,6 +25,14 @@ object LoginDomainModule {
     ): LoginModuleUseCases {
         return LoginModuleUseCases(
             validateRegistration = ValidateRegistrationEntriesUseCase(
+                log = loggerRepository,
+                dispatcher = dispatcher
+            ),
+            validateEmail = ValidateEmailUseCase(
+                log = loggerRepository,
+                dispatcher = dispatcher
+            ),
+            validatePassword = ValidatePasswordUseCase(
                 log = loggerRepository,
                 dispatcher = dispatcher
             )
