@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 
 enum class InputFieldParams { EMAIL, PASSWORD, TEXT }
 
@@ -100,7 +101,7 @@ private fun InputText(
         label = { Text(text = label) },
         value = textValue,
         onValueChange = valueChanged,
-        visualTransformation = PasswordVisualTransformation(),
+        visualTransformation = VisualTransformation.None,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Text,
             imeAction = imeAction
