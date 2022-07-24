@@ -44,19 +44,23 @@ fun RegistrationScreen(
             firstName.value, lastName.value,email.value ,pwd.value,confirmPwd.value,
             viewModel::setFirstName, viewModel::setLastName,
             viewModel::setEmail, viewModel::setPwd, viewModel::setConfirmPwd,
-            {register(viewModel)},{onLoginClick}
+            {register(viewModel)},{onLoginClick},viewModel.loaderVisibility.collectAsState(initial = false).value
         )
     }
 
     LaunchedEffect(key1 = scaffoldState) {
         viewModel.viewState.collect {
             when (it) {
-                is RegistrationViewStates.InitialState -> {}
+                is RegistrationViewStates.InitialState -> {
+
+                }
                 is RegistrationViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is RegistrationViewStates.NoConnectivity -> {}
                 is RegistrationViewStates.RegistrationValidationSuccessful -> {
                     Toast.makeText(context, "Initiate registration", Toast.LENGTH_LONG).show()
+                    viewModel.initiateRegistration()
                 }
+                is RegistrationViewStates.Loading -> { viewModel.updateLoading(it.isLoading) }
             }
         }
     }

@@ -7,13 +7,19 @@ import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.functional.data
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -24,8 +30,15 @@ class RegistrationVm @Inject constructor(
     private var  log: LoggerRepository
 ) : BaseViewModel() {
 
-    private val _viewState = MutableStateFlow<RegistrationViewStates>(RegistrationViewStates.InitialState)
-    val viewState = _viewState.asStateFlow()
+    private val _viewState = MutableSharedFlow<RegistrationViewStates>(
+        replay = 1,onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val viewState = _viewState.asSharedFlow()
+
+    private val _loaderVisibility = Channel<Boolean>()
+    val loaderVisibility = _loaderVisibility.receiveAsFlow()
+
+
 
     private val _firstName = MutableStateFlow("")
     val firstName = _firstName.asStateFlow()
@@ -54,7 +67,7 @@ class RegistrationVm @Inject constructor(
 
             val registrationValidation = withContext(Dispatchers.Default) { validateFieldsForRegistration(input) }
             if(registrationValidation){
-                _viewState.value = RegistrationViewStates.RegistrationValidationSuccessful
+                _viewState.tryEmit(RegistrationViewStates.RegistrationValidationSuccessful)
             }
         }
     }
@@ -90,7 +103,7 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun useCaseErrorMessage(result: UiText?) {
         result?.let {
-            _viewState.value = RegistrationViewStates.ErrorState(errorMessage = it)
+            _viewState.tryEmit(RegistrationViewStates.ErrorState(errorMessage = it))
         }
     }
 
@@ -100,7 +113,7 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun useCaseError(result: UseCaseResult.Error) {
         val uiEvent = UiText.DynamicString(result.exception.message.toString())
-        _viewState.value = RegistrationViewStates.ErrorState(errorMessage = uiEvent)
+        _viewState.tryEmit(RegistrationViewStates.ErrorState(errorMessage = uiEvent))
     }
     /** ********************************** USE CASES **********************************************/
 
@@ -110,4 +123,32 @@ class RegistrationVm @Inject constructor(
         confirmPassword = confirmPwd.value.trim()
     )
 
+    fun initiateRegistration() {
+        val input = registrationInput()
+
+        viewModelScope.launch {
+            loginModuleUseCases.registerUseCase(input).collect { state ->
+                when(state){
+                    // <state.data> get the content
+                    is State.Success -> {
+                        log.d(FEATURE_LOGIN,"SUCCESS")
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
+                    }
+                    is State.Loading -> {
+                        log.d(FEATURE_LOGIN,"LOADING")
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = true))
+                    }
+                    is State.Failed -> {
+                        log.d(FEATURE_LOGIN,"FAILED")
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
+                    }
+                }
+            }
+        }
+
+    }
+
+    fun updateLoading(isLoading:Boolean) {
+        viewModelScope.launch { _loaderVisibility.send(isLoading) }
+    }
 }
