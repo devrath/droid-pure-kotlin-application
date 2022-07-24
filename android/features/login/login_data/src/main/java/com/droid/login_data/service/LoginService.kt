@@ -26,28 +26,35 @@ class LoginService @Inject constructor(
 
         val resultDeferred = CompletableDeferred<State<User>>()
 
-        val result = service.getFirebaseAuth()
-            .createUserWithEmailAndPassword(input.email, input.password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    it.result.user?.let { firebaseUser ->
-                        val user = User(
-                            firebaseUser.uid, input.firstName, input.lastName, input.email
-                        )
-                        resultDeferred.complete(State.success(user))
+        try {
+            val result = service.getFirebaseAuth()
+                .createUserWithEmailAndPassword(input.email, input.password)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        it.result.user?.let { firebaseUser ->
+                            val user = User(
+                                firebaseUser.uid, input.firstName, input.lastName, input.email
+                            )
+                            resultDeferred.complete(State.success(user))
+                        }
+                    } else {
+                        resultDeferred.complete(State.failed(it.exception?.message.toString()))
                     }
-                } else {
-                    resultDeferred.complete(State.failed(it.exception?.message.toString()))
                 }
-            }
+        } catch (ex : Exception) {
+            resultDeferred.completeExceptionally(ex)
+        }
 
         return flow {
             try {
+                emit(State.loading())
                 emit(resultDeferred.await())
             } catch (e: Exception) {
                 log.e(FEATURE_LOGIN, e.stackTrace.toString())
+                resultDeferred.completeExceptionally(e)
             }
         }
+
     }
 
 }

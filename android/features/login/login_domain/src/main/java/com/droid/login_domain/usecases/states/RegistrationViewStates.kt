@@ -9,4 +9,5 @@ sealed class RegistrationViewStates {
     data class RegistrationValidationStatus(val result: ValidationResult) : RegistrationViewStates()
     object RegistrationValidationSuccessful : RegistrationViewStates()
     data class ErrorState(val errorMessage: UiText) : RegistrationViewStates()
+    data class Loading(val isLoading: Boolean) : RegistrationViewStates()
 }

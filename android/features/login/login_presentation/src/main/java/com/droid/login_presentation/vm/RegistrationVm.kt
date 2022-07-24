@@ -13,12 +13,13 @@ import com.iprayforgod.core.platform.functional.data
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -34,7 +35,10 @@ class RegistrationVm @Inject constructor(
     )
     val viewState = _viewState.asSharedFlow()
 
-    private var registrationJob: Job? = null
+    private val _loaderVisibility = Channel<Boolean>()
+    val loaderVisibility = _loaderVisibility.receiveAsFlow()
+
+
 
     private val _firstName = MutableStateFlow("")
     val firstName = _firstName.asStateFlow()
@@ -128,20 +132,23 @@ class RegistrationVm @Inject constructor(
                     // <state.data> get the content
                     is State.Success -> {
                         log.d(FEATURE_LOGIN,"SUCCESS")
-                        log.d(FEATURE_LOGIN,state.data.email)
-                        log.d(FEATURE_LOGIN,state.data.firstName)
-                        log.d(FEATURE_LOGIN,state.data.lastName)
-                        log.d(FEATURE_LOGIN,state.data.id)
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
                     }
                     is State.Loading -> {
                         log.d(FEATURE_LOGIN,"LOADING")
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = true))
                     }
                     is State.Failed -> {
                         log.d(FEATURE_LOGIN,"FAILED")
+                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
                     }
                 }
             }
         }
 
+    }
+
+    fun updateLoading(isLoading:Boolean) {
+        viewModelScope.launch { _loaderVisibility.send(isLoading) }
     }
 }
