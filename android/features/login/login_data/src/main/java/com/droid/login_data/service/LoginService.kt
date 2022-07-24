@@ -37,7 +37,7 @@ class LoginService @Inject constructor(
                         resultDeferred.complete(State.success(user))
                     }
                 } else {
-                    resultDeferred.complete(State.failed(RESULT_FAILURE))
+                    resultDeferred.complete(State.failed(it.exception?.message.toString()))
                 }
             }
 
