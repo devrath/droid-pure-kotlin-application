@@ -117,29 +117,23 @@ class RegistrationVm @Inject constructor(
     }
     /** ********************************** USE CASES **********************************************/
 
-    private fun registrationInput() = RegistrationInput(
-        firstName = firstName.value.trim(), lastName = lastName.value.trim(),
-        email = email.value.trim(), password = pwd.value.trim(),
-        confirmPassword = confirmPwd.value.trim()
-    )
-
+    /** ********************************** API CALLS **********************************************/
     fun initiateRegistration() {
         val input = registrationInput()
 
         viewModelScope.launch {
             loginModuleUseCases.registerUseCase(input).collect { state ->
                 when(state){
-                    // <state.data> get the content
                     is State.Success -> {
-                        log.d(FEATURE_LOGIN,"SUCCESS")
+                        log.d(FEATURE_LOGIN,"REGISTRATION API SUCCESS")
                         _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
                     }
                     is State.Loading -> {
-                        log.d(FEATURE_LOGIN,"LOADING")
+                        log.d(FEATURE_LOGIN,"REGISTRATION API LOADING")
                         _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = true))
                     }
                     is State.Failed -> {
-                        log.d(FEATURE_LOGIN,"FAILED")
+                        log.d(FEATURE_LOGIN,"REGISTRATION API FAILED")
                         _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
                     }
                 }
@@ -147,6 +141,13 @@ class RegistrationVm @Inject constructor(
         }
 
     }
+    /** ********************************** API CALLS **********************************************/
+
+    private fun registrationInput() = RegistrationInput(
+        firstName = firstName.value.trim(), lastName = lastName.value.trim(),
+        email = email.value.trim(), password = pwd.value.trim(),
+        confirmPassword = confirmPwd.value.trim()
+    )
 
     fun updateLoading(isLoading:Boolean) {
         viewModelScope.launch { _loaderVisibility.send(isLoading) }
