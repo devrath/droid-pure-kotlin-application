@@ -6,7 +6,9 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_domain.usecases.states.RegistrationViewStates
@@ -14,6 +16,7 @@ import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
 import com.droid.login_presentation.vm.RegistrationVm
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegistrationScreen(
     onLoginClick: () -> Unit,
@@ -37,6 +40,8 @@ fun RegistrationScreen(
     val registerBtnStr = context.resources.getString(R.string.str_register)
     val loginTxtStr = context.resources.getString(R.string.str_login)
 
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Scaffold(scaffoldState = scaffoldState) {
         RegistrationScreenContent(
             firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
@@ -44,7 +49,14 @@ fun RegistrationScreen(
             firstName.value, lastName.value,email.value ,pwd.value,confirmPwd.value,
             viewModel::setFirstName, viewModel::setLastName,
             viewModel::setEmail, viewModel::setPwd, viewModel::setConfirmPwd,
-            {register(viewModel)},{onLoginClick},viewModel.loaderVisibility.collectAsState(initial = false).value
+            {
+                keyboardController?.hide()
+                register(viewModel)
+            },
+            {
+                onLoginClick
+            },
+            viewModel.loaderVisibility.collectAsState(initial = false).value
         )
     }
 
