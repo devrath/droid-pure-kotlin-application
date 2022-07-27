@@ -127,7 +127,7 @@ class RegistrationVm @Inject constructor(
                     is State.Success -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API SUCCESS")
                         _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
-                        _viewState.tryEmit(RegistrationViewStates.RegistrationStatus(isUserRegistered = true))
+                        //_viewState.tryEmit(RegistrationViewStates.RegistrationStatus(isUserRegistered = true))
                     }
                     is State.Loading -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API LOADING")
@@ -136,7 +136,7 @@ class RegistrationVm @Inject constructor(
                     is State.Failed -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API FAILED")
                         _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
-                        _viewState.tryEmit(RegistrationViewStates.RegistrationStatus(isUserRegistered = false))
+                        //_viewState.tryEmit(RegistrationViewStates.RegistrationStatus(isUserRegistered = false))
                     }
                 }
             }

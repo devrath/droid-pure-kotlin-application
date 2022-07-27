@@ -43,7 +43,13 @@ fun LoginScreen(
             viewModel::setEmail,
             viewModel::setPwd,
             onSignUpClick,
-            {forgotPwdAction(viewModel)}, {loginAction(viewModel)}
+            {
+                forgotPwdAction(viewModel)
+            },
+            {
+                loginAction(viewModel)
+            },
+            viewModel.loaderVisibility.collectAsState(initial = false).value
         )
     }
 
@@ -56,24 +62,25 @@ fun LoginScreen(
                 is LoginViewStates.LoginValidationSuccessful -> {
                     viewModel.initiateLoginApi()
                 }
-                is LoginViewStates.Loading -> TODO()
+                is LoginViewStates.Loading -> {
+                    viewModel.updateLoading(it.isLoading)
+                }
                 is LoginViewStates.LoginStatus -> {
                     userLoginStatus(context,viewModel,it.isUserLoggedIn)
                 }
-                is LoginViewStates.PasswordValidationStatus -> TODO()
             }
         }
     }
 }
 
 fun userLoginStatus(context: Context, viewModel: LoginVm, userLoggedIn: Boolean) {
-    Toast.makeText(context, "User login successful", Toast.LENGTH_LONG).show()
+    if(userLoggedIn){
+        Toast.makeText(context, "User login successful", Toast.LENGTH_LONG).show()
+    }else{
+        Toast.makeText(context, "User login failure", Toast.LENGTH_LONG).show()
+    }
 }
 
-/**
- * CLICK-ACTION ---> SignUp
- */
-fun signUpAction(viewModel: LoginVm) { viewModel.actionSignUp() }
 /**
  * CLICK-ACTION ---> Login
  */

@@ -85,7 +85,11 @@ fun RegistrationScreen(
 fun userRegistrationStatus(
     context: Context, viewModel: RegistrationVm, userRegistered: Boolean
 ) {
-    Toast.makeText(context, "User registration successful", Toast.LENGTH_LONG).show()
+    if(userRegistered){
+        Toast.makeText(context, "User registration successful", Toast.LENGTH_LONG).show()
+    }else{
+        Toast.makeText(context, "User registration failure", Toast.LENGTH_LONG).show()
+    }
 }
 
 fun register(viewModel: RegistrationVm) {

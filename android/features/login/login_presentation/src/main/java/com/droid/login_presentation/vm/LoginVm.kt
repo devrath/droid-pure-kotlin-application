@@ -14,10 +14,12 @@ import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -40,6 +42,9 @@ class LoginVm @Inject constructor(
     private val _pwd = MutableStateFlow("")
     val pwd = _pwd.asStateFlow()
     fun setPwd(name: String) { _pwd.value = name }
+
+    private val _loaderVisibility = Channel<Boolean>()
+    val loaderVisibility = _loaderVisibility.receiveAsFlow()
 
 
     /** ********************************** BUTTON-ACTIONS *****************************************/
@@ -179,5 +184,9 @@ class LoginVm @Inject constructor(
     private fun loginInput() = LoginInput(
         email = email.value.trim(), password = pwd.value.trim()
     )
+
+    fun updateLoading(isLoading:Boolean) {
+        viewModelScope.launch { _loaderVisibility.send(isLoading) }
+    }
 
 }
