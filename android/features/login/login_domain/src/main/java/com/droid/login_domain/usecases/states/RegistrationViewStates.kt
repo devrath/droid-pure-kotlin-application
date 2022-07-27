@@ -4,8 +4,13 @@ import com.droid.login_domain.usecases.ValidationResult
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 
 sealed class RegistrationViewStates {
+
+
+
+
     object InitialState : RegistrationViewStates()
     object NoConnectivity : RegistrationViewStates()
+    data class RegistrationStatus(val isUserRegistered: Boolean) : RegistrationViewStates()
     data class RegistrationValidationStatus(val result: ValidationResult) : RegistrationViewStates()
     object RegistrationValidationSuccessful : RegistrationViewStates()
     data class ErrorState(val errorMessage: UiText) : RegistrationViewStates()

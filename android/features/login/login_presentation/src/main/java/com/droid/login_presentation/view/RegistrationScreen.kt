@@ -1,20 +1,19 @@
 package com.droid.login_presentation.view
 
-import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
+import com.droid.login_presentation.states.RegistrationViewEvent
 import com.droid.login_presentation.vm.RegistrationVm
+import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -23,11 +22,7 @@ fun RegistrationScreen(
     viewModel : RegistrationVm = hiltViewModel()
 ){
     val context = LocalContext.current
-    val firstName = viewModel.firstName.collectAsState()
-    val lastName = viewModel.lastName.collectAsState()
-    val email = viewModel.email.collectAsState()
-    val pwd = viewModel.pwd.collectAsState()
-    val confirmPwd = viewModel.confirmPwd.collectAsState()
+    val state = viewModel.viewState
 
     val scaffoldState = rememberScaffoldState()
 
@@ -46,42 +41,48 @@ fun RegistrationScreen(
         RegistrationScreenContent(
             firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
             registerHeaderStr,registerBtnStr,loginTxtStr,
-            firstName.value, lastName.value,email.value ,pwd.value,confirmPwd.value,
-            viewModel::setFirstName, viewModel::setLastName,
-            viewModel::setEmail, viewModel::setPwd, viewModel::setConfirmPwd,
+            state.firstName.toString(), state.lastName.toString(),
+            state.email.toString(), state.pwd.toString(), state.confirmPwd.toString(),
+            {
+                viewModel.onEvent(RegistrationViewEvent.OnViewChangedFirstName(it))
+            },
+            {
+                viewModel.onEvent(RegistrationViewEvent.OnViewChangedLastName(it))
+            },
+            {
+                viewModel.onEvent(RegistrationViewEvent.OnViewChangedEmail(it))
+            },
+            {
+                viewModel.onEvent(RegistrationViewEvent.OnViewChangedPassword(it))
+            },
+            {
+                viewModel.onEvent(RegistrationViewEvent.OnViewChangedConfirmPassword(it))
+            },
             {
                 keyboardController?.hide()
-                register(viewModel)
+                viewModel.onEvent(RegistrationViewEvent.OnRegisterViewClick)
             },
             {
                 onLoginClick
             },
-            viewModel.loaderVisibility.collectAsState(initial = false).value
+            state.isLoaderVisible
         )
     }
 
     LaunchedEffect(key1 = scaffoldState) {
-        viewModel.viewState.collect {
-            when (it) {
-                is RegistrationViewStates.InitialState -> {
-
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.ShowSnackbar -> {
+                    val msgToShow = event.message.asString(context)
+                    scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
+                    keyboardController?.hide()
                 }
-                is RegistrationViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
-                is RegistrationViewStates.NoConnectivity -> {}
-                is RegistrationViewStates.RegistrationValidationSuccessful -> {
-                    Toast.makeText(context, "Initiate registration", Toast.LENGTH_LONG).show()
-                    viewModel.initiateRegistration()
-                }
-                is RegistrationViewStates.Loading -> { viewModel.updateLoading(it.isLoading) }
+                else -> Unit
             }
         }
     }
-
 }
 
-fun register(viewModel: RegistrationVm) {
-    viewModel.actionRegistration()
-}
 
 @Composable
 @Preview(showBackground = true)

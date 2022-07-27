@@ -1,73 +1,82 @@
 package com.droid.login_presentation.vm
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
-import com.droid.login_domain.usecases.states.RegistrationViewStates
+import com.droid.login_presentation.states.RegistrationUiState
+import com.droid.login_presentation.states.RegistrationViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
-import com.iprayforgod.core.platform.functional.data
+import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+
+/**
+ * Types of communication
+ * **********
+ * RegistrationViewEvent ---> Compose UI communicates with view model
+ * viewState ---> We change the state so that the compose-ui attached in view is updated
+ *
+ */
 @HiltViewModel
 class RegistrationVm @Inject constructor(
     private var  loginModuleUseCases: LoginModuleUseCases,
     private var  log: LoggerRepository
 ) : BaseViewModel() {
 
-    private val _viewState = MutableSharedFlow<RegistrationViewStates>(
-        replay = 1,onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
-    val viewState = _viewState.asSharedFlow()
+    var viewState by mutableStateOf(RegistrationUiState())
+        private set
 
-    private val _loaderVisibility = Channel<Boolean>()
-    val loaderVisibility = _loaderVisibility.receiveAsFlow()
+    private val _uiEvent = Channel<UiEvent>()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
 
+    fun onEvent(event: RegistrationViewEvent) {
+        when(event) {
+            is RegistrationViewEvent.OnRegisterViewClick ->  actionRegistration()
+            is RegistrationViewEvent.OnViewChangedConfirmPassword -> {
+                viewState = viewState.copy(confirmPwd = event.valueConfirmPwd)
+            }
+            is RegistrationViewEvent.OnViewChangedEmail -> {
+                viewState = viewState.copy(email = event.valueEmail)
+            }
+            is RegistrationViewEvent.OnViewChangedFirstName -> {
+                viewState = viewState.copy(firstName = event.valueFirstName)
+            }
+            is RegistrationViewEvent.OnViewChangedLastName -> {
+                viewState = viewState.copy(lastName = event.valueLastName)
+            }
+            is RegistrationViewEvent.OnViewChangedPassword -> {
+                viewState = viewState.copy(pwd = event.valuePwd)
+            }
+            is RegistrationViewEvent.OnViewLoaderVisibility -> {
+                viewState = viewState.copy(isLoaderVisible = event.isVisible)
+            }
+        }
+    }
 
-    private val _firstName = MutableStateFlow("")
-    val firstName = _firstName.asStateFlow()
-    fun setFirstName(firstName: String) { _firstName.value = firstName }
-
-    private val _lastName = MutableStateFlow("")
-    val lastName = _lastName.asStateFlow()
-    fun setLastName(lastName: String) { _lastName.value = lastName }
-
-    private val _email = MutableStateFlow("")
-    val email = _email.asStateFlow()
-    fun setEmail(name: String) { _email.value = name }
-
-    private val _pwd = MutableStateFlow("")
-    val pwd = _pwd.asStateFlow()
-    fun setPwd(pwd: String) { _pwd.value = pwd }
-
-    private val _confirmPwd = MutableStateFlow("")
-    val confirmPwd = _confirmPwd.asStateFlow()
-    fun setConfirmPwd(confirmPwd: String) { _confirmPwd.value = confirmPwd }
-
-    fun actionRegistration() {
+    private fun actionRegistration() {
         log.d(FEATURE_LOGIN,"ACTION:->  Registration action functionality is invoked")
         viewModelScope.launch {
             val input = registrationInput()
-
-            val registrationValidation = withContext(Dispatchers.Default) { validateFieldsForRegistration(input) }
+            val registrationValidation = withContext(Dispatchers.Default) {
+                validateFieldsForRegistration(input)
+            }
             if(registrationValidation){
-                _viewState.tryEmit(RegistrationViewStates.RegistrationValidationSuccessful)
+                initiateRegistration(input)
             }
         }
     }
@@ -78,22 +87,19 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun validateFieldsForRegistration(input: RegistrationInput): Boolean {
         log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
-
-        when (val result = loginModuleUseCases.validateRegistration.invoke(input)) {
-            is UseCaseResult.Success -> {
-                val registrationValidationResult = result.value.data as RegistrationViewStates.RegistrationValidationStatus
-                if(registrationValidationResult.result.successful){
-                    return true
+        loginModuleUseCases.validateRegistration.invoke(input)
+            .onSuccess {
+                return if(it.successful){
+                    true
                 }else{
-                    useCaseErrorMessage(registrationValidationResult.result.errorMessage)
-                    return false
+                    useCaseErrorMessage(it.errorMessage)
+                    false
                 }
             }
-            is UseCaseResult.Error -> {
-                useCaseError(result)
+            .onFailure {
+                useCaseError(UseCaseResult.Error(Exception(it)))
                 return false
             }
-        }
         return false
     }
 
@@ -102,9 +108,7 @@ class RegistrationVm @Inject constructor(
      * Displaying messages to the snack-bar
      */
     private suspend fun useCaseErrorMessage(result: UiText?) {
-        result?.let {
-            _viewState.tryEmit(RegistrationViewStates.ErrorState(errorMessage = it))
-        }
+        result?.let { _uiEvent.send(UiEvent.ShowSnackbar(it)) }
     }
 
     /**
@@ -113,28 +117,29 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun useCaseError(result: UseCaseResult.Error) {
         val uiEvent = UiText.DynamicString(result.exception.message.toString())
-        _viewState.tryEmit(RegistrationViewStates.ErrorState(errorMessage = uiEvent))
+        _uiEvent.send(UiEvent.ShowSnackbar(uiEvent))
     }
     /** ********************************** USE CASES **********************************************/
 
     /** ********************************** API CALLS **********************************************/
-    fun initiateRegistration() {
-        val input = registrationInput()
+    private fun initiateRegistration(input: RegistrationInput) {
 
         viewModelScope.launch {
             loginModuleUseCases.registerUseCase(input).collect { state ->
                 when(state){
                     is State.Success -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API SUCCESS")
-                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
+                        viewState = viewState.copy(isLoaderVisible = false)
+                        _uiEvent.send(UiEvent.Success)
                     }
                     is State.Loading -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API LOADING")
-                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = true))
+                        viewState = viewState.copy(isLoaderVisible = true)
                     }
                     is State.Failed -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API FAILED")
-                        _viewState.tryEmit(RegistrationViewStates.Loading(isLoading = false))
+                        viewState = viewState.copy(isLoaderVisible = false)
+                        useCaseErrorMessage(UiText.DynamicString("Registration failed"))
                     }
                 }
             }
@@ -143,13 +148,11 @@ class RegistrationVm @Inject constructor(
     }
     /** ********************************** API CALLS **********************************************/
 
-    private fun registrationInput() = RegistrationInput(
-        firstName = firstName.value.trim(), lastName = lastName.value.trim(),
-        email = email.value.trim(), password = pwd.value.trim(),
-        confirmPassword = confirmPwd.value.trim()
-    )
-
-    fun updateLoading(isLoading:Boolean) {
-        viewModelScope.launch { _loaderVisibility.send(isLoading) }
+    private fun registrationInput() : RegistrationInput{
+        return RegistrationInput(
+            firstName = viewState.firstName, lastName = viewState.lastName,
+            email = viewState.email, password = viewState.pwd, confirmPassword = viewState.confirmPwd
+        )
     }
+
 }

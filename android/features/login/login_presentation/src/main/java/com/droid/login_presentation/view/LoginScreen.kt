@@ -43,7 +43,13 @@ fun LoginScreen(
             viewModel::setEmail,
             viewModel::setPwd,
             onSignUpClick,
-            {forgotPwdAction(viewModel)}, {loginAction(viewModel)}
+            {
+                forgotPwdAction(viewModel)
+            },
+            {
+                loginAction(viewModel)
+            },
+            viewModel.loaderVisibility.collectAsState(initial = false).value
         )
     }
 
@@ -54,17 +60,27 @@ fun LoginScreen(
                 is LoginViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is LoginViewStates.NoConnectivity -> {}
                 is LoginViewStates.LoginValidationSuccessful -> {
-                    Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
+                    viewModel.initiateLoginApi()
+                }
+                is LoginViewStates.Loading -> {
+                    viewModel.updateLoading(it.isLoading)
+                }
+                is LoginViewStates.LoginStatus -> {
+                    userLoginStatus(context,viewModel,it.isUserLoggedIn)
                 }
             }
         }
     }
 }
 
-/**
- * CLICK-ACTION ---> SignUp
- */
-fun signUpAction(viewModel: LoginVm) { viewModel.actionSignUp() }
+fun userLoginStatus(context: Context, viewModel: LoginVm, userLoggedIn: Boolean) {
+    if(userLoggedIn){
+        Toast.makeText(context, "User login successful", Toast.LENGTH_LONG).show()
+    }else{
+        Toast.makeText(context, "User login failure", Toast.LENGTH_LONG).show()
+    }
+}
+
 /**
  * CLICK-ACTION ---> Login
  */
@@ -78,7 +94,7 @@ fun forgotPwdAction(viewModel: LoginVm) { viewModel.actionForgotPwd() }
 /**
  * Displaying the snack-bar message
  */
-suspend fun showMsg(
+private suspend fun showMsg(
     context: Context,
     scaffoldState: ScaffoldState,
     errorMessage: UiText
