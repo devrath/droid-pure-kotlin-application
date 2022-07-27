@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
-import com.droid.login_domain.usecases.states.RegistrationViewStates
 import com.droid.login_presentation.states.RegistrationUiState
 import com.droid.login_presentation.states.RegistrationViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
@@ -14,7 +13,6 @@ import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
-import com.iprayforgod.core.platform.functional.data
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -89,22 +87,19 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun validateFieldsForRegistration(input: RegistrationInput): Boolean {
         log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
-
-        when (val result = loginModuleUseCases.validateRegistration.invoke(input)) {
-            is UseCaseResult.Success -> {
-                val registrationValidationResult = result.value.data as RegistrationViewStates.RegistrationValidationStatus
-                if(registrationValidationResult.result.successful){
-                    return true
+        loginModuleUseCases.validateRegistration.invoke(input)
+            .onSuccess {
+                return if(it.successful){
+                    true
                 }else{
-                    useCaseErrorMessage(registrationValidationResult.result.errorMessage)
-                    return false
+                    useCaseErrorMessage(it.errorMessage)
+                    false
                 }
             }
-            is UseCaseResult.Error -> {
-                useCaseError(result)
+            .onFailure {
+                useCaseError(UseCaseResult.Error(Exception(it)))
                 return false
             }
-        }
         return false
     }
 
