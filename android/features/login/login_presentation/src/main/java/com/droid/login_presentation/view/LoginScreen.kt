@@ -94,7 +94,7 @@ fun forgotPwdAction(viewModel: LoginVm) { viewModel.actionForgotPwd() }
 /**
  * Displaying the snack-bar message
  */
-suspend fun showMsg(
+private suspend fun showMsg(
     context: Context,
     scaffoldState: ScaffoldState,
     errorMessage: UiText

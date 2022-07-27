@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.states.RegistrationViewStates
-import com.droid.login_presentation.states.RegistrationUiEvent
 import com.droid.login_presentation.states.RegistrationUiState
 import com.droid.login_presentation.states.RegistrationViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
@@ -16,6 +15,7 @@ import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.functional.data
+import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -42,8 +42,8 @@ class RegistrationVm @Inject constructor(
     var viewState by mutableStateOf(RegistrationUiState())
         private set
 
-    private val _registrationUiEvent = Channel<RegistrationUiEvent>()
-    val registrationUiEvent = _registrationUiEvent.receiveAsFlow()
+    private val _uiEvent = Channel<UiEvent>()
+    val uiEvent = _uiEvent.receiveAsFlow()
 
 
     fun onEvent(event: RegistrationViewEvent) {
@@ -113,7 +113,7 @@ class RegistrationVm @Inject constructor(
      * Displaying messages to the snack-bar
      */
     private suspend fun useCaseErrorMessage(result: UiText?) {
-        result?.let { _registrationUiEvent.send(RegistrationUiEvent.ShowSnackBar(it)) }
+        result?.let { _uiEvent.send(UiEvent.ShowSnackbar(it)) }
     }
 
     /**
@@ -122,7 +122,7 @@ class RegistrationVm @Inject constructor(
      */
     private suspend fun useCaseError(result: UseCaseResult.Error) {
         val uiEvent = UiText.DynamicString(result.exception.message.toString())
-        _registrationUiEvent.send(RegistrationUiEvent.ShowSnackBar(uiEvent))
+        _uiEvent.send(UiEvent.ShowSnackbar(uiEvent))
     }
     /** ********************************** USE CASES **********************************************/
 
@@ -134,16 +134,16 @@ class RegistrationVm @Inject constructor(
                 when(state){
                     is State.Success -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API SUCCESS")
-                        _registrationUiEvent.send(RegistrationUiEvent.LoaderState(isLoading = false))
-                        _registrationUiEvent.send(RegistrationUiEvent.Success)
+                        viewState = viewState.copy(isLoaderVisible = false)
+                        _uiEvent.send(UiEvent.Success)
                     }
                     is State.Loading -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API LOADING")
-                        _registrationUiEvent.send(RegistrationUiEvent.LoaderState(isLoading = true))
+                        viewState = viewState.copy(isLoaderVisible = true)
                     }
                     is State.Failed -> {
                         log.d(FEATURE_LOGIN,"REGISTRATION API FAILED")
-                        _registrationUiEvent.send(RegistrationUiEvent.LoaderState(isLoading = false))
+                        viewState = viewState.copy(isLoaderVisible = false)
                         useCaseErrorMessage(UiText.DynamicString("Registration failed"))
                     }
                 }

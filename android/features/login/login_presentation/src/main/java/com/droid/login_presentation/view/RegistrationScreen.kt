@@ -1,7 +1,5 @@
 package com.droid.login_presentation.view
 
-import android.content.Context
-import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -13,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
+import com.droid.login_presentation.states.RegistrationViewEvent
 import com.droid.login_presentation.vm.RegistrationVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
@@ -65,30 +64,25 @@ fun RegistrationScreen(
             },
             {
                 onLoginClick
-            }
+            },
+            state.isLoaderVisible
         )
     }
 
     LaunchedEffect(key1 = scaffoldState) {
-        viewModel.uiEvent.collect {
-            when (it) {
-                is UiEvent.ShowSnackbar -> { }
-                is UiEvent.Success -> { }
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.ShowSnackbar -> {
+                    val msgToShow = event.message.asString(context)
+                    scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
+                    keyboardController?.hide()
+                }
+                else -> Unit
             }
         }
     }
-
 }
 
-fun userRegistrationStatus(
-    context: Context, viewModel: RegistrationVm, userRegistered: Boolean
-) {
-    if(userRegistered){
-        Toast.makeText(context, "User registration successful", Toast.LENGTH_LONG).show()
-    }else{
-        Toast.makeText(context, "User registration failure", Toast.LENGTH_LONG).show()
-    }
-}
 
 @Composable
 @Preview(showBackground = true)
