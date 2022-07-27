@@ -1,5 +1,6 @@
 package com.droid.login_presentation.view
 
+import android.content.Context
 import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
@@ -69,14 +70,22 @@ fun RegistrationScreen(
                 is RegistrationViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is RegistrationViewStates.NoConnectivity -> {}
                 is RegistrationViewStates.RegistrationValidationSuccessful -> {
-                    Toast.makeText(context, "Initiate registration", Toast.LENGTH_LONG).show()
                     viewModel.initiateRegistration()
                 }
                 is RegistrationViewStates.Loading -> { viewModel.updateLoading(it.isLoading) }
+                is RegistrationViewStates.RegistrationStatus -> {
+                    userRegistrationStatus(context,viewModel,it.isUserRegistered)
+                }
             }
         }
     }
 
+}
+
+fun userRegistrationStatus(
+    context: Context, viewModel: RegistrationVm, userRegistered: Boolean
+) {
+    Toast.makeText(context, "User registration successful", Toast.LENGTH_LONG).show()
 }
 
 fun register(viewModel: RegistrationVm) {

@@ -1,6 +1,6 @@
 package com.droid.login_data.di
 
-import com.droid.login_data.service.LoginService
+import com.droid.login_data.service.RegistrationService
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import dagger.Module
@@ -18,8 +18,8 @@ object LoginServiceModule {
     fun provideLoginRepository(
         firebaseAuthRepository: FirebaseAuthRepository,
         logService: LoggerRepository
-    ): LoginService {
-        return LoginService(
+    ): RegistrationService {
+        return RegistrationService(
             service = firebaseAuthRepository, log = logService
         )
     }

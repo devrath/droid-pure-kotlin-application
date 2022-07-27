@@ -54,11 +54,20 @@ fun LoginScreen(
                 is LoginViewStates.ErrorState -> showMsg(context, scaffoldState, it.errorMessage)
                 is LoginViewStates.NoConnectivity -> {}
                 is LoginViewStates.LoginValidationSuccessful -> {
-                    Toast.makeText(context, "Validation Successful", Toast.LENGTH_LONG).show()
+                    viewModel.initiateLoginApi()
                 }
+                is LoginViewStates.Loading -> TODO()
+                is LoginViewStates.LoginStatus -> {
+                    userLoginStatus(context,viewModel,it.isUserLoggedIn)
+                }
+                is LoginViewStates.PasswordValidationStatus -> TODO()
             }
         }
     }
+}
+
+fun userLoginStatus(context: Context, viewModel: LoginVm, userLoggedIn: Boolean) {
+    Toast.makeText(context, "User login successful", Toast.LENGTH_LONG).show()
 }
 
 /**
