@@ -41,8 +41,8 @@ fun RegistrationScreen(
         RegistrationScreenContent(
             firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
             registerHeaderStr,registerBtnStr,loginTxtStr,
-            state.firstName.toString(), state.lastName.toString(),
-            state.email.toString(), state.pwd.toString(), state.confirmPwd.toString(),
+            state.firstName, state.lastName,
+            state.email, state.pwd, state.confirmPwd,
             {
                 viewModel.onEvent(RegistrationViewEvent.OnViewChangedFirstName(it))
             },

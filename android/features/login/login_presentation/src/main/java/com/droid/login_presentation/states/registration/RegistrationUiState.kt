@@ -6,5 +6,5 @@ data class RegistrationUiState(
     val email: String = "",
     val pwd: String = "",
     val confirmPwd: String = "",
-    val isLoaderVisible: Boolean = false,
+    val isLoaderVisible: Boolean = false
 )
