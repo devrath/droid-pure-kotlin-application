@@ -114,7 +114,7 @@ class LoginVm @Inject constructor(
                     is State.Failed -> {
                         log.d(FEATURE_LOGIN,"LOGIN API FAILED")
                         viewState = viewState.copy(isLoaderVisible = false)
-                        useCaseErrorMessage(UiText.DynamicString("Registration failed"))
+                        useCaseErrorMessage(UiText.DynamicString(state.message))
                     }
                 }
             }
