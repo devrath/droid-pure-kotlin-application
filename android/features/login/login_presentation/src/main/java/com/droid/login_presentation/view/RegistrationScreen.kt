@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
-import com.droid.login_presentation.states.RegistrationViewEvent
+import com.droid.login_presentation.states.registration.RegistrationViewEvent
 import com.droid.login_presentation.vm.RegistrationVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
