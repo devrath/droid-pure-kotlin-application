@@ -1,5 +1,6 @@
 package com.droid.login_presentation.view
 
+import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -64,6 +65,9 @@ fun LoginScreen(
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
+                }
+                UiEvent.Success -> {
+                    Toast.makeText(context,"Login Success",Toast.LENGTH_LONG).show()
                 }
                 else -> Unit
             }

@@ -1,5 +1,6 @@
 package com.droid.login_presentation.view
 
+import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -18,7 +19,7 @@ import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegistrationScreen(
-    onLoginClick: () -> Unit,
+    onLoginClick: (Int) -> Unit,
     viewModel : RegistrationVm = hiltViewModel()
 ){
     val context = LocalContext.current
@@ -62,9 +63,7 @@ fun RegistrationScreen(
                 keyboardController?.hide()
                 viewModel.onEvent(RegistrationViewEvent.OnRegisterViewClick)
             },
-            {
-                onLoginClick
-            },
+            onLoginClick,
             state.isLoaderVisible
         )
     }
@@ -76,6 +75,9 @@ fun RegistrationScreen(
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
+                }
+                UiEvent.Success -> {
+                    Toast.makeText(context,"Registration Success", Toast.LENGTH_LONG).show()
                 }
                 else -> Unit
             }
