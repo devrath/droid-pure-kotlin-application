@@ -1,6 +1,7 @@
 package com.droid.login_presentation.view
 
 import android.widget.Toast
+import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,29 +35,30 @@ fun ForgotPwdScreen(
     val strSubmit = context.resources.getString(R.string.str_submit)
     val strEmailSentSuccess = context.resources.getString(R.string.str_email_sent_success)
 
-
-    ForgotPwdPageContent(
-        headerStr = headerString, descStr = forgotPwdDesc,
-        emailLabel = emailLabel, submitBtnStr = strSubmit, email = state.email,
-        onEmailChanged = {
-            viewModel.onEvent(ForgotPwdViewEvent.OnViewChangedEmail(it))
-        },
-        clickSubmitAction = {
-            keyboardController?.hide()
-            viewModel.onEvent(ForgotPwdViewEvent.OnSubmitClick)
-        },
-        isLoading = state.isLoaderVisible
-    )
+    Scaffold(scaffoldState = scaffoldState) {
+        ForgotPwdPageContent(
+            headerStr = headerString, descStr = forgotPwdDesc,
+            emailLabel = emailLabel, submitBtnStr = strSubmit, email = state.email,
+            onEmailChanged = {
+                viewModel.onEvent(ForgotPwdViewEvent.OnViewChangedEmail(it))
+            },
+            clickSubmitAction = {
+                keyboardController?.hide()
+                viewModel.onEvent(ForgotPwdViewEvent.OnSubmitClick)
+            },
+            isLoading = state.isLoaderVisible
+        )
+    }
 
     LaunchedEffect(key1 = scaffoldState) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.ShowSnackbar -> {
+                is UiEvent.ShowSnackbar ->{
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
                 }
-                UiEvent.Success -> {
+                is UiEvent.Success -> {
                     Toast.makeText(context,strEmailSentSuccess, Toast.LENGTH_LONG).show()
                 }
                 else -> Unit

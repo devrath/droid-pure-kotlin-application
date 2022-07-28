@@ -115,10 +115,9 @@ class ForgotPwdVm @Inject constructor(
      * Displaying messages to the snack-bar
      */
     private suspend fun useCaseErrorMessage(result: UiText?) {
-        result?.let {
-            _uiEvent.send(UiEvent.ShowSnackbar(it))
-        }
+        result?.let { _uiEvent.send(UiEvent.ShowSnackbar(it)) }
     }
+
 
     /**
      * ERROR HANDLING:
