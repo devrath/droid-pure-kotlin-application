@@ -23,6 +23,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+
 @HiltViewModel
 class ForgotPwdVm @Inject constructor(
     private var  loginModuleUseCases: LoginModuleUseCases,
@@ -114,7 +115,9 @@ class ForgotPwdVm @Inject constructor(
      * Displaying messages to the snack-bar
      */
     private suspend fun useCaseErrorMessage(result: UiText?) {
-        result?.let { _uiEvent.send(UiEvent.ShowSnackbar(it)) }
+        result?.let {
+            _uiEvent.send(UiEvent.ShowSnackbar(it))
+        }
     }
 
     /**

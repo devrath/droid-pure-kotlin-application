@@ -15,6 +15,7 @@ import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
 import com.droid.login_presentation.vm.ForgotPwdVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
+
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ForgotPwdScreen(
@@ -32,6 +33,7 @@ fun ForgotPwdScreen(
     val emailLabel = context.resources.getString(R.string.str_email)
     val strSubmit = context.resources.getString(R.string.str_submit)
     val strEmailSentSuccess = context.resources.getString(R.string.str_email_sent_success)
+
 
     ForgotPwdPageContent(
         headerStr = headerString, descStr = forgotPwdDesc,
