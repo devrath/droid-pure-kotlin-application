@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
-import com.droid.login_presentation.states.RegistrationUiState
-import com.droid.login_presentation.states.RegistrationViewEvent
+import com.droid.login_presentation.states.registration.RegistrationUiState
+import com.droid.login_presentation.states.registration.RegistrationViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel

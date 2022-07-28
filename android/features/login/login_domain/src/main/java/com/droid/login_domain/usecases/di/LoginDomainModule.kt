@@ -1,9 +1,8 @@
 package com.droid.login_domain.usecases.di
 
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
-import com.droid.login_domain.usecases.cases.login.ValidateEmailUseCase
-import com.droid.login_domain.usecases.cases.login.ValidatePasswordUseCase
-import com.droid.login_domain.usecases.cases.registration.LoginUserUseCase
+import com.droid.login_domain.usecases.cases.login.LoginUserUseCase
+import com.droid.login_domain.usecases.cases.login.ValidateLoginEntriesUseCase
 import com.droid.login_domain.usecases.cases.registration.RegisterUserUseCase
 import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
 import com.droid.login_domain.usecases.repository.LoginRepository
@@ -31,10 +30,7 @@ object LoginDomainModule {
             validateRegistration = ValidateRegistrationEntriesUseCase(
                 log = loggerRepository, dispatcher = dispatcher
             ),
-            validateEmail = ValidateEmailUseCase(
-                log = loggerRepository, dispatcher = dispatcher
-            ),
-            validatePassword = ValidatePasswordUseCase(
+            validateLogin = ValidateLoginEntriesUseCase(
                 log = loggerRepository, dispatcher = dispatcher
             ),
             registerUseCase = RegisterUserUseCase(

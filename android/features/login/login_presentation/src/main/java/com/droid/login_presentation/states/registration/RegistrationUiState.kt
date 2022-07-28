@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states
+package com.droid.login_presentation.states.registration
 
 data class RegistrationUiState(
     val firstName: String = "",
@@ -6,5 +6,5 @@ data class RegistrationUiState(
     val email: String = "",
     val pwd: String = "",
     val confirmPwd: String = "",
-    val isLoaderVisible: Boolean = false,
+    val isLoaderVisible: Boolean = false
 )

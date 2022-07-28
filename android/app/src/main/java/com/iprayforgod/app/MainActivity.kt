@@ -64,7 +64,7 @@ class MainActivity : ComponentActivity() {
                     // --> REGISTRATION - SCREEN
                     composable(Route.REGISTRATION) {
                         RegistrationScreen(onLoginClick = {
-                            navController.navigate(Route.LOGIN)
+                            navController.popBackStack()
                         })
                     }
                     // --> HOME - SCREEN

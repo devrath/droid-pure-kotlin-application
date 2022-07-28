@@ -1,5 +1,6 @@
 package com.droid.login_presentation.view
 
+import android.widget.Toast
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -11,14 +12,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.RegistrationScreenContent
-import com.droid.login_presentation.states.RegistrationViewEvent
+import com.droid.login_presentation.states.registration.RegistrationViewEvent
 import com.droid.login_presentation.vm.RegistrationVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegistrationScreen(
-    onLoginClick: () -> Unit,
+    onLoginClick: (Int) -> Unit,
     viewModel : RegistrationVm = hiltViewModel()
 ){
     val context = LocalContext.current
@@ -41,8 +42,8 @@ fun RegistrationScreen(
         RegistrationScreenContent(
             firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
             registerHeaderStr,registerBtnStr,loginTxtStr,
-            state.firstName.toString(), state.lastName.toString(),
-            state.email.toString(), state.pwd.toString(), state.confirmPwd.toString(),
+            state.firstName, state.lastName,
+            state.email, state.pwd, state.confirmPwd,
             {
                 viewModel.onEvent(RegistrationViewEvent.OnViewChangedFirstName(it))
             },
@@ -62,9 +63,7 @@ fun RegistrationScreen(
                 keyboardController?.hide()
                 viewModel.onEvent(RegistrationViewEvent.OnRegisterViewClick)
             },
-            {
-                onLoginClick
-            },
+            onLoginClick,
             state.isLoaderVisible
         )
     }
@@ -76,6 +75,9 @@ fun RegistrationScreen(
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
+                }
+                UiEvent.Success -> {
+                    Toast.makeText(context,"Registration Success", Toast.LENGTH_LONG).show()
                 }
                 else -> Unit
             }
