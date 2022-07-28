@@ -1,7 +1,9 @@
 package com.droid.login_presentation.view
 
+import android.widget.Toast
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -11,6 +13,7 @@ import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.ForgotPwdPageContent
 import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
 import com.droid.login_presentation.vm.ForgotPwdVm
+import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -28,6 +31,7 @@ fun ForgotPwdScreen(
     val forgotPwdDesc = context.resources.getString(R.string.str_forgot_desc)
     val emailLabel = context.resources.getString(R.string.str_email)
     val strSubmit = context.resources.getString(R.string.str_submit)
+    val strEmailSentSuccess = context.resources.getString(R.string.str_email_sent_success)
 
     ForgotPwdPageContent(
         headerStr = headerString, descStr = forgotPwdDesc,
@@ -41,6 +45,22 @@ fun ForgotPwdScreen(
         },
         isLoading = state.isLoaderVisible
     )
+
+    LaunchedEffect(key1 = scaffoldState) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.ShowSnackbar -> {
+                    val msgToShow = event.message.asString(context)
+                    scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
+                    keyboardController?.hide()
+                }
+                UiEvent.Success -> {
+                    Toast.makeText(context,strEmailSentSuccess, Toast.LENGTH_LONG).show()
+                }
+                else -> Unit
+            }
+        }
+    }
 }
 
 

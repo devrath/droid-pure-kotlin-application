@@ -19,5 +19,7 @@
     <string name="str_forgot_pwd_header">FORGOT PASSWORD?</string>
     <string name="str_submit">SUBMIT</string>
     <string name="str_forgot_desc">Enter your e-mail address we\'ll send you a email to reset your password</string>
+    <string name="str_email_sent_success">Email sent successfully to reset your password!</string>
+    <string name="str_registration_failed">Registration failed</string>
 
 </resources>

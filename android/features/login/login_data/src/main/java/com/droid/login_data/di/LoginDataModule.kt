@@ -1,6 +1,7 @@
 package com.droid.login_data.di
 
 import com.droid.login_data.repository.LoginRepositoryImpl
+import com.droid.login_data.service.ForgotPwdService
 import com.droid.login_data.service.LoginService
 import com.droid.login_data.service.RegistrationService
 import com.droid.login_domain.usecases.repository.LoginRepository
@@ -19,11 +20,13 @@ object LoginDataModule {
     @Singleton
     fun provideLoginRepository(
         regServ : RegistrationService,
-        loginServ : LoginService
+        loginServ : LoginService,
+        forgotPwdService : ForgotPwdService
     ): LoginRepository {
         return LoginRepositoryImpl(
             registrationService = regServ,
-            loginService = loginServ
+            loginService = loginServ,
+            forgotPwdService = forgotPwdService
         )
     }
 

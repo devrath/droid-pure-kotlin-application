@@ -2,6 +2,7 @@ package com.droid.login_domain.usecases.di
 
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.cases.forgotPassword.ValidateForgotPwdUseCase
+import com.droid.login_domain.usecases.cases.login.ForgotPwdUseCase
 import com.droid.login_domain.usecases.cases.login.LoginUserUseCase
 import com.droid.login_domain.usecases.cases.login.ValidateLoginEntriesUseCase
 import com.droid.login_domain.usecases.cases.registration.RegisterUserUseCase
@@ -43,6 +44,9 @@ object LoginDomainModule {
             loginUseCase = LoginUserUseCase(
                 loginRepo = loginRepo
             ),
+            forgotPwdUseCase = ForgotPwdUseCase(
+                loginRepo = loginRepo
+            )
         )
     }
 

@@ -11,6 +11,7 @@ import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
+import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
@@ -53,7 +54,7 @@ class ForgotPwdVm @Inject constructor(
                 validateFieldsForForgotPassword(input)
             }
             if(forgotPwdValidation){
-                initiateLoginApi(input)
+                initiateForgotPwdApi(input)
             }
         }
     }
@@ -83,8 +84,27 @@ class ForgotPwdVm @Inject constructor(
     /** ********************************** USE CASES **********************************************/
 
     /** ********************************** API CALLS **********************************************/
-    private fun initiateLoginApi(input: ForgotPwdInput) {
-
+    private fun initiateForgotPwdApi(input: ForgotPwdInput) {
+        viewModelScope.launch {
+            loginModuleUseCases.forgotPwdUseCase(input).collect { state ->
+                when(state){
+                    is State.Success -> {
+                        log.d(KeysFeatureNames.FEATURE_LOGIN,"FORGOT API SUCCESS")
+                        viewState = viewState.copy(isLoaderVisible = false)
+                        _uiEvent.send(UiEvent.Success)
+                    }
+                    is State.Loading -> {
+                        log.d(KeysFeatureNames.FEATURE_LOGIN,"FORGOT API LOADING")
+                        viewState = viewState.copy(isLoaderVisible = true)
+                    }
+                    is State.Failed -> {
+                        log.d(KeysFeatureNames.FEATURE_LOGIN,"FORGOT API FAILED")
+                        viewState = viewState.copy(isLoaderVisible = false)
+                        useCaseErrorMessage(UiText.DynamicString(state.message))
+                    }
+                }
+            }
+        }
     }
     /** ********************************** API CALLS **********************************************/
 
