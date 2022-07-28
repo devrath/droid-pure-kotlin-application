@@ -1,4 +1,4 @@
-package com.droid.login_domain.usecases.cases.registration
+package com.droid.login_domain.usecases.cases.login
 
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
 import com.droid.login_domain.usecases.repository.LoginRepository
