@@ -15,6 +15,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.droid.login_presentation.view.ForgotPwdScreen
 import com.droid.login_presentation.view.LoginScreen
 import com.droid.login_presentation.view.RegistrationScreen
 import com.iprayforgod.app.navigation.Route
@@ -55,7 +56,9 @@ class MainActivity : ComponentActivity() {
                     // --> LOGIN - SCREEN
                     composable(Route.LOGIN) {
                         LoginScreen(
-                            onLoginClick = {},
+                            onForgotPasswordClick = {
+                                navController.navigate(Route.FORGOT_PASSWORD)
+                            },
                             onSignUpClick = {
                                 navController.navigate(Route.REGISTRATION)
                             }
@@ -66,6 +69,10 @@ class MainActivity : ComponentActivity() {
                         RegistrationScreen(onLoginClick = {
                             navController.popBackStack()
                         })
+                    }
+                    // --> FORGOT-PWD - SCREEN
+                    composable(Route.FORGOT_PASSWORD) {
+                        ForgotPwdScreen()
                     }
                     // --> HOME - SCREEN
                     composable(Route.HOME) {

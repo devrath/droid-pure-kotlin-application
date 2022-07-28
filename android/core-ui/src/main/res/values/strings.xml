@@ -16,4 +16,8 @@
     <string name="str_forgot_pwd">Forgot Password</string>
     <string name="str_sign_up_here">Sign up here</string>
 
+    <string name="str_forgot_pwd_header">FORGOT PASSWORD?</string>
+    <string name="str_submit">SUBMIT</string>
+    <string name="str_forgot_desc">Enter your e-mail address we\'ll send you a email to reset your password</string>
+
 </resources>
