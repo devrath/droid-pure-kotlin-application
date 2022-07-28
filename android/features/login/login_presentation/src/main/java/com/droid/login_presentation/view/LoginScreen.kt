@@ -19,7 +19,7 @@ import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginScreen(
-    onLoginClick: () -> Unit, onSignUpClick: (Int) -> Unit,
+    onForgotPasswordClick: (Int) -> Unit, onSignUpClick: (Int) -> Unit,
     viewModel: LoginVm = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -47,9 +47,7 @@ fun LoginScreen(
                 viewModel.onEvent(LoginViewEvent.OnViewChangedPassword(it))
             },
             onSignUpClick,
-            {
-                forgotPwdAction(viewModel)
-            },
+            onForgotPasswordClick,
             {
                 keyboardController?.hide()
                 viewModel.onEvent(LoginViewEvent.OnLoginViewClick)
