@@ -14,5 +14,5 @@ object ParcerModule {
 
     @Provides
     @Singleton
-    fun provideMoshi(store: LoggerFeature) = Moshi.Builder().build()
+    fun provideMoshi(store: LoggerFeature): Moshi = Moshi.Builder().build()
 }
