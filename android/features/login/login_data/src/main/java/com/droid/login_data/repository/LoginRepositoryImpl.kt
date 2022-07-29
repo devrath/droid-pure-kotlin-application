@@ -1,8 +1,8 @@
 package com.droid.login_data.repository
 
-import com.droid.login_data.service.ForgotPwdService
-import com.droid.login_data.service.LoginService
-import com.droid.login_data.service.RegistrationService
+import com.droid.login_data.service.firebase.forgotPwd.ForgotPwdService
+import com.droid.login_data.service.firebase.login.LoginService
+import com.droid.login_data.service.firebase.registration.RegistrationService
 import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput

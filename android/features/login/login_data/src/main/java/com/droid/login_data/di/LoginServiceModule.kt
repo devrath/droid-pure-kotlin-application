@@ -1,6 +1,6 @@
 package com.droid.login_data.di
 
-import com.droid.login_data.service.RegistrationService
+import com.droid.login_data.service.firebase.registration.RegistrationService
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository

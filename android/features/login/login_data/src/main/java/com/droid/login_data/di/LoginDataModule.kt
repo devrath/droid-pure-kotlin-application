@@ -1,9 +1,9 @@
 package com.droid.login_data.di
 
 import com.droid.login_data.repository.LoginRepositoryImpl
-import com.droid.login_data.service.ForgotPwdService
-import com.droid.login_data.service.LoginService
-import com.droid.login_data.service.RegistrationService
+import com.droid.login_data.service.firebase.forgotPwd.ForgotPwdService
+import com.droid.login_data.service.firebase.login.LoginService
+import com.droid.login_data.service.firebase.registration.RegistrationService
 import com.droid.login_domain.usecases.repository.LoginRepository
 import dagger.Module
 import dagger.Provides

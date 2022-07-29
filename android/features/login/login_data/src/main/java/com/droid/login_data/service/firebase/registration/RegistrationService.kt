@@ -1,4 +1,4 @@
-package com.droid.login_data.service
+package com.droid.login_data.service.firebase.registration
 
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.google.firebase.firestore.SetOptions
