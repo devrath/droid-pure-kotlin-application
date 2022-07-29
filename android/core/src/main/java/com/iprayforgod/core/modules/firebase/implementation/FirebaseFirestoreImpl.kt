@@ -1,7 +1,7 @@
 package com.iprayforgod.core.modules.firebase.implementation
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.iprayforgod.core.domain.FirebaseFirestoreFeature
+import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
 
 class FirebaseFirestoreImpl (
     private val firebaseFirestore: FirebaseFirestore

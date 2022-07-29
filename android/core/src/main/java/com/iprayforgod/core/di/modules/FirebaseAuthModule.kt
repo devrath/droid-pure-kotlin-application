@@ -3,7 +3,7 @@ package com.iprayforgod.core.di.modules
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.iprayforgod.core.domain.FirebaseAuthFeature
+import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
 import com.iprayforgod.core.modules.firebase.implementation.FirebaseAuthImpl
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import dagger.Module

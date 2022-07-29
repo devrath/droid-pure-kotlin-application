@@ -1,6 +1,6 @@
 package com.iprayforgod.core.modules.logger.implementation
 
-import com.iprayforgod.core.domain.LoggerFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import timber.log.Timber
 
 class LoggerFeatureImpl() : LoggerFeature {

@@ -1,6 +1,6 @@
 package com.iprayforgod.core.modules.preference.repository
 
-import com.iprayforgod.core.domain.PreferenceDatastore
+import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
 import kotlinx.coroutines.flow.Flow
 
 class PreferenceRepository(

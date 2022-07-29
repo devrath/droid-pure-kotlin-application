@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
-import com.iprayforgod.core.domain.PreferenceDatastore
+import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
 import com.iprayforgod.core.modules.keys.KeysPreferences.KEY_TEXT
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

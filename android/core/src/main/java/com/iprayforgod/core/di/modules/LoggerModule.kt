@@ -1,6 +1,6 @@
 package com.iprayforgod.core.di.modules
 
-import com.iprayforgod.core.domain.LoggerFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.logger.implementation.LoggerFeatureImpl
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import dagger.Module
