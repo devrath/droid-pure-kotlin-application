@@ -20,6 +20,7 @@ import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 @Composable
 fun RegistrationScreen(
     onLoginClick: (Int) -> Unit,
+    onNavigateUp: () -> Unit,
     viewModel : RegistrationVm = hiltViewModel()
 ){
     val context = LocalContext.current
@@ -78,6 +79,8 @@ fun RegistrationScreen(
                 }
                 UiEvent.Success -> {
                     Toast.makeText(context,"Registration Success", Toast.LENGTH_LONG).show()
+                    // Close the registration screen
+                    onNavigateUp()
                 }
                 else -> Unit
             }

@@ -66,9 +66,13 @@ class MainActivity : ComponentActivity() {
                     }
                     // --> REGISTRATION - SCREEN
                     composable(Route.REGISTRATION) {
-                        RegistrationScreen(onLoginClick = {
-                            navController.popBackStack()
-                        })
+                        RegistrationScreen(
+                            onLoginClick = {
+                                navController.popBackStack()
+                            },
+                            onNavigateUp = {
+                                navController.navigateUp()
+                            })
                     }
                     // --> FORGOT-PWD - SCREEN
                     composable(Route.FORGOT_PASSWORD) {
