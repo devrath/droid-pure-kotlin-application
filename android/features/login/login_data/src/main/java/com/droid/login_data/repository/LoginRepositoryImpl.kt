@@ -24,7 +24,7 @@ class LoginRepositoryImpl @Inject constructor(
     }
 
     // --> LOGIN the user
-    override fun loginUser(input: LoginInput): Flow<State<Boolean>> {
+    override fun loginUser(input: LoginInput): Flow<State<User>> {
        return loginService.loginUser(input)
     }
 

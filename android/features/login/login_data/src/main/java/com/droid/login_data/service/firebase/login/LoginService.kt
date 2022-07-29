@@ -1,6 +1,8 @@
 package com.droid.login_data.service.firebase.login
 
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.core.domain.models.User
+import com.iprayforgod.core.modules.firebase.endpoints.Constants
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
@@ -17,16 +19,26 @@ class LoginService @Inject constructor(
     private var  log: LoggerRepository
 ) {
 
-    fun loginUser(input: LoginInput): Flow<State<Boolean>> {
+    companion object{
+        const val USER_DATA_FIREBASE_IS_NULL = "user data is null in firebase"
+        const val USER_DATA_FIRESTORE_IS_NULL = "user data is null in firestore"
+    }
 
-        val resultDeferred = CompletableDeferred<State<Boolean>>()
+    fun loginUser(input: LoginInput): Flow<State<User>> {
+
+        val resultDeferred = CompletableDeferred<State<User>>()
 
         try {
             val result = serviceFirebase.getFirebaseAuth()
                 .signInWithEmailAndPassword(input.email, input.password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        resultDeferred.complete(State.success(true))
+                        it.result.user?.let {
+                                user -> getUserDetails(user.uid,resultDeferred)
+                        } ?: run {
+                            log.e(KeysFeatureNames.FEATURE_LOGIN, USER_DATA_FIREBASE_IS_NULL)
+                            resultDeferred.complete(State.failed(USER_DATA_FIREBASE_IS_NULL))
+                        }
                     } else {
                         resultDeferred.complete(State.failed(it.exception?.message.toString()))
                     }
@@ -48,34 +60,41 @@ class LoginService @Inject constructor(
     }
 
 
-    /*fun getUserDetails() {
+    private fun getUserDetails(userId: String, resultDeferred: CompletableDeferred<State<User>>) {
 
-        *//**
+        /*
          * Here we pass the collection name from which we wants the data.
          * ***
          * Remember we created this table(document) during the registration
-         *//*
+         */
         serviceFirestore.getFirebaseFirestore().collection(Constants.USERS)
             // The document id to get the Fields of user.
-            .document(getCurrentUserID()).get()
+            .document(userId).get()
             .addOnSuccessListener { document ->
                 log.i(KeysFeatureNames.FEATURE_LOGIN, document.toString())
-                *//**
+                /**
                  * Here we have received the document snapshot which is converted into the User Data model object.
                  * Once we convert into the model object we can store in database
                  * **
                  * Remember don't save the model here instead it has to be done at repository level
-                 *//*
-                val user = document.toObject(User::class.java)!!
+                 **/
+                val user = document.toObject(User::class.java)
 
+                document.toObject(User::class.java)?.let { userDetails ->
+                    resultDeferred.complete(State.success(userDetails))
+                } ?: run {
+                    log.e(KeysFeatureNames.FEATURE_LOGIN, USER_DATA_FIRESTORE_IS_NULL)
+                    resultDeferred.complete(State.failed(USER_DATA_FIRESTORE_IS_NULL))
+                }
 
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error. And print the error in log.
                 val errorMsg = e.message
                 log.e(KeysFeatureNames.FEATURE_LOGIN, "Error while getting user details:-> $errorMsg")
+                resultDeferred.completeExceptionally(e)
             }
     }
 
-    */
+
 }
