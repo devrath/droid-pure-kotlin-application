@@ -25,13 +25,17 @@ object Modules {
     const val featureHomePresentation = ":features:home:home_presentation"
     // -------------------- Home -------------------------->
 
-    // ---------------- Home Detail------------------------>
-    const val featureHomeDetail = ":features:home_detail"
-    // ---------------- Home Detail------------------------>
-
     // -------------------- Common ------------------------>
     const val featureCommon = ":features:common"
     const val featureCommonData = ":features:common:common_data"
     const val featureCommonDomain = ":features:common:common_domain"
     // -------------------- Common ------------------------>
+
+    // -------------------- Profile ------------------------>
+    const val featureProfile = ":features:profile"
+    const val featureProfileData = ":features:profile:profile_data"
+    const val featureProfileDomain = ":features:profile:profile_domain"
+    const val featureProfilePresentation = ":features:profile:profile_presentation"
+    // -------------------- Profile ------------------------>
+
 }

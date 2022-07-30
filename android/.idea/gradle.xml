@@ -24,7 +24,6 @@
             <option value="$PROJECT_DIR$/features/home/home_data" />
             <option value="$PROJECT_DIR$/features/home/home_domain" />
             <option value="$PROJECT_DIR$/features/home/home_presentation" />
-            <option value="$PROJECT_DIR$/features/home_detail" />
             <option value="$PROJECT_DIR$/features/login" />
             <option value="$PROJECT_DIR$/features/login/login_data" />
             <option value="$PROJECT_DIR$/features/login/login_domain" />
@@ -33,6 +32,10 @@
             <option value="$PROJECT_DIR$/features/onboarding/onboarding_data" />
             <option value="$PROJECT_DIR$/features/onboarding/onboarding_domain" />
             <option value="$PROJECT_DIR$/features/onboarding/onboarding_presentation" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/profile/profile_data" />
+            <option value="$PROJECT_DIR$/features/profile/profile_domain" />
+            <option value="$PROJECT_DIR$/features/profile/profile_presentation" />
           </set>
         </option>
       </GradleProjectSettings>
