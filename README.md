@@ -3,9 +3,20 @@
 [![Android Best practices](https://img.shields.io/badge/Android-best--practices-red)](https://www.android.com/intl/en_in/what-is-android/) [![Kotlin](https://img.shields.io/badge/Kotlin-1.6.10-brightgreen)](https://kotlinlang.org/) [![Coroutines](https://img.shields.io/badge/Coroutines-1.6.0-red)](https://kotlinlang.org/docs/reference/coroutines-overview.html) [![DaggerHilt](https://img.shields.io/badge/DaggerHilt-2.40-blue)](https://developer.android.com/training/dependency-injection/hilt-android)  
 This repository contains a sample project that is developed using the clean architecture with compose and multi-module features
 
-## `Skeletal Structure` 📑
+### Why clean architecture is needed 📑
+<p align="center">
+<a><img src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/compose_clean_arch.png"></a>
+</p>
 
-![banner](https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure.png)
+* **Scalability**: When new features are added, using the clean architecture we can easily add the new features and maintain old existing features without breaking them.
+* **Testability**: For the new features, its essential we write a code that can be tested for all possible inputs so that once in production we can forecast all possible scenarios and handle them.
+* **Understandable**: Scaling a product with keeping the code testable is good but its also should be in such a way that everyone should understand it and also should easily be modify it.
+
+
+### `Skeletal Structure` 📑
+<p align="center">
+<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure.png"></a>
+</p>
 
 | `Data Layer` | `Domain Layer` | `Presentation Layer` |
 | ------------ | -------------- | -------------------- |
