@@ -28,4 +28,10 @@ object Modules {
     // ---------------- Home Detail------------------------>
     const val featureHomeDetail = ":features:home_detail"
     // ---------------- Home Detail------------------------>
+
+    // -------------------- Common ------------------------>
+    const val featureCommon = ":features:common"
+    const val featureCommonData = ":features:common:common_data"
+    const val featureCommonDomain = ":features:common:common_domain"
+    // -------------------- Common ------------------------>
 }
