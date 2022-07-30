@@ -1,4 +1,4 @@
-package com.droid.home_detail
+package com.droid.profile_presentation
 
 import org.junit.Test
 

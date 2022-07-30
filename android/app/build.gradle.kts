@@ -98,6 +98,7 @@ dependencies {
     implementation(project(Modules.featureLoginPresentation))
     implementation(project(Modules.featureLoginData))
     implementation(project(Modules.featureCommonData))
+    implementation(project(Modules.featureProfileData))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
