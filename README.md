@@ -1,5 +1,9 @@
-# \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️👷🔧 🚧 \]
-![Banner](https://github.com/devrath/automatic-octo-fiesta/blob/main/images/banner.png)
+<p align="center" >
+<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/Clean-architecture-layered-interaction.png" width="350" height="350"/></a>
+</p>
+
+
+
 # iPrayForGod
 [![Android Best practices](https://img.shields.io/badge/Android-best--practices-red)](https://www.android.com/intl/en_in/what-is-android/) [![Kotlin](https://img.shields.io/badge/Kotlin-1.6.10-brightgreen)](https://kotlinlang.org/) [![Coroutines](https://img.shields.io/badge/Coroutines-1.6.0-red)](https://kotlinlang.org/docs/reference/coroutines-overview.html) [![DaggerHilt](https://img.shields.io/badge/DaggerHilt-2.40-blue)](https://developer.android.com/training/dependency-injection/hilt-android) [![Moshi](https://img.shields.io/badge/Moshi-1.13.0-orange)](https://github.com/square/moshi) [![Firebase](https://img.shields.io/badge/Firebase-30.2.0-blueviolet)](https://firebase.google.com/) [![Datastore](https://img.shields.io/badge/Datastore-1.0.0-brightgreen)](https://developer.android.com/topic/libraries/architecture/datastore) [![Timber](https://img.shields.io/badge/Timber-5.0.1-blue)](https://github.com/JakeWharton/timber) [![Orhanobut](https://img.shields.io/badge/orhanobut-2.2.0-lightgrey)](https://github.com/orhanobut/logger) [![Jetpack compose](https://img.shields.io/badge/Jetpack%20Compose-1.1.1-ff69b4)](https://developer.android.com/jetpack/compose/documentation) [![Coil](https://img.shields.io/badge/Coil-1.3.2-008080)](https://github.com/coil-kt/coil) [![Google Material](https://img.shields.io/badge/Google%20Material-1.4.0-3D3635)](https://material.io/develop/android/docs/getting-started) [![Compose Navigation](https://img.shields.io/badge/Compose%20Navigation-2.5.0-7D0541)](https://developer.android.com/guide/navigation/navigation-getting-started) [![Hilt navigation compose](https://img.shields.io/badge/Hilt%20navigation%20compose-1.0.0-DB7093)](https://androidx.tech/artifacts/hilt/hilt-navigation-compose/) [![Activity compose](https://img.shields.io/badge/Activity%20compose-1.5.0-5453A6)](https://androidx.tech/artifacts/activity/activity-compose/) [![Ui tooling preview](https://img.shields.io/badge/Ui%20tooling%20preview-1.1.1-C32148)](https://androidx.tech/artifacts/compose.ui/ui-tooling-preview/) [![Compose ui](https://img.shields.io/badge/Compose%20ui-1.1.1-F6BE00)](https://androidx.tech/artifacts/compose.ui/ui-tooling/) [![Kt lint](https://img.shields.io/badge/Kt%20lint-10.3.0-00FA9A)](https://github.com/pinterest/ktlint) [![Crashlytics](https://img.shields.io/badge/Crashlytics-2.9.1-3B9C9C)](https://firebase.google.com/docs/crashlytics)  
 
@@ -42,3 +46,4 @@ This repository contains a sample project that is developed using the clean arch
 </p>
 
 
+# \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️👷🔧 🚧 \]
