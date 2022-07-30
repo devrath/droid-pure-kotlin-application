@@ -1,6 +1,6 @@
 package com.iprayforgod.core.modules.preference.repository
 
-import com.iprayforgod.core.domain.PreferenceDatastore
+import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
 import kotlinx.coroutines.flow.Flow
 
 class PreferenceRepository(
@@ -20,4 +20,19 @@ class PreferenceRepository(
     suspend fun readOnBoardingState(): Flow<Boolean> {
         return preference.readOnBoardingState()
     }
+
+    /**
+     * @param user details of the logged in user
+     */
+    suspend fun saveUserState(user: String) {
+        preference.saveCurrentUser(user)
+    }
+
+    /**
+     * @return the user data that is being saved
+     */
+    suspend fun readUserState(): Flow<String> {
+        return preference.readCurrentUser()
+    }
+
 }

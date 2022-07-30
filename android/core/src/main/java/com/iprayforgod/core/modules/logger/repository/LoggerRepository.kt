@@ -1,6 +1,6 @@
 package com.iprayforgod.core.modules.logger.repository
 
-import com.iprayforgod.core.domain.LoggerFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 
 class LoggerRepository(
     private val loggerFeature: LoggerFeature

@@ -1,4 +1,4 @@
-package com.iprayforgod.core.domain
+package com.iprayforgod.core.domain.features.logger
 
 interface LoggerFeature {
     fun d(featureName: String?, msg: String?)

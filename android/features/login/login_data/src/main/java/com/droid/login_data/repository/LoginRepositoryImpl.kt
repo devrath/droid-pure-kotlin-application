@@ -1,13 +1,13 @@
 package com.droid.login_data.repository
 
-import com.droid.login_data.service.ForgotPwdService
-import com.droid.login_data.service.LoginService
-import com.droid.login_data.service.RegistrationService
-import com.droid.login_domain.usecases.entities.User
+import com.droid.login_data.service.firebase.forgotPwd.ForgotPwdService
+import com.droid.login_data.service.firebase.login.LoginService
+import com.droid.login_data.service.firebase.registration.RegistrationService
 import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.repository.LoginRepository
+import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -24,7 +24,7 @@ class LoginRepositoryImpl @Inject constructor(
     }
 
     // --> LOGIN the user
-    override fun loginUser(input: LoginInput): Flow<State<Boolean>> {
+    override fun loginUser(input: LoginInput): Flow<State<User>> {
        return loginService.loginUser(input)
     }
 

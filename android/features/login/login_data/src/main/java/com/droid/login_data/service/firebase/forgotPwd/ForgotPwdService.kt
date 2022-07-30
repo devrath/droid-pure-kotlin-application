@@ -1,4 +1,4 @@
-package com.droid.login_data.service
+package com.droid.login_data.service.firebase.forgotPwd
 
 import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository

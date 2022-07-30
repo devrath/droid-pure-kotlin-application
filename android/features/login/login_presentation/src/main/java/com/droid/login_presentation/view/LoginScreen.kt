@@ -13,8 +13,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.droid.login_presentation.R
 import com.droid.login_presentation.components.mainComponents.LoginScreenContent
 import com.droid.login_presentation.states.login.LoginViewEvent
+import com.droid.login_presentation.states.login.LoginViewResponseEvent
 import com.droid.login_presentation.vm.LoginVm
-import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -59,12 +59,15 @@ fun LoginScreen(
     LaunchedEffect(key1 = scaffoldState) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.ShowSnackbar -> {
+                is LoginViewResponseEvent.ShowSnackbar -> {
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
                 }
-                UiEvent.Success -> {
+                is LoginViewResponseEvent.LoginApiSuccess -> {
+                    viewModel.onEvent(LoginViewEvent.LoginSaveUserToPreference(event.user))
+                }
+                is LoginViewResponseEvent.SaveUserSuccess -> {
                     Toast.makeText(context,"Login Success",Toast.LENGTH_LONG).show()
                 }
                 else -> Unit

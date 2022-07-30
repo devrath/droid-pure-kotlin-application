@@ -17,5 +17,7 @@ data class LoginModuleUseCases(
     val registerUseCase: RegisterUserUseCase,
     val loginUseCase: LoginUserUseCase,
     val forgotPwdUseCase: ForgotPwdUseCase,
+    //val saveCurrentUserUseCase: SaveCurrentUserUseCase,
     // --> ***************** REPO_CALL *******************
 )
+//PreferenceDatastore
