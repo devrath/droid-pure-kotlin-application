@@ -16,7 +16,7 @@ object LoginServiceModule {
 
     @Provides
     @Singleton
-    fun provideLoginRepository(
+    fun provideRegistrationService(
         firebaseAuthRepository: FirebaseAuthRepository,
         logService: LoggerRepository,
         firebaseFirestoreRepository: FirebaseFirestoreRepository

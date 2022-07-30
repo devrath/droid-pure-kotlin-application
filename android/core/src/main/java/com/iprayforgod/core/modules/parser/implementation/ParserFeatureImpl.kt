@@ -1,14 +1,14 @@
-package com.iprayforgod.core.modules.parcer
+package com.iprayforgod.core.modules.parser.implementation
 
-import com.iprayforgod.core.domain.features.parcer.ParcerFeature
+import com.iprayforgod.core.domain.features.parser.ParserFeature
 import com.iprayforgod.core.domain.models.User
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 
 
-class ParcerFeatureImpl(
+class ParserFeatureImpl(
     private val moshi: Moshi
-) : ParcerFeature {
+) : ParserFeature {
 
     override fun convertUserObjectToJson(user: User): String {
         val jsonAdapter: JsonAdapter<User> = moshi.adapter(User::class.java)

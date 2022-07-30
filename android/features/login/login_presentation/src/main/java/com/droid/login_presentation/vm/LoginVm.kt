@@ -4,16 +4,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
+import com.droid.common_domain.usecases.CommonModuleUseCases
 import com.droid.login_domain.usecases.cases.LoginModuleUseCases
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
 import com.droid.login_presentation.states.login.LoginUiState
 import com.droid.login_presentation.states.login.LoginViewEvent
+import com.droid.login_presentation.states.login.LoginViewResponseEvent
+import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
-import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -26,19 +28,21 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginVm @Inject constructor(
     private var  loginModuleUseCases: LoginModuleUseCases,
+    private var  commonModuleUseCases: CommonModuleUseCases,
     private var  log: LoggerRepository,
 ) : BaseViewModel()  {
 
     var viewState by mutableStateOf(LoginUiState())
         private set
 
-    private val _uiEvent = Channel<UiEvent>()
+    private val _uiEvent = Channel<LoginViewResponseEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
 
     fun onEvent(event: LoginViewEvent) {
         when(event) {
             is LoginViewEvent.OnLoginViewClick ->  actionLogin()
+            is LoginViewEvent.LoginSaveUserToPreference ->  saveUserAfterLoggingIn(event.user)
 
             is LoginViewEvent.OnViewChangedEmail -> {
                 viewState = viewState.copy(email = event.valueEmail)
@@ -70,6 +74,11 @@ class LoginVm @Inject constructor(
             }
         }
     }
+
+    private fun saveUserAfterLoggingIn(user: User) {
+        log.d(FEATURE_LOGIN,"ACTION:->  Saving user after user logged in")
+        viewModelScope.launch { saveUser(user) }
+    }
     /** ********************************** BUTTON-ACTIONS *****************************************/
 
     /** ********************************** USE CASES **********************************************/
@@ -94,6 +103,26 @@ class LoginVm @Inject constructor(
             }
         return false
     }
+
+    /**
+     * USE CASE: Saving hte user to preferences
+     */
+    private fun saveUser(input: User) {
+        viewModelScope.launch {
+            commonModuleUseCases.saveUserUseCase.invoke(input).collect { state ->
+                when(state){
+                    is State.Failed -> {
+                        log.d(FEATURE_LOGIN,"LOGIN API FAILED")
+                        useCaseErrorMessage(UiText.DynamicString(state.message))
+                    }
+                    is State.Success -> {
+                        log.d(FEATURE_LOGIN,"LOGIN API SUCCESS")
+                        _uiEvent.send(LoginViewResponseEvent.SaveUserSuccess)
+                    }
+                }
+            }
+        }
+    }
     /** ********************************** USE CASES **********************************************/
 
 
@@ -105,7 +134,7 @@ class LoginVm @Inject constructor(
                     is State.Success -> {
                         log.d(FEATURE_LOGIN,"LOGIN API SUCCESS")
                         viewState = viewState.copy(isLoaderVisible = false)
-                        _uiEvent.send(UiEvent.Success)
+                        _uiEvent.send(LoginViewResponseEvent.LoginApiSuccess(state.data))
                     }
                     is State.Loading -> {
                         log.d(FEATURE_LOGIN,"LOGIN API LOADING")
@@ -128,7 +157,7 @@ class LoginVm @Inject constructor(
      * Displaying messages to the snack-bar
      */
     private suspend fun useCaseErrorMessage(result:UiText?) {
-        result?.let { _uiEvent.send(UiEvent.ShowSnackbar(it)) }
+        result?.let { _uiEvent.send(LoginViewResponseEvent.ShowSnackbar(it)) }
     }
 
     /**
@@ -137,7 +166,7 @@ class LoginVm @Inject constructor(
      */
     private suspend fun useCaseError(result: UseCaseResult.Error) {
         val uiEvent = UiText.DynamicString(result.exception.message.toString())
-        _uiEvent.send(UiEvent.ShowSnackbar(uiEvent))
+        _uiEvent.send(LoginViewResponseEvent.ShowSnackbar(uiEvent))
     }
     /** ********************************* DISPLAY MESSAGES ****************************************/
 

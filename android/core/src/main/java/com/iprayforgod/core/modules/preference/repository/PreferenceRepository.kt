@@ -20,4 +20,19 @@ class PreferenceRepository(
     suspend fun readOnBoardingState(): Flow<Boolean> {
         return preference.readOnBoardingState()
     }
+
+    /**
+     * @param user details of the logged in user
+     */
+    suspend fun saveUserState(user: String) {
+        preference.saveCurrentUser(user)
+    }
+
+    /**
+     * @return the user data that is being saved
+     */
+    suspend fun readUserState(): Flow<String> {
+        return preference.readCurrentUser()
+    }
+
 }
