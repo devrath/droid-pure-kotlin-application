@@ -110,3 +110,5 @@ This repository contains a sample project that is developed using the clean arch
 :three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase.<br/> 
 :four: Last but not least add your application SHA in your firebase settings.<br/>
 
+## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
+:label: Currently the registration, login, forgot password flow is implemented 
