@@ -35,11 +35,11 @@ This repository contains a sample project that is developed using the clean arch
 ---
 
 ### **`𝙳𝚎𝚙𝚎𝚗𝚍𝚎𝚗𝚌𝚢 𝙸𝚗𝚓𝚎𝚌𝚝𝚒𝚘𝚗`** :card_index_dividers:
-:label: A Depencency Injection results in a loosely coupled programs.
-:label: It helps to achieve inversion of control. Inversion of control means a object or function recieves another object or function as a dependency.
-:label: We use hilt that is built on top of dagger tool that generates code on behalf of user and helps to attain the inversion control easily. This is very essential because all the extra code that we need to generate, hilt will do it for us. 
-:label: The inversion control becomes even more crucial part of the structure in case of multi module project.
-:label: This also helps in unit testing thte code because, since object is not created and instead provided to a function, we can easily mock it during unit testing.
+:label: A Depencency Injection results in a loosely coupled programs. </br>
+:label: It helps to achieve inversion of control. Inversion of control means a object or function recieves another object or function as a dependency. </br>
+:label: We use hilt that is built on top of dagger tool that generates code on behalf of user and helps to attain the inversion control easily. This is very essential because all the extra code that we need to generate, hilt will do it for us. </br>
+:label: The inversion control becomes even more crucial part of the structure in case of multi module project. </br>
+:label: This also helps in unit testing thte code because, since object is not created and instead provided to a function, we can easily mock it during unit testing. </br>
 
 ---
 
