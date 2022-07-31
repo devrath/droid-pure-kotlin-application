@@ -95,7 +95,10 @@ This repository contains a sample project that is developed using the clean arch
 :label: It is static code analysis tool that is used to analyze the Kotlin code for you. It will check if you have written the code by following the Kotlin code guidelines or not.
 
 ```gradle
-./gradlew ktlintCheck   
+// To check the list of errors
+./gradlew ktlintCheck  
+// Try to auto auto format errors
+./gradlew ktlintFormat
 ```
  
  ---
