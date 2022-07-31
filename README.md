@@ -34,6 +34,15 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
+### **`𝙳𝚎𝚙𝚎𝚗𝚍𝚎𝚗𝚌𝚢 𝙸𝚗𝚓𝚎𝚌𝚝𝚒𝚘𝚗`** :card_index_dividers:
+:label: A Depencency Injection results in a loosely coupled programs.
+:label: It helps to achieve inversion of control. Inversion of control means a object or function recieves another object or function as a dependency.
+:label: We use hilt that is built on top of dagger tool that generates code on behalf of user and helps to attain the inversion control easily. This is very essential because all the extra code that we need to generate, hilt will do it for us. 
+:label: The inversion control becomes even more crucial part of the structure in case of multi module project.
+:label: This also helps in unit testing thte code because, since object is not created and instead provided to a function, we can easily mock it during unit testing.
+
+---
+
 ### **`𝙲𝚘𝚖𝚖𝚞𝚗𝚒𝚌𝚊𝚝𝚒𝚘𝚗 𝚋𝚎𝚝𝚠𝚎𝚎𝚗 𝚝𝚑𝚎 𝚕𝚊𝚢𝚎𝚛𝚜`** :card_index_dividers:
 <img align="left" height="250" width="250" src="https://github.com/devrath/iPrayForGod/blob/main/assets/Clean-architecture-layered-interaction.png"  alt="dev_logo"/>
 :label: Presentation Layer: :heavy_minus_sign: This layer is the UI layer of the application, It contains composables and view-models. The presentation layer communicates with the domain layer, But the presentation layer is not aware of the data layer. </br> 
