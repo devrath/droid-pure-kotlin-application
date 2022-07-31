@@ -11,7 +11,7 @@ This repository contains a sample project that is developed using the clean arch
 ---
 
 ### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :card_index_dividers:
-<img align="left" height="190" width="310" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/KotlinAndroidStudio.png"  alt="dev_logo"/>
+<img align="left" height="150" width="260" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/KotlinAndroidStudio.png"  alt="dev_logo"/>
 
 :label: Programming language: :heavy_minus_sign: By migrating away from Java and towards kotlin, we can leverage the features like better readability, null saftey, less code, benifits of improved syntax and others. </br>
 :label: Kotlin DSL: :heavy_minus_sign: Earlier we used to use gradle for organizing dependencies. Gradle is written in a groovy programming language. Using the kotlin-DSL, we can organize the dependencies in our project cleaner and in an efficient way. Type safety. This allows better autocompletion which was missing from grovey till now. Code navigation between files becomes easy in Kotlin DSL. Refactoring is much easier. </br>
