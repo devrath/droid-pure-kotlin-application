@@ -55,14 +55,23 @@ This repository contains a sample project that is developed using the clean arch
  ---
  
 
- #### **`𝙼𝚅𝚅𝙼 𝚜𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚞𝚜𝚎𝚍 𝚒𝚗 𝚖𝚞𝚕𝚝𝚒-𝚖𝚘𝚍𝚞𝚕𝚎 𝚏𝚘𝚛 𝚌𝚕𝚎𝚊𝚗 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`**
+#### **`𝙼𝚅𝚅𝙼 𝚜𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚞𝚜𝚎𝚍 𝚒𝚗 𝚖𝚞𝚕𝚝𝚒-𝚖𝚘𝚍𝚞𝚕𝚎 𝚏𝚘𝚛 𝚌𝚕𝚎𝚊𝚗 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`**
 
 
 <p align="right" >
 <img align="left" height="300" width="300" src="https://github.com/devrath/iPrayForGod/blob/main/assets/mvvm_structure.png" alt="mvvm"/>
 <img align="left" height="300" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png" alt="mvvm-improved"/>
 </p>
+ 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ 
+ ---
+ 
+## **`𝙲𝚘𝚍𝚎 𝚚𝚞𝚊𝚕𝚒𝚝𝚢`**
+  
+##### **`Run Kt lint`**
+:label: It is static code analysis tool that is used to analyze the Kotlin code for you. It will check if you have written the code by following the Kotlin code guidelines or not.
 
-
-
-
+```gradle
+./gradlew ktlintCheck   
+```
