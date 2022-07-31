@@ -19,7 +19,8 @@ import com.droid.login_presentation.vm.LoginVm
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginScreen(
-    onForgotPasswordClick: (Int) -> Unit, onSignUpClick: (Int) -> Unit,
+    onForgotPasswordClick: (Int) -> Unit,
+    onSignUpClick: (Int) -> Unit,
     viewModel: LoginVm = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -37,8 +38,8 @@ fun LoginScreen(
 
     Scaffold(scaffoldState = scaffoldState) {
         LoginScreenContent(
-            emailLabel,passwordLabel,
-            loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+            emailLabel, passwordLabel,
+            loginHeaderStr, loginBtnStr, forgotPwdTxtStr, signUpHereTxtStr,
             state.email, state.pwd,
             {
                 viewModel.onEvent(LoginViewEvent.OnViewChangedEmail(it))
@@ -68,7 +69,7 @@ fun LoginScreen(
                     viewModel.onEvent(LoginViewEvent.LoginSaveUserToPreference(event.user))
                 }
                 is LoginViewResponseEvent.SaveUserSuccess -> {
-                    Toast.makeText(context,"Login Success",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Login Success", Toast.LENGTH_LONG).show()
                 }
                 else -> Unit
             }
@@ -79,8 +80,7 @@ fun LoginScreen(
 /**
  * CLICK-ACTION ---> ForgotPwd
  */
-fun forgotPwdAction(viewModel: LoginVm) {  }
-
+fun forgotPwdAction(viewModel: LoginVm) { }
 
 @Composable
 @Preview(showBackground = true)
@@ -95,8 +95,8 @@ fun LoginScreenContentPreview() {
     val signUpHereTxtStr = "Sign up here"
 
     LoginScreenContent(
-        emailLabel,pwdLabel,
-        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+        emailLabel, pwdLabel,
+        loginHeaderStr, loginBtnStr, forgotPwdTxtStr, signUpHereTxtStr,
         "Email", "Password",
         {}, {}, {}, {}, {}
     )

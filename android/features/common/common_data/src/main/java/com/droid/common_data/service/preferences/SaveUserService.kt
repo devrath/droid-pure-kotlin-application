@@ -18,7 +18,7 @@ import javax.inject.Inject
 class SaveUserService @Inject constructor(
     private val parserRepo: ParserRepository,
     private val prefRepo: PreferenceRepository,
-    private var  log: LoggerRepository,
+    private var log: LoggerRepository,
     @IoDispatcher val dispatcher: CoroutineDispatcher
 ) {
 
@@ -26,24 +26,23 @@ class SaveUserService @Inject constructor(
         val resultDeferred = CompletableDeferred<State<Unit>>()
         try {
             CoroutineScope(dispatcher).launch {
-                val userStr : String = convertUserObjectToString(resultDeferred,input)
+                val userStr: String = convertUserObjectToString(resultDeferred, input)
                 val savedResultState = prefRepo.saveUserState(user = userStr)
                 resultDeferred.complete(State.success(Unit))
             }
-        } catch (ex : Exception) {
+        } catch (ex: Exception) {
             resultDeferred.completeExceptionally(ex)
         }
 
         return flow {
             try {
-                //emit(State.loading())
+                // emit(State.loading())
                 emit(resultDeferred.await())
             } catch (e: Exception) {
                 log.e(KeysFeatureNames.FEATURE_LOGIN, e.stackTrace.toString())
                 resultDeferred.completeExceptionally(e)
             }
         }
-
     }
 
     private fun convertUserObjectToString(resultDeferred: CompletableDeferred<State<Unit>>, input: User): String {

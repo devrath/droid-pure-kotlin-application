@@ -20,7 +20,7 @@ fun OnBoardingScreenContent(
     data: List<OnBoardingPageData>,
     finishAction: () -> Unit
 ) {
-    CurrScreenOnBoardingContent(data,finishAction)
+    CurrScreenOnBoardingContent(data, finishAction)
 }
 
 @Preview(showBackground = true)

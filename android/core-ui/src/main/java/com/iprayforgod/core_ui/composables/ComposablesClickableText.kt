@@ -2,7 +2,6 @@ package com.iprayforgod.core_ui.composables
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,19 +14,19 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun CustomClickableText(
-    contentValue:String,
+    contentValue: String,
     textColor: Color,
     modifier: Modifier = Modifier.padding(0.dp),
     fontSize: TextUnit = 9.sp,
     onClick: (Int) -> Unit
-){
+) {
     ClickableText(
         text = AnnotatedString(contentValue),
         onClick = onClick,
         modifier = modifier,
         style = TextStyle(
             fontSize = fontSize,
-            color= textColor,
+            color = textColor,
             fontFamily = FontFamily.Default
         )
     )

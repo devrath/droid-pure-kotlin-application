@@ -16,12 +16,10 @@ object SaveDataModule {
     @Provides
     @Singleton
     fun provideLoginRepository(
-        saveUserService : SaveUserService
+        saveUserService: SaveUserService
     ): CommonRepository {
         return CommonRepositoryImpl(
             saveUserService = saveUserService
         )
     }
-
-
 }

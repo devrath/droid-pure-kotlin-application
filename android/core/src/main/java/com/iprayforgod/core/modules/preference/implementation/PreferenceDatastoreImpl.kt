@@ -32,17 +32,15 @@ class PreferenceDatastoreImpl(
     }
     /** ************************************************************** **/
 
-
     /** ************************************************************** **/
     override suspend fun saveCurrentUser(state: String) {
         dataStore.edit { it[KEY_REF_currentUserDetails] = state }
     }
 
     override suspend fun readCurrentUser(): Flow<String> {
-        return dataStore.getValueFlow(KEY_REF_currentUserDetails,"")
+        return dataStore.getValueFlow(KEY_REF_currentUserDetails, "")
     }
     /** ************************************************************** **/
-
 
     private fun <T> DataStore<Preferences>.getValueFlow(
         key: Preferences.Key<T>,

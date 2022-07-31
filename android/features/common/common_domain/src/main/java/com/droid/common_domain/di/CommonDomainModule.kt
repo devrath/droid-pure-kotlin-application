@@ -22,6 +22,4 @@ object CommonDomainModule {
             saveUserUseCase = SaveUserUseCase(commonRepository = commonRepo)
         )
     }
-
-
 }

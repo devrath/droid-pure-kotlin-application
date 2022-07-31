@@ -72,7 +72,8 @@ class MainActivity : ComponentActivity() {
                             },
                             onNavigateUp = {
                                 navController.navigateUp()
-                            })
+                            }
+                        )
                     }
                     // --> FORGOT-PWD - SCREEN
                     composable(Route.FORGOT_PASSWORD) {
@@ -80,7 +81,7 @@ class MainActivity : ComponentActivity() {
                     }
                     // --> HOME - SCREEN
                     composable(Route.HOME) {
-                        //HomeScreen()
+                        // HomeScreen()
                     }
                 }
             }

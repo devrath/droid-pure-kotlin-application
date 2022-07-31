@@ -16,7 +16,6 @@ object AnalyticsModule {
     @Provides
     @Singleton
     fun provideAnalytics(): FirebaseAnalytics {
-        return Firebase.analytics;
+        return Firebase.analytics
     }
-
 }

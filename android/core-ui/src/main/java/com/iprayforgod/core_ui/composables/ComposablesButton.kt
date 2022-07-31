@@ -24,11 +24,9 @@ fun CustomButton(
         // Click action
         onClick = onClickAction,
         // Modifier properties
-        modifier = Modifier.fillMaxWidth()
-                         .padding(buttonPaddingInDp),
+        modifier = Modifier.fillMaxWidth().padding(buttonPaddingInDp),
         // Shape of the button
-        shape = setButtonShape( isRounded = isButtonRounded, roundedCornersInDp = cornersInDp
-        )
+        shape = setButtonShape(isRounded = isButtonRounded, roundedCornersInDp = cornersInDp)
     ) {
         SetText(buttonText)
     }

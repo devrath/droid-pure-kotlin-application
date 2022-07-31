@@ -16,10 +16,10 @@ import javax.inject.Inject
 class LoginService @Inject constructor(
     private val serviceFirebase: FirebaseAuthRepository,
     private val serviceFirestore: FirebaseFirestoreRepository,
-    private var  log: LoggerRepository
+    private var log: LoggerRepository
 ) {
 
-    companion object{
+    companion object {
         const val USER_DATA_FIREBASE_IS_NULL = "user data is null in firebase"
         const val USER_DATA_FIRESTORE_IS_NULL = "user data is null in firestore"
     }
@@ -34,7 +34,8 @@ class LoginService @Inject constructor(
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         it.result.user?.let {
-                                user -> getUserDetails(user.uid,resultDeferred)
+                            user ->
+                            getUserDetails(user.uid, resultDeferred)
                         } ?: run {
                             log.e(KeysFeatureNames.FEATURE_LOGIN, USER_DATA_FIREBASE_IS_NULL)
                             resultDeferred.complete(State.failed(USER_DATA_FIREBASE_IS_NULL))
@@ -43,7 +44,7 @@ class LoginService @Inject constructor(
                         resultDeferred.complete(State.failed(it.exception?.message.toString()))
                     }
                 }
-        } catch (ex : Exception) {
+        } catch (ex: Exception) {
             resultDeferred.completeExceptionally(ex)
         }
 
@@ -56,9 +57,7 @@ class LoginService @Inject constructor(
                 resultDeferred.completeExceptionally(e)
             }
         }
-
     }
-
 
     private fun getUserDetails(userId: String, resultDeferred: CompletableDeferred<State<User>>) {
 
@@ -86,7 +85,6 @@ class LoginService @Inject constructor(
                     log.e(KeysFeatureNames.FEATURE_LOGIN, USER_DATA_FIRESTORE_IS_NULL)
                     resultDeferred.complete(State.failed(USER_DATA_FIRESTORE_IS_NULL))
                 }
-
             }
             .addOnFailureListener { e ->
                 // Hide the progress dialog if there is any error. And print the error in log.
@@ -95,6 +93,4 @@ class LoginService @Inject constructor(
                 resultDeferred.completeExceptionally(e)
             }
     }
-
-
 }

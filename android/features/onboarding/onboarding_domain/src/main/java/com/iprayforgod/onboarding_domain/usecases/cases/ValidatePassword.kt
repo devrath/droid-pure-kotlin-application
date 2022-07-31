@@ -12,7 +12,7 @@ class ValidatePassword {
 
     fun execute(password: String): ValidationResult {
         // -> Number of characters in the password must be greater than equal to 8
-        if(password.length < 8) {
+        if (password.length < 8) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "The password needs to consist of at least 8 characters"
@@ -20,7 +20,7 @@ class ValidatePassword {
         }
         // -> Password needs to contain minimum of one letter and one digit
         val containsLettersAndDigits = containsLettersAndDigits(password)
-        if(!containsLettersAndDigits) {
+        if (!containsLettersAndDigits) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "The password needs to contain at least one letter and digit"
@@ -30,6 +30,5 @@ class ValidatePassword {
     }
 
     private fun containsLettersAndDigits(password: String) = password.any { it.isDigit() } &&
-            password.any { it.isLetter() }
-
+        password.any { it.isLetter() }
 }

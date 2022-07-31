@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class ForgotPwdService @Inject constructor(
     private val service: FirebaseAuthRepository,
-    private var  log: LoggerRepository
+    private var log: LoggerRepository
 ) {
 
     fun forgotPwd(input: ForgotPwdInput): Flow<State<Boolean>> {
@@ -29,7 +29,7 @@ class ForgotPwdService @Inject constructor(
                         resultDeferred.complete(State.failed(it.exception?.message.toString()))
                     }
                 }
-        } catch (ex : Exception) {
+        } catch (ex: Exception) {
             resultDeferred.completeExceptionally(ex)
         }
 
@@ -42,7 +42,5 @@ class ForgotPwdService @Inject constructor(
                 resultDeferred.completeExceptionally(e)
             }
         }
-
     }
-
 }

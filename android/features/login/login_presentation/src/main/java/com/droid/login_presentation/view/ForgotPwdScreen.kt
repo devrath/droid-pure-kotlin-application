@@ -16,7 +16,6 @@ import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
 import com.droid.login_presentation.vm.ForgotPwdVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
-
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ForgotPwdScreen(
@@ -53,20 +52,19 @@ fun ForgotPwdScreen(
     LaunchedEffect(key1 = scaffoldState) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.ShowSnackbar ->{
+                is UiEvent.ShowSnackbar -> {
                     val msgToShow = event.message.asString(context)
                     scaffoldState.snackbarHostState.showSnackbar(message = msgToShow)
                     keyboardController?.hide()
                 }
                 is UiEvent.Success -> {
-                    Toast.makeText(context,strEmailSentSuccess, Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, strEmailSentSuccess, Toast.LENGTH_LONG).show()
                 }
                 else -> Unit
             }
         }
     }
 }
-
 
 @Composable
 @Preview(showBackground = true)
@@ -78,8 +76,8 @@ fun ForgotPwdContentPreview() {
     val submitBtnStr = "SUBMIT"
 
     ForgotPwdPageContent(
-        headerStr,descStr,
-        emailLabel,email,submitBtnStr,
+        headerStr, descStr,
+        emailLabel, email, submitBtnStr,
         {}, {}, false
     )
 }

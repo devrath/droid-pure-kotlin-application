@@ -10,5 +10,4 @@ dependencies {
     // --> Pagers for on-boarding
     "implementation"(Accompanist.accompanistPager)
     "implementation"(Accompanist.accompanistPagerIndicators)
-
 }

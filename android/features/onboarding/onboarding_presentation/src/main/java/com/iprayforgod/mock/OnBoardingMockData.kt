@@ -30,6 +30,4 @@ object OnBoardingMockData {
         )
         return onBoardingPageData
     }
-
-
 }

@@ -23,7 +23,7 @@ object FirebaseFirestoreModule {
     @Provides
     @Singleton
     fun provideFirebaseAuthRepository(
-        firebaseFirestoreFeature : FirebaseFirestoreFeature
+        firebaseFirestoreFeature: FirebaseFirestoreFeature
     ) = FirebaseFirestoreRepository(fireStore = firebaseFirestoreFeature)
 
     /**
@@ -49,5 +49,4 @@ object FirebaseFirestoreModule {
     fun provideFirebaseFirestoreInstance(): FirebaseFirestore {
         return FirebaseFirestore.getInstance()
     }
-
 }

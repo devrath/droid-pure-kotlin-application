@@ -1,8 +1,10 @@
 package com.iprayforgod.components.subComponents
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -22,7 +24,7 @@ fun OnBoardingFinishButton(
     pagerState: PagerState,
     onClick: () -> Unit
 ) {
-    OnBoardingFinishButtonContent(modifier,pagerState,onClick)
+    OnBoardingFinishButtonContent(modifier, pagerState, onClick)
 }
 
 @OptIn(ExperimentalPagerApi::class)
@@ -58,8 +60,8 @@ fun OnBoardingFinishButtonContent(
 @Preview(showBackground = true)
 @Composable
 fun PrevOnBoardingFinishButton() {
-    val modifier : Modifier =  Modifier.fillMaxWidth()
-    val pagerState : PagerState = PagerState(2)
-    val  onClick : () -> Unit = {}
-    OnBoardingFinishButtonContent(modifier,pagerState,onClick)
+    val modifier: Modifier = Modifier.fillMaxWidth()
+    val pagerState: PagerState = PagerState(2)
+    val onClick: () -> Unit = {}
+    OnBoardingFinishButtonContent(modifier, pagerState, onClick)
 }

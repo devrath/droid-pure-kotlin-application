@@ -8,12 +8,11 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class CommonRepositoryImpl @Inject constructor(
-    private val saveUserService : SaveUserService
+    private val saveUserService: SaveUserService
 ) : CommonRepository {
 
     // --> SAVE-USER
-    override fun saveUser(input: User) : Flow<State<Unit>> {
+    override fun saveUser(input: User): Flow<State<Unit>> {
         return saveUserService.saveUser(input)
     }
-
 }

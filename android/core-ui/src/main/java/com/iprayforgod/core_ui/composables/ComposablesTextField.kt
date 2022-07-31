@@ -27,9 +27,9 @@ fun CustomInput(
 ) {
 
     when (params) {
-        InputFieldParams.EMAIL -> InputEmail(label, contentValue, valueChanged,keyboardOnNext,keyboardOnDone,imeAction)
-        InputFieldParams.PASSWORD -> InputPassword(label, contentValue, valueChanged,keyboardOnNext,keyboardOnDone,imeAction)
-        InputFieldParams.TEXT -> InputText(label, contentValue, valueChanged,keyboardOnNext,keyboardOnDone,imeAction)
+        InputFieldParams.EMAIL -> InputEmail(label, contentValue, valueChanged, keyboardOnNext, keyboardOnDone, imeAction)
+        InputFieldParams.PASSWORD -> InputPassword(label, contentValue, valueChanged, keyboardOnNext, keyboardOnDone, imeAction)
+        InputFieldParams.TEXT -> InputText(label, contentValue, valueChanged, keyboardOnNext, keyboardOnDone, imeAction)
     }
 }
 
@@ -112,4 +112,3 @@ private fun InputText(
         )
     )
 }
-

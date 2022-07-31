@@ -22,7 +22,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object FirebaseAuthModule {
 
-
     /**
      * STEP-3: ---> <Final Step>
      * Provides a instance of FirebaseAuthFeature
@@ -32,7 +31,7 @@ object FirebaseAuthModule {
     @Provides
     @Singleton
     fun provideFirebaseAuthRepository(
-        firebaseAuthFeature : FirebaseAuthFeature
+        firebaseAuthFeature: FirebaseAuthFeature
     ) = FirebaseAuthRepository(authFeature = firebaseAuthFeature)
 
     /**
@@ -58,5 +57,4 @@ object FirebaseAuthModule {
     fun provideFirebaseAuthInstance(): FirebaseAuth {
         return Firebase.auth
     }
-
 }

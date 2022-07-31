@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 fun CustomText(
     contentValue: String,
     textColor: Color,
-    textAlign : TextAlign = TextAlign.Start,
+    textAlign: TextAlign = TextAlign.Start,
     fontSize: TextUnit = 9.sp
 ) {
     Text(

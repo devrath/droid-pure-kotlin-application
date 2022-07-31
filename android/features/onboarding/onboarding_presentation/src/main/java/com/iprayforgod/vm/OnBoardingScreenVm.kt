@@ -1,8 +1,8 @@
 package com.iprayforgod.vm
 
 import androidx.lifecycle.viewModelScope
-import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
+import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.mock.OnBoardingMockData.addDataForDemo
 import com.iprayforgod.onboarding_domain.models.OnBoardingPageData
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingScreenVm @Inject constructor(
-    private val preferenceRepository : PreferenceRepository
+    private val preferenceRepository: PreferenceRepository
 ) : BaseViewModel() {
 
     var onBoardingPageData = mutableListOf<OnBoardingPageData>()
@@ -20,8 +20,6 @@ class OnBoardingScreenVm @Inject constructor(
     init {
         onBoardingPageData = addDataForDemo()
     }
-
-
 
     /**
      * Save the state of the on-boarding into the preferences via the repository
@@ -31,6 +29,4 @@ class OnBoardingScreenVm @Inject constructor(
             preferenceRepository.saveOnBoardingState(isOnBoardingShown = completed)
         }
     }
-
-
 }
