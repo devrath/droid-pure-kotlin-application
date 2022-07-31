@@ -52,13 +52,14 @@ This repository contains a sample project that is developed using the clean arch
  • Lot of initial code <br>
  • Not knowing what problem it will cause
  
+ ---
+ 
+
+ #### **`𝙼𝚅𝚅𝙼 𝚜𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚞𝚜𝚎𝚍 𝚒𝚗 𝚖𝚞𝚕𝚝𝚒-𝚖𝚘𝚍𝚞𝚕𝚎 𝚏𝚘𝚛 𝚌𝚕𝚎𝚊𝚗 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`**
+
+<img align="left" height="400" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/mvvm_structure.png" alt="mvvm"/>
+<p align="right" ><a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png"></a></p>
 
 ---
-
-### **`𝙵𝚕𝚘𝚠 𝚟𝚒𝚜𝚞𝚊𝚕𝚒𝚣𝚊𝚝𝚒𝚘𝚗 𝚘𝚏 𝚍𝚊𝚝𝚊`** :card_index_dividers:
-<p align="center">
-<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png"></a>
-</p>
-
 
 # \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️👷🔧 🚧 \]
