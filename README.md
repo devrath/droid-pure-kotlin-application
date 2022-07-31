@@ -10,7 +10,7 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :dart:
+### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :card_index_dividers:
 <img align="left" height="190" width="310" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/KotlinAndroidStudio.png"  alt="dev_logo"/>
 
 :label: Programming language: :heavy_minus_sign: By migrating away from Java and towards kotlin, we can leverage the features like better readability, null saftey, less code, benifits of improved syntax and others. </br>
@@ -27,7 +27,14 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### **`𝙲𝚘𝚖𝚖𝚞𝚗𝚒𝚌𝚊𝚝𝚒𝚘𝚗 𝚋𝚎𝚝𝚠𝚎𝚎𝚗 𝚝𝚑𝚎 𝚕𝚊𝚢𝚎𝚛𝚜`** 📑
+### **`𝚆𝚑𝚢 𝚖𝚞𝚕𝚝𝚒 𝚖𝚘𝚍𝚞𝚕𝚎 𝚒𝚜 𝚞𝚜𝚎𝚍 𝚒𝚗 𝚙𝚛𝚘𝚓𝚎𝚌𝚝`** :card_index_dividers:
+:label: A multi module project helps us to segrigate between the layers of code in the project and enforcing strict seperation of concerns. </br>
+:label: When working on a large project this will keep the team to work in layer wise and also feature wise. </br>
+:label: A change in one feature will not affect other features in the project. </br>
+
+---
+
+### **`𝙲𝚘𝚖𝚖𝚞𝚗𝚒𝚌𝚊𝚝𝚒𝚘𝚗 𝚋𝚎𝚝𝚠𝚎𝚎𝚗 𝚝𝚑𝚎 𝚕𝚊𝚢𝚎𝚛𝚜`** :card_index_dividers:
 <img align="left" height="250" width="250" src="https://github.com/devrath/iPrayForGod/blob/main/assets/Clean-architecture-layered-interaction.png"  alt="dev_logo"/>
 :label: Presentation Layer: :heavy_minus_sign: This layer is the UI layer of the application, It contains composables and view-models. The presentation layer communicates with the domain layer, But the presentation layer is not aware of the data layer. </br> 
 :label: Domain Layer: :heavy_minus_sign: This layer contains use cases that contain business logic that perform one functionality each. It also contains the interfaces that communicates with repository which is present in the data layer. </br>
@@ -35,7 +42,7 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚊𝚗𝚍 𝙳𝚒𝚜𝚊𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚘𝚏 𝚖𝚞𝚕𝚝𝚒 𝚖𝚘𝚍𝚞𝚕𝚎 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`** :open_book: 
+### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚊𝚗𝚍 𝙳𝚒𝚜𝚊𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚘𝚏 𝚖𝚞𝚕𝚝𝚒 𝚖𝚘𝚍𝚞𝚕𝚎 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`** :card_index_dividers:
 #### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜`**
 | `Clear separation` | `Faster build time` |
 | ------------ | -------------- |
@@ -48,7 +55,7 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### **`𝙵𝚕𝚘𝚠 𝚟𝚒𝚜𝚞𝚊𝚕𝚒𝚣𝚊𝚝𝚒𝚘𝚗 𝚘𝚏 𝚍𝚊𝚝𝚊`** :card_file_box:
+### **`𝙵𝚕𝚘𝚠 𝚟𝚒𝚜𝚞𝚊𝚕𝚒𝚣𝚊𝚝𝚒𝚘𝚗 𝚘𝚏 𝚍𝚊𝚝𝚊`** :card_index_dividers:
 <p align="center">
 <a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png"></a>
 </p>
