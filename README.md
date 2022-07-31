@@ -40,7 +40,7 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### `Skeletal Structure of project` 📑
+### `Flow visualization of data` 📑
 <p align="center">
 <a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure.png"></a>
 </p>
