@@ -11,11 +11,13 @@ This repository contains a sample project that is developed using the clean arch
 ---
 
 ### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :dart:
+<img align="left" height="190" width="310" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/KotlinAndroidStudio.png"  alt="dev_logo"/>
 
+:label: Programming language: :heavy_minus_sign: By migrating away from Java and towards kotlin, we can leverage the features like better readability, null saftey, less code, benifits of improved syntax and others. </br>
+:label: Kotlin DSL: :heavy_minus_sign: Earlier we used to use gradle for organizing dependencies. Gradle is written in a groovy programming language. Using the kotlin-DSL, we can organize the dependencies in our project cleaner and in an efficient way. Type safety. This allows better autocompletion which was missing from grovey till now. Code navigation between files becomes easy in Kotlin DSL. Refactoring is much easier. </br>
+:label: Compose: :heavy_minus_sign: Earlier we had xml for building the UI and thus there was one more language hooked to android project. But with the addition of jetpack compose, Even the UI will be built in kotlin language.
 
-
-
-
+---
 
 ### **`𝚆𝚑𝚢 𝚌𝚕𝚎𝚊𝚗 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎 𝚒𝚜 𝚗𝚎𝚎𝚍𝚎𝚍`** 📑
 <img align="right" height="190" width="410" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/compose_clean_arch.png"  alt="dev_logo"/>
