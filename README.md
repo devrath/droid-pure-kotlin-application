@@ -19,9 +19,9 @@ This repository contains a sample project that is developed using the clean arch
 
 ### `Why clean architecture is needed` 📑
 <img align="right" height="190" width="410" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/compose_clean_arch.png"  alt="dev_logo"/>
-Scalability: --> When new features are added, using the clean architecture we can easily add the new features and maintain old existing features without breaking them. </br>
-Testability: --> For the new features, its essential we write a code that can be tested for all possible inputs so that once in production we can forecast all possible scenarios and handle them.  </br>
-Understandable: -->  Scaling a product with keeping the code testable is good but its also should be in such a way that everyone should understand it and also should easily be modify it.
+• Scalability: --> When new features are added, using the clean architecture we can easily add the new features and maintain old existing features without breaking them. </br>
+• Testability: --> For the new features, its essential we write a code that can be tested for all possible inputs so that once in production we can forecast all possible scenarios and handle them.  </br>
+• Understandable: -->  Scaling a product with keeping the code testable is good but its also should be in such a way that everyone should understand it and also should easily be modify it.
 
 ### `Communication between the layers` 📑
 <p align="center" >
