@@ -49,6 +49,4 @@ object LoginDomainModule {
             )
         )
     }
-
-
 }

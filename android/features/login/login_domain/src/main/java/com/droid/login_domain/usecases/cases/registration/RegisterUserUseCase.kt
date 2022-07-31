@@ -13,5 +13,4 @@ class RegisterUserUseCase(
     operator fun invoke(input: RegistrationInput): Flow<State<User>> {
         return loginRepo.registerUser(input)
     }
-
 }

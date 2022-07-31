@@ -27,10 +27,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginVm @Inject constructor(
-    private var  loginModuleUseCases: LoginModuleUseCases,
-    private var  commonModuleUseCases: CommonModuleUseCases,
-    private var  log: LoggerRepository,
-) : BaseViewModel()  {
+    private var loginModuleUseCases: LoginModuleUseCases,
+    private var commonModuleUseCases: CommonModuleUseCases,
+    private var log: LoggerRepository,
+) : BaseViewModel() {
 
     var viewState by mutableStateOf(LoginUiState())
         private set
@@ -38,11 +38,10 @@ class LoginVm @Inject constructor(
     private val _uiEvent = Channel<LoginViewResponseEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-
     fun onEvent(event: LoginViewEvent) {
-        when(event) {
-            is LoginViewEvent.OnLoginViewClick ->  actionLogin()
-            is LoginViewEvent.LoginSaveUserToPreference ->  saveUserAfterLoggingIn(event.user)
+        when (event) {
+            is LoginViewEvent.OnLoginViewClick -> actionLogin()
+            is LoginViewEvent.LoginSaveUserToPreference -> saveUserAfterLoggingIn(event.user)
 
             is LoginViewEvent.OnViewChangedEmail -> {
                 viewState = viewState.copy(email = event.valueEmail)
@@ -62,21 +61,21 @@ class LoginVm @Inject constructor(
      * ACTION - Login
      */
     private fun actionLogin() {
-        log.d(FEATURE_LOGIN,"ACTION:->  Login action functionality is invoked")
+        log.d(FEATURE_LOGIN, "ACTION:->  Login action functionality is invoked")
 
         viewModelScope.launch {
             val input = loginInput()
             val registrationValidation = withContext(Dispatchers.Default) {
                 validateFieldsForLogin(input)
             }
-            if(registrationValidation){
+            if (registrationValidation) {
                 initiateLoginApi(input)
             }
         }
     }
 
     private fun saveUserAfterLoggingIn(user: User) {
-        log.d(FEATURE_LOGIN,"ACTION:->  Saving user after user logged in")
+        log.d(FEATURE_LOGIN, "ACTION:->  Saving user after user logged in")
         viewModelScope.launch { saveUser(user) }
     }
     /** ********************************** BUTTON-ACTIONS *****************************************/
@@ -87,12 +86,12 @@ class LoginVm @Inject constructor(
      * USE CASE: use case for email and password field validations
      */
     private suspend fun validateFieldsForLogin(input: LoginInput): Boolean {
-        log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
+        log.d(FEATURE_LOGIN, "USE CASE:->  registration fields validations invoked")
         loginModuleUseCases.validateLogin.invoke(input)
             .onSuccess {
-                return if(it.successful){
+                return if (it.successful) {
                     true
-                }else{
+                } else {
                     useCaseErrorMessage(it.errorMessage)
                     false
                 }
@@ -110,13 +109,13 @@ class LoginVm @Inject constructor(
     private fun saveUser(input: User) {
         viewModelScope.launch {
             commonModuleUseCases.saveUserUseCase.invoke(input).collect { state ->
-                when(state){
+                when (state) {
                     is State.Failed -> {
-                        log.d(FEATURE_LOGIN,"LOGIN API FAILED")
+                        log.d(FEATURE_LOGIN, "LOGIN API FAILED")
                         useCaseErrorMessage(UiText.DynamicString(state.message))
                     }
                     is State.Success -> {
-                        log.d(FEATURE_LOGIN,"LOGIN API SUCCESS")
+                        log.d(FEATURE_LOGIN, "LOGIN API SUCCESS")
                         _uiEvent.send(LoginViewResponseEvent.SaveUserSuccess)
                     }
                 }
@@ -125,23 +124,22 @@ class LoginVm @Inject constructor(
     }
     /** ********************************** USE CASES **********************************************/
 
-
     /** ********************************** API CALLS **********************************************/
     private fun initiateLoginApi(input: LoginInput) {
         viewModelScope.launch {
             loginModuleUseCases.loginUseCase(input).collect { state ->
-                when(state){
+                when (state) {
                     is State.Success -> {
-                        log.d(FEATURE_LOGIN,"LOGIN API SUCCESS")
+                        log.d(FEATURE_LOGIN, "LOGIN API SUCCESS")
                         viewState = viewState.copy(isLoaderVisible = false)
                         _uiEvent.send(LoginViewResponseEvent.LoginApiSuccess(state.data))
                     }
                     is State.Loading -> {
-                        log.d(FEATURE_LOGIN,"LOGIN API LOADING")
+                        log.d(FEATURE_LOGIN, "LOGIN API LOADING")
                         viewState = viewState.copy(isLoaderVisible = true)
                     }
                     is State.Failed -> {
-                        log.d(FEATURE_LOGIN,"LOGIN API FAILED")
+                        log.d(FEATURE_LOGIN, "LOGIN API FAILED")
                         viewState = viewState.copy(isLoaderVisible = false)
                         useCaseErrorMessage(UiText.DynamicString(state.message))
                     }
@@ -156,7 +154,7 @@ class LoginVm @Inject constructor(
      * ERROR HANDLING:
      * Displaying messages to the snack-bar
      */
-    private suspend fun useCaseErrorMessage(result:UiText?) {
+    private suspend fun useCaseErrorMessage(result: UiText?) {
         result?.let { _uiEvent.send(LoginViewResponseEvent.ShowSnackbar(it)) }
     }
 
@@ -173,6 +171,4 @@ class LoginVm @Inject constructor(
     /** ********************************* INPUTS **************************************************/
     private fun loginInput() = LoginInput(email = viewState.email, password = viewState.pwd)
     /** ********************************* INPUTS **************************************************/
-
-
 }

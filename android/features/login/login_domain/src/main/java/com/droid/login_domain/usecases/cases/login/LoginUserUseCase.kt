@@ -13,5 +13,4 @@ class LoginUserUseCase(
     operator fun invoke(input: LoginInput): Flow<State<User>> {
         return loginRepo.loginUser(input)
     }
-
 }

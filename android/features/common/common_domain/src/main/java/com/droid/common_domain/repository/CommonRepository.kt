@@ -5,5 +5,5 @@ import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 
 interface CommonRepository {
-    fun saveUser(input: User) : Flow<State<Unit>>
+    fun saveUser(input: User): Flow<State<Unit>>
 }

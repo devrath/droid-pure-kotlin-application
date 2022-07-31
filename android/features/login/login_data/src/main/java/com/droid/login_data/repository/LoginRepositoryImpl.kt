@@ -13,24 +13,23 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(
-    private val registrationService : RegistrationService,
-    private val loginService : LoginService,
-    private val forgotPwdService : ForgotPwdService
+    private val registrationService: RegistrationService,
+    private val loginService: LoginService,
+    private val forgotPwdService: ForgotPwdService
 ) : LoginRepository {
 
     // --> REGISTER the user
-    override fun  registerUser(input: RegistrationInput): Flow<State<User>> {
+    override fun registerUser(input: RegistrationInput): Flow<State<User>> {
         return registrationService.registerUser(input)
     }
 
     // --> LOGIN the user
     override fun loginUser(input: LoginInput): Flow<State<User>> {
-       return loginService.loginUser(input)
+        return loginService.loginUser(input)
     }
 
     // --> FORGOT-PWD for user
     override fun forgotPassword(input: ForgotPwdInput): Flow<State<Boolean>> {
         return forgotPwdService.forgotPwd(input)
     }
-
 }

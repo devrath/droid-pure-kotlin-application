@@ -15,13 +15,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object LoginDataModule {
 
-
     @Provides
     @Singleton
     fun provideLoginRepository(
-        regServ : RegistrationService,
-        loginServ : LoginService,
-        forgotPwdService : ForgotPwdService
+        regServ: RegistrationService,
+        loginServ: LoginService,
+        forgotPwdService: ForgotPwdService
     ): LoginRepository {
         return LoginRepositoryImpl(
             registrationService = regServ,
@@ -29,6 +28,4 @@ object LoginDataModule {
             forgotPwdService = forgotPwdService
         )
     }
-
-
 }

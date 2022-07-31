@@ -21,8 +21,8 @@ import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 fun RegistrationScreen(
     onLoginClick: (Int) -> Unit,
     onNavigateUp: () -> Unit,
-    viewModel : RegistrationVm = hiltViewModel()
-){
+    viewModel: RegistrationVm = hiltViewModel()
+) {
     val context = LocalContext.current
     val state = viewModel.viewState
 
@@ -41,8 +41,8 @@ fun RegistrationScreen(
 
     Scaffold(scaffoldState = scaffoldState) {
         RegistrationScreenContent(
-            firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
-            registerHeaderStr,registerBtnStr,loginTxtStr,
+            firstNameLabel, lastNameLabel, emailLabel, passwordLabel, confirmPasswordLabel,
+            registerHeaderStr, registerBtnStr, loginTxtStr,
             state.firstName, state.lastName,
             state.email, state.pwd, state.confirmPwd,
             {
@@ -78,7 +78,7 @@ fun RegistrationScreen(
                     keyboardController?.hide()
                 }
                 UiEvent.Success -> {
-                    Toast.makeText(context,"Registration Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Registration Success", Toast.LENGTH_LONG).show()
                     // Close the registration screen
                     onNavigateUp()
                 }
@@ -87,7 +87,6 @@ fun RegistrationScreen(
         }
     }
 }
-
 
 @Composable
 @Preview(showBackground = true)
@@ -103,11 +102,10 @@ fun RegistrationScreenContentPreview() {
     val registerBtnStr = "Register"
     val loginTxtStr = "Login"
 
-
     RegistrationScreenContent(
-        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
-        registerHeaderStr,registerBtnStr,loginTxtStr,
+        firstNameLabel, lastNameLabel, emailLabel, passwordLabel, confirmPasswordLabel,
+        registerHeaderStr, registerBtnStr, loginTxtStr,
         "First Name", "Last Name", "Email",
-        "Password", "Confirm Password", {}, {}, {}, {}, {},{},{}
+        "Password", "Confirm Password", {}, {}, {}, {}, {}, {}, {}
     )
 }

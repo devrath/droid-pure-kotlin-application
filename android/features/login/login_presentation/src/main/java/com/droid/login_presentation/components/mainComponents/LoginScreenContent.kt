@@ -32,54 +32,64 @@ import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
 fun LoginScreenContent(
-    emailLabel:String, pwdLabel:String,
-    loginHeaderStr: String,loginBtnStr: String,
-    forgotPwdTxtStr: String,signUpHereTxtStr: String,
-    email: String, password: String,
-    onEmailChanged : (String) -> Unit,
-    onPwdChanged : (String) -> Unit,
-    clickSignUp : (Int) -> Unit,
-    clickForgotPwd : (Int) -> Unit,
-    clickLoginAction : () -> Unit,
+    emailLabel: String,
+    pwdLabel: String,
+    loginHeaderStr: String,
+    loginBtnStr: String,
+    forgotPwdTxtStr: String,
+    signUpHereTxtStr: String,
+    email: String,
+    password: String,
+    onEmailChanged: (String) -> Unit,
+    onPwdChanged: (String) -> Unit,
+    clickSignUp: (Int) -> Unit,
+    clickForgotPwd: (Int) -> Unit,
+    clickLoginAction: () -> Unit,
     isLoading: Boolean = false
 ) {
     LoginPageContent(
-        emailLabel,pwdLabel,
-        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
-        email,password,onEmailChanged,
-        onPwdChanged,clickSignUp,clickForgotPwd,clickLoginAction,isLoading
+        emailLabel, pwdLabel,
+        loginHeaderStr, loginBtnStr, forgotPwdTxtStr, signUpHereTxtStr,
+        email, password, onEmailChanged,
+        onPwdChanged, clickSignUp, clickForgotPwd, clickLoginAction, isLoading
     )
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun LoginPageContent(
-    emailLabel: String,pwdLabel: String,
-    loginHeaderStr: String,loginBtnStr: String,
-    forgotPwdTxtStr: String,signUpHereTxtStr: String,
-    email: String, password: String,
-    onEmailChanged : (String) -> Unit,
-    onPwdChanged : (String) -> Unit,
-    clickSignUp : (Int) -> Unit,
-    clickForgotPwd : (Int) -> Unit,
-    clickLoginAction : () -> Unit,
+    emailLabel: String,
+    pwdLabel: String,
+    loginHeaderStr: String,
+    loginBtnStr: String,
+    forgotPwdTxtStr: String,
+    signUpHereTxtStr: String,
+    email: String,
+    password: String,
+    onEmailChanged: (String) -> Unit,
+    onPwdChanged: (String) -> Unit,
+    clickSignUp: (Int) -> Unit,
+    clickForgotPwd: (Int) -> Unit,
+    clickLoginAction: () -> Unit,
     isLoading: Boolean
 ) {
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    Surface(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)) {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(isLoading){
+            if (isLoading) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(!isLoading){
+            if (!isLoading) {
                 Box(modifier = Modifier.fillMaxSize()) {
                     CustomClickableText(
                         contentValue = signUpHereTxtStr,
@@ -139,7 +149,7 @@ fun LoginPageContent(
 
                         CustomClickableText(
                             contentValue = forgotPwdTxtStr,
-                            textColor= Color.Black,
+                            textColor = Color.Black,
                             fontSize = 14.sp,
                             onClick = clickForgotPwd
                         )
@@ -149,9 +159,6 @@ fun LoginPageContent(
         }
     }
 }
-
-
-
 
 @Composable
 @Preview(showBackground = true)
@@ -165,9 +172,9 @@ fun LoginPagePreview() {
     val signUpHereTxtStr = "Sign up here"
 
     LoginPageContent(
-        emailLabel,pwdLabel,
-        loginHeaderStr,loginBtnStr,forgotPwdTxtStr,signUpHereTxtStr,
+        emailLabel, pwdLabel,
+        loginHeaderStr, loginBtnStr, forgotPwdTxtStr, signUpHereTxtStr,
         "userName", "password",
-        {},{},{},{},{},false
+        {}, {}, {}, {}, {}, false
     )
 }

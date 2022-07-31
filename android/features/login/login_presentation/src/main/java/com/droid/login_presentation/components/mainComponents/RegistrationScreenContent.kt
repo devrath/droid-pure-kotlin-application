@@ -31,29 +31,48 @@ import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
 fun RegistrationScreenContent(
-    firstNameLabel: String,lastNameLabel: String,emailLabel: String,passwordLabel: String,
-    confirmPasswordLabel: String, registerHeaderStr: String,registerBtnStr: String,loginTxtStr: String,
-    firstName: String, lastName: String, email: String, pwd: String, confirmPwd: String,
-    firstNameChanged : (String) -> Unit, lastNameChanged : (String) -> Unit,
-    onEmailChanged : (String) -> Unit, onPwdChanged : (String) -> Unit,
-    onConfirmPwdChanged : (String) -> Unit,
-    clickRegistrationAction : () -> Unit, clickLoginAction : (Int) -> Unit,
+    firstNameLabel: String,
+    lastNameLabel: String,
+    emailLabel: String,
+    passwordLabel: String,
+    confirmPasswordLabel: String,
+    registerHeaderStr: String,
+    registerBtnStr: String,
+    loginTxtStr: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    pwd: String,
+    confirmPwd: String,
+    firstNameChanged: (String) -> Unit,
+    lastNameChanged: (String) -> Unit,
+    onEmailChanged: (String) -> Unit,
+    onPwdChanged: (String) -> Unit,
+    onConfirmPwdChanged: (String) -> Unit,
+    clickRegistrationAction: () -> Unit,
+    clickLoginAction: (Int) -> Unit,
     isLoading: Boolean = false
-){
+) {
     RegistrationPageContent(
-        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
-        registerHeaderStr,registerBtnStr,loginTxtStr,
+        firstNameLabel, lastNameLabel, emailLabel, passwordLabel, confirmPasswordLabel,
+        registerHeaderStr, registerBtnStr, loginTxtStr,
         firstName, lastName, email, pwd, confirmPwd,
-        firstNameChanged, lastNameChanged, onEmailChanged, onPwdChanged,onConfirmPwdChanged,
-        clickRegistrationAction,clickLoginAction,isLoading
+        firstNameChanged, lastNameChanged, onEmailChanged, onPwdChanged, onConfirmPwdChanged,
+        clickRegistrationAction, clickLoginAction, isLoading
     )
 }
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun RegistrationPageContent(
-    firstNameLabel: String,lastNameLabel: String,emailLabel: String,passwordLabel: String,
-    confirmPasswordLabel: String, registerHeaderStr: String,registerBtnStr: String,loginTxtStr: String,
+    firstNameLabel: String,
+    lastNameLabel: String,
+    emailLabel: String,
+    passwordLabel: String,
+    confirmPasswordLabel: String,
+    registerHeaderStr: String,
+    registerBtnStr: String,
+    loginTxtStr: String,
     firstName: String,
     lastName: String,
     email: String,
@@ -72,18 +91,20 @@ fun RegistrationPageContent(
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    Surface(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)) {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(isLoading){
+            if (isLoading) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(!isLoading){
+            if (!isLoading) {
                 Box(modifier = Modifier.fillMaxSize()) {
                     CustomClickableText(
                         contentValue = loginTxtStr,
@@ -163,7 +184,6 @@ fun RegistrationPageContent(
             }
         }
     }
-
 }
 
 @Composable
@@ -179,9 +199,9 @@ fun RegistrationPagePreview() {
     val registerBtnStr = "Register"
     val loginTxtStr = "Login"
     RegistrationPageContent(
-        firstNameLabel,lastNameLabel,emailLabel,passwordLabel,confirmPasswordLabel,
-        registerHeaderStr,registerBtnStr,loginTxtStr,
-        "First name", "Last name","Email",
-        "Password", "Confirm Password",{},{},{},{},{},{},{},false
+        firstNameLabel, lastNameLabel, emailLabel, passwordLabel, confirmPasswordLabel,
+        registerHeaderStr, registerBtnStr, loginTxtStr,
+        "First name", "Last name", "Email",
+        "Password", "Confirm Password", {}, {}, {}, {}, {}, {}, {}, false
     )
 }

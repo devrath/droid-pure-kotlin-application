@@ -9,5 +9,4 @@ interface PreferenceDatastore {
 
     suspend fun saveOnBoardingState(text: Boolean)
     suspend fun readOnBoardingState(): Flow<Boolean>
-
 }

@@ -13,4 +13,3 @@ sealed class LoginViewStates {
     object LoginValidationSuccessful : LoginViewStates()
     data class ErrorState(val errorMessage: UiText) : LoginViewStates()
 }
-

@@ -30,48 +30,51 @@ import com.iprayforgod.core_ui.composables.CustomText
 import com.iprayforgod.core_ui.composables.InputFieldParams
 
 @Composable
-fun ForgotPwdScreenContent (
+fun ForgotPwdScreenContent(
     headerStr: String,
     descStr: String,
-    emailLabel:String, email: String,
+    emailLabel: String,
+    email: String,
     submitBtnStr: String,
-    onEmailChanged : (String) -> Unit,
-    clickSubmitAction : () -> Unit,
+    onEmailChanged: (String) -> Unit,
+    clickSubmitAction: () -> Unit,
     isLoading: Boolean = false
 ) {
     ForgotPwdPageContent(
-        headerStr,descStr,
-        emailLabel,email,submitBtnStr,onEmailChanged,clickSubmitAction,isLoading
+        headerStr, descStr,
+        emailLabel, email, submitBtnStr, onEmailChanged, clickSubmitAction, isLoading
     )
-
 }
-
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ForgotPwdPageContent(
-    headerStr: String, descStr: String,
-    emailLabel: String, email: String,
+    headerStr: String,
+    descStr: String,
+    emailLabel: String,
+    email: String,
     submitBtnStr: String,
-    onEmailChanged : (String) -> Unit,
-    clickSubmitAction : () -> Unit,
+    onEmailChanged: (String) -> Unit,
+    clickSubmitAction: () -> Unit,
     isLoading: Boolean
 ) {
     val focusManager = LocalFocusManager.current
     val keyboardController = LocalSoftwareKeyboardController.current
 
-    Surface(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.White)) {
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(isLoading){
+            if (isLoading) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
 
         BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-            if(!isLoading){
+            if (!isLoading) {
 
                 Column(
                     modifier = Modifier.fillMaxSize().padding(10.dp),
@@ -116,7 +119,6 @@ fun ForgotPwdPageContent(
     }
 }
 
-
 @Composable
 @Preview(showBackground = true)
 fun ForgotPwdPagePreview() {
@@ -127,7 +129,7 @@ fun ForgotPwdPagePreview() {
     val submitBtnStr = "SUBMIT"
 
     ForgotPwdPageContent(
-        headerStr,descStr, emailLabel,email,submitBtnStr,
-        {},{},false
+        headerStr, descStr, emailLabel, email, submitBtnStr,
+        {}, {}, false
     )
 }

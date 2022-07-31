@@ -1,7 +1,11 @@
 package com.iprayforgod.components.subComponents
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,8 +16,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.iprayforgod.components.mainComponents.CurrScreenOnBoardingContent
-import com.iprayforgod.mock.OnBoardingMockData
 import com.iprayforgod.onboarding_domain.models.OnBoardingPageData
 import com.iprayforgod.onboarding_presentation.R
 
@@ -57,7 +59,9 @@ fun CurrPagerDataContent(data: OnBoardingPageData) {
 @Preview(showBackground = true)
 @Composable
 fun PrevPagerDataContent() {
-    CurrPagerDataContent(OnBoardingPageData(
-        image = R.drawable.ic_launcher_icon, title = "Demo Title", description = "Demo Description"
-    ))
+    CurrPagerDataContent(
+        OnBoardingPageData(
+            image = R.drawable.ic_launcher_icon, title = "Demo Title", description = "Demo Description"
+        )
+    )
 }

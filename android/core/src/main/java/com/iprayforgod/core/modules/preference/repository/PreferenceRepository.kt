@@ -34,5 +34,4 @@ class PreferenceRepository(
     suspend fun readUserState(): Flow<String> {
         return preference.readCurrentUser()
     }
-
 }

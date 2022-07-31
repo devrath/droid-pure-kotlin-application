@@ -8,7 +8,7 @@ import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {
-    fun registerUser(input: RegistrationInput):  Flow<State<User>>
-    fun loginUser(input: LoginInput):  Flow<State<User>>
-    fun forgotPassword(input: ForgotPwdInput):  Flow<State<Boolean>>
+    fun registerUser(input: RegistrationInput): Flow<State<User>>
+    fun loginUser(input: LoginInput): Flow<State<User>>
+    fun forgotPassword(input: ForgotPwdInput): Flow<State<Boolean>>
 }

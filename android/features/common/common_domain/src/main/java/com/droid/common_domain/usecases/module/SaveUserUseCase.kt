@@ -6,11 +6,10 @@ import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 
 class SaveUserUseCase(
-    private val commonRepository : CommonRepository
+    private val commonRepository: CommonRepository
 ) {
 
     operator fun invoke(user: User): Flow<State<Unit>> {
         return commonRepository.saveUser(user)
     }
-
 }

@@ -12,5 +12,4 @@ class ForgotPwdUseCase(
     operator fun invoke(input: ForgotPwdInput): Flow<State<Boolean>> {
         return loginRepo.forgotPassword(input)
     }
-
 }

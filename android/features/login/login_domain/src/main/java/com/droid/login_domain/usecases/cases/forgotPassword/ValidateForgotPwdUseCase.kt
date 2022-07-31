@@ -18,7 +18,7 @@ class ValidateForgotPwdUseCase @Inject constructor(
 
     suspend operator fun invoke(
         input: ForgotPwdInput
-    ) : Result<ValidationResult> {
+    ): Result<ValidationResult> {
         try {
             val result = initiateValidation(input)
             return Result.success(result)
@@ -28,25 +28,24 @@ class ValidateForgotPwdUseCase @Inject constructor(
     }
 
     private fun initiateValidation(input: ForgotPwdInput): ValidationResult {
-        if(input.email.isBlank()) {
-            log.d(KeysFeatureNames.FEATURE_LOGIN,"VALIDATION:-> Email entered is blank")
+        if (input.email.isBlank()) {
+            log.d(KeysFeatureNames.FEATURE_LOGIN, "VALIDATION:-> Email entered is blank")
             return ValidationResult(
                 successful = false,
                 errorMessage = UiText.StringResource(R.string.error_msg_email_cant_be_blank)
             )
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(input.email).matches()) {
-            log.d(KeysFeatureNames.FEATURE_LOGIN,"VALIDATION:-> Not valid email format")
+        if (!Patterns.EMAIL_ADDRESS.matcher(input.email).matches()) {
+            log.d(KeysFeatureNames.FEATURE_LOGIN, "VALIDATION:-> Not valid email format")
             return ValidationResult(
                 successful = false,
                 errorMessage = UiText.StringResource(R.string.error_msg_email_is_not_valid)
             )
         }
 
-        log.d(KeysFeatureNames.FEATURE_LOGIN,"VALIDATION:-> Email validation successful")
+        log.d(KeysFeatureNames.FEATURE_LOGIN, "VALIDATION:-> Email validation successful")
         return ValidationResult(
             successful = true
         )
-
     }
 }

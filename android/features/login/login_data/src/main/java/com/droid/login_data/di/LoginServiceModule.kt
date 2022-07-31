@@ -27,5 +27,4 @@ object LoginServiceModule {
             serviceFirestore = firebaseFirestoreRepository
         )
     }
-
 }

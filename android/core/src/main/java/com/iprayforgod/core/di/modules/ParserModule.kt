@@ -47,5 +47,4 @@ object ParserModule {
     @Provides
     @Singleton
     fun provideMoshi(): Moshi = Moshi.Builder().build()
-
 }

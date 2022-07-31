@@ -7,8 +7,7 @@ class ParserRepository(
     private val parserFeature: ParserFeature
 ) {
 
-    fun convertUserObjectToJson(user:User): String {
-        return  parserFeature.convertUserObjectToJson(user)
+    fun convertUserObjectToJson(user: User): String {
+        return parserFeature.convertUserObjectToJson(user)
     }
-
 }

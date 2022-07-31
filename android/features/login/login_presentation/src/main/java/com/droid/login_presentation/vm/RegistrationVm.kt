@@ -24,7 +24,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-
 /**
  * Types of communication
  * **********
@@ -34,8 +33,8 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class RegistrationVm @Inject constructor(
-    private var  loginModuleUseCases: LoginModuleUseCases,
-    private var  log: LoggerRepository
+    private var loginModuleUseCases: LoginModuleUseCases,
+    private var log: LoggerRepository
 ) : BaseViewModel() {
 
     var viewState by mutableStateOf(RegistrationUiState())
@@ -44,10 +43,9 @@ class RegistrationVm @Inject constructor(
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-
     fun onEvent(event: RegistrationViewEvent) {
-        when(event) {
-            is RegistrationViewEvent.OnRegisterViewClick ->  actionRegistration()
+        when (event) {
+            is RegistrationViewEvent.OnRegisterViewClick -> actionRegistration()
             is RegistrationViewEvent.OnViewChangedConfirmPassword -> {
                 viewState = viewState.copy(confirmPwd = event.valueConfirmPwd)
             }
@@ -70,13 +68,13 @@ class RegistrationVm @Inject constructor(
     }
 
     private fun actionRegistration() {
-        log.d(FEATURE_LOGIN,"ACTION:->  Registration action functionality is invoked")
+        log.d(FEATURE_LOGIN, "ACTION:->  Registration action functionality is invoked")
         viewModelScope.launch {
             val input = registrationInput()
             val registrationValidation = withContext(Dispatchers.Default) {
                 validateFieldsForRegistration(input)
             }
-            if(registrationValidation){
+            if (registrationValidation) {
                 initiateRegistration(input)
             }
         }
@@ -87,12 +85,12 @@ class RegistrationVm @Inject constructor(
      * USE CASE: use case for email field validations
      */
     private suspend fun validateFieldsForRegistration(input: RegistrationInput): Boolean {
-        log.d(FEATURE_LOGIN,"USE CASE:->  registration fields validations invoked")
+        log.d(FEATURE_LOGIN, "USE CASE:->  registration fields validations invoked")
         loginModuleUseCases.validateRegistration.invoke(input)
             .onSuccess {
-                return if(it.successful){
+                return if (it.successful) {
                     true
-                }else{
+                } else {
                     useCaseErrorMessage(it.errorMessage)
                     false
                 }
@@ -127,33 +125,31 @@ class RegistrationVm @Inject constructor(
 
         viewModelScope.launch {
             loginModuleUseCases.registerUseCase(input).collect { state ->
-                when(state){
+                when (state) {
                     is State.Success -> {
-                        log.d(FEATURE_LOGIN,"REGISTRATION API SUCCESS")
+                        log.d(FEATURE_LOGIN, "REGISTRATION API SUCCESS")
                         viewState = viewState.copy(isLoaderVisible = false)
                         _uiEvent.send(UiEvent.Success)
                     }
                     is State.Loading -> {
-                        log.d(FEATURE_LOGIN,"REGISTRATION API LOADING")
+                        log.d(FEATURE_LOGIN, "REGISTRATION API LOADING")
                         viewState = viewState.copy(isLoaderVisible = true)
                     }
                     is State.Failed -> {
-                        log.d(FEATURE_LOGIN,"REGISTRATION API FAILED")
+                        log.d(FEATURE_LOGIN, "REGISTRATION API FAILED")
                         viewState = viewState.copy(isLoaderVisible = false)
                         useCaseErrorMessage(UiText.StringResource(R.string.str_registration_failed))
                     }
                 }
             }
         }
-
     }
     /** ********************************** API CALLS **********************************************/
 
-    private fun registrationInput() : RegistrationInput{
+    private fun registrationInput(): RegistrationInput {
         return RegistrationInput(
             firstName = viewState.firstName, lastName = viewState.lastName,
             email = viewState.email, password = viewState.pwd, confirmPassword = viewState.confirmPwd
         )
     }
-
 }

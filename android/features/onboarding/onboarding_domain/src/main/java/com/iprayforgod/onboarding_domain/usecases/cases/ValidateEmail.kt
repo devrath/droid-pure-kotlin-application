@@ -13,14 +13,14 @@ class ValidateEmail {
 
     fun execute(email: String): ValidationResult {
         // -> Email field should not be blank
-        if(email.isBlank()) {
+        if (email.isBlank()) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "The email can't be blank"
             )
         }
         // -> Certain patterns of the email is matched
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             return ValidationResult(
                 successful = false,
                 errorMessage = "That's not a valid email"
@@ -28,5 +28,4 @@ class ValidateEmail {
         }
         return ValidationResult(successful = true)
     }
-
 }
