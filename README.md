@@ -59,8 +59,8 @@ This repository contains a sample project that is developed using the clean arch
 
 
 <p align="right" >
-<img align="left" height="400" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/mvvm_structure.png" alt="mvvm"/>
-<img align="left" height="400" width="500" src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png" alt="mvvm-improved"/>
+<img align="left" height="300" width="300" src="https://github.com/devrath/iPrayForGod/blob/main/assets/mvvm_structure.png" alt="mvvm"/>
+<img align="left" height="300" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png" alt="mvvm-improved"/>
 </p>
 
 
