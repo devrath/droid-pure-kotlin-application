@@ -16,6 +16,13 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
+### `Pure kotlin code base`
+
+
+
+
+
+
 ### `Why clean architecture is needed` 📑
 <p align="center">
 <a><img src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/compose_clean_arch.png"></a>
@@ -42,7 +49,7 @@ This repository contains a sample project that is developed using the clean arch
 
 ### `Flow visualization of data` 📑
 <p align="center">
-<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure.png"></a>
+<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png"></a>
 </p>
 
 
