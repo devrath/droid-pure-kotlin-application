@@ -84,3 +84,13 @@ This repository contains a sample project that is developed using the clean arch
 ```gradle
 ./gradlew ktlintCheck   
 ```
+ 
+ ---
+ 
+## **`𝙷𝚘𝚠 𝚝𝚘 𝚛𝚞𝚗 𝚝𝚑𝚎 𝚜𝚊𝚖𝚙𝚕𝚎 𝚊𝚙𝚙𝚕𝚒𝚌𝚊𝚝𝚒𝚘𝚗`**
+:label: Basically You just follow steps to create a firebase account and eanable authentication module, I have summarized some steps below.
+:label: :one: Before running the sample application, Please create a account in firebase console
+:label: :two: Now enable the authentication in settings for firebase(This is used during the authentication of login)
+:label: :three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase 
+:label: :four: Last but not least add your application SHA in your firebase settings.
+
