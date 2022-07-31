@@ -120,3 +120,5 @@ This repository contains a sample project that is developed using the clean arch
 ## **`𝙱𝚞𝚒𝚕𝚍-𝚝𝚘𝚘𝚕`** 🧰
 You need to have [android studio](https://developer.android.com/studio/features) to build this project.
 
+## **`𝙵𝚒𝚗𝚍 𝚝𝚑𝚒𝚜 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚞𝚜𝚎𝚏𝚞𝚕`** ? ❤️
+Support it by clicking the ⭐ button on the upper right of this page. ✌️
