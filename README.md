@@ -80,6 +80,8 @@ This repository contains a sample project that is developed using the clean arch
 <img align="left" height="300" width="300" src="https://github.com/devrath/iPrayForGod/blob/main/assets/mvvm_structure.png" alt="mvvm"/>
 <img align="left" height="300" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png" alt="mvvm-improved"/>
 </p>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
  
  :label: Implementations of repositories sits in the data layer.<br/>
  :label: The Data layer has reference to domain layer, So it can access all the classes from the data layer.<br/>
