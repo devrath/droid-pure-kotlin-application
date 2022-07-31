@@ -80,7 +80,11 @@ This repository contains a sample project that is developed using the clean arch
 <img align="left" height="300" width="400" src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png" alt="mvvm-improved"/>
 </p>
  
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ :label: Implementations of repositories sits in the data layer.<br/>
+ :label: The Data layer has reference to domain layer, So it can access all the classes from the data layer.<br/>
+ :label: Presentation layer has reference to the domain layer, so it can access all the classes from the domain layer and not data layer.<br/>
+ :label: We alwaays inject abstractions to any class instead of concrete implementation.<br/>
+ :label: Data flows from presentation layer to data layer if data is saved locally or sent to server. In other case the data is retrieved from data layer to presentation layer in case when data is retrieved from server to UI displayed or from data saved locally to UI displayed<br/> 
  
  ---
  
