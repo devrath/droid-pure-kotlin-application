@@ -10,48 +10,43 @@ This repository contains a sample project that is developed using the clean arch
 
 ---
 
-### `Pure kotlin code base`
+### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :dart:
 
 
 
 
 
 
-### `Why clean architecture is needed` 📑
+### **`𝚆𝚑𝚢 𝚌𝚕𝚎𝚊𝚗 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎 𝚒𝚜 𝚗𝚎𝚎𝚍𝚎𝚍`** 📑
 <img align="right" height="190" width="410" src="https://github.com/devrath/droid-compose-clean-architecture/blob/main/assets/compose_clean_arch.png"  alt="dev_logo"/>
-• Scalability: --> When new features are added, using the clean architecture we can easily add the new features and maintain old existing features without breaking them. </br>
-• Testability: --> For the new features, its essential we write a code that can be tested for all possible inputs so that once in production we can forecast all possible scenarios and handle them.  </br>
-• Understandable: -->  Scaling a product with keeping the code testable is good but its also should be in such a way that everyone should understand it and also should easily be modify it.
-
-### `Communication between the layers` 📑
-<p align="center" >
-<a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/Clean-architecture-layered-interaction.png" width="350" height="350"/></a>
-</p>
-
-
-
-
-
-
-
-
+:label: Scalability: :heavy_minus_sign: When new features are added, using the clean architecture we can easily add the new features and maintain old existing features without breaking them. </br>
+:label: Testability: :heavy_minus_sign: For the new features, its essential we write a code that can be tested for all possible inputs so that once in production we can forecast all possible scenarios and handle them. </br>
+:label: Understandable: :heavy_minus_sign:  Scaling a product with keeping the code testable is good but its also should be in such a way that everyone should understand it and also should easily be modify it.
 
 ---
 
-### `Advantages and Disadvantages of multi module architecture` 📑
-#### `Advantages` 
+### **`𝙲𝚘𝚖𝚖𝚞𝚗𝚒𝚌𝚊𝚝𝚒𝚘𝚗 𝚋𝚎𝚝𝚠𝚎𝚎𝚗 𝚝𝚑𝚎 𝚕𝚊𝚢𝚎𝚛𝚜`** 📑
+<img align="left" height="250" width="250" src="https://github.com/devrath/iPrayForGod/blob/main/assets/Clean-architecture-layered-interaction.png"  alt="dev_logo"/>
+:label: Presentation Layer: :heavy_minus_sign: This layer is the UI layer of the application, It contains composables and view-models. The presentation layer communicates with the domain layer, But the presentation layer is not aware of the data layer. </br> 
+:label: Domain Layer: :heavy_minus_sign: This layer contains use cases that contain business logic that perform one functionality each. It also contains the interfaces that communicates with repository which is present in the data layer. </br>
+:label: Data Layer: :heavy_minus_sign: The data layer contains the repositries, The repository can be a preference repository, remote API, local-filesystem etc. The data layer communicates back with the domain layer after fetching the data. </br>
+
+---
+
+### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚊𝚗𝚍 𝙳𝚒𝚜𝚊𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚘𝚏 𝚖𝚞𝚕𝚝𝚒 𝚖𝚘𝚍𝚞𝚕𝚎 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`** :open_book: 
+#### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜`**
 | `Clear separation` | `Faster build time` |
 | ------------ | -------------- |
 | • Each of the modules is a library and it can depend on each other <br> • If there is a scenario where one library is not dependent on another, Then they can't access each other <br> • Thus, instead of adding terms of separate packages in the app module, we can enforce strict modularity by modularising it <br> • In a large project and big team we can enforce, who works on which project. Thus one person working on one won't affect other modules| • Using the multi-module we can decrease the build time. When in multi-module each module will use separate threads so build time will decrease since all modules will build independently <br> • Since Gradle needs to build the module that has been changed, it doesn't need to make the modules that have not been changed <br> • Point to note here is that, say there is a root module with few child modules, if the root module changes, all the child modules also need to rebuild <br> • Support for `instant apps` and `dynamic feature module` <br> • Using this we can make parts of our app reusable |
 
-#### `Disadvantages` 
+#### **`𝙳𝚒𝚜𝚊𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜`**
  • Lot of initial code <br>
  • Not knowing what problem it will cause
  
 
 ---
 
-### `Flow visualization of data` 📑
+### **`𝙵𝚕𝚘𝚠 𝚟𝚒𝚜𝚞𝚊𝚕𝚒𝚣𝚊𝚝𝚒𝚘𝚗 𝚘𝚏 𝚍𝚊𝚝𝚊`** :card_file_box:
 <p align="center">
 <a><img src="https://github.com/devrath/iPrayForGod/blob/main/assets/skeletal_structure_new.png"></a>
 </p>
