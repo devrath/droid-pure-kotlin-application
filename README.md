@@ -122,3 +122,7 @@ You need to have [android studio](https://developer.android.com/studio/features)
 
 ## **`𝙵𝚒𝚗𝚍 𝚝𝚑𝚒𝚜 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚞𝚜𝚎𝚏𝚞𝚕`** ? ❤️
 Support it by clicking the ⭐ button on the upper right of this page. ✌️
+
+<p align="center">
+<a><img src="https://forthebadge.com/images/badges/built-for-android.svg"></a>
+</p>
