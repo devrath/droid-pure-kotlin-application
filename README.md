@@ -49,6 +49,14 @@ This repository contains a sample project that is developed using the clean arch
 :label: Domain Layer: :heavy_minus_sign: This layer contains use cases that contain business logic that perform one functionality each. It also contains the interfaces that communicates with repository which is present in the data layer. </br>
 :label: Data Layer: :heavy_minus_sign: The data layer contains the repositries, The repository can be a preference repository, remote API, local-filesystem etc. The data layer communicates back with the domain layer after fetching the data. </br>
 
+
+---
+
+### **`𝙸𝚖𝚙𝚕𝚎𝚖𝚎𝚗𝚝𝚊𝚝𝚒𝚘𝚗 𝚘𝚏 𝚂𝙾𝙻𝙸𝙳 𝚙𝚛𝚒𝚗𝚌𝚒𝚙𝚕𝚎𝚜`** :card_index_dividers:
+| SINGLE RESPONSIBILITY | OPEN CLOSED PRINCIPLE | LISKOV SUBSTITUTION PRINCIPLE | INTERFACE SEGREGATION PRINCIPLE | DEPENDENCY INVERSION PRINCIPLE |
+| --------------------- | --------------------- | ----------------------------- | ------------------------------- | ------------------------------ |
+| Each class having one responsibility. If there is a change in it, it must be because of only one reason only. If there are two reasons for a class to change, then it violates single responsibility principle. | This indicates that the class is open for extension but closed for modification | When we have a class that is inheriting the parent, the parent class functionality must be replaceable using the child class without modifying the functionality of parent class | Here we should not force a class to do something that it does not want to do, Say a class is implementing interface then it overrides all the functions in it. Now if we don’t want a function of interface to be implemented then we give the default behaviour for the interface and so that it will not force the child class to override that method | This indicates that, a class must depend on abstraction instead of concrete implementation. Say we want a implementation to be used for a class thence need to inject a abstraction for it instead of concrete implementation so that if its implementation changes in future , it must not affect where the abstract version of it is implemented |
+
 ---
 
 ### **`𝙰𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚊𝚗𝚍 𝙳𝚒𝚜𝚊𝚍𝚟𝚊𝚗𝚝𝚊𝚐𝚎𝚜 𝚘𝚏 𝚖𝚞𝚕𝚝𝚒 𝚖𝚘𝚍𝚞𝚕𝚎 𝚊𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎`** :card_index_dividers:
