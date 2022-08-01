@@ -27,4 +27,35 @@ object Testing {
 
     private const val testRunnerVersion = "1.4.0"
     const val testRunner = "androidx.test:runner:$testRunnerVersion"
+
+
+
+
+
+    private const val unitCoreTestingVersion = "2.1.0"
+    const val unitCoreTesting = "androidx.arch.core:core-testing:$unitCoreTestingVersion"
+
+    private const val unitRoomTestingVersion = "2.2.5"
+    const val unitRoomTesting = "androidx.room:room-testing:$unitRoomTestingVersion"
+
+    private const val roomTestingVersion = "1.4.0"
+    const val unitCore = "androidx.test:core:$roomTestingVersion"
+
+    private const val unitMockitoKotlinVersion = "2.1.0"
+    const val unitMockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:$unitMockitoKotlinVersion"
+
+    private const val mockitoInlineVersion = "3.6.0"
+    const val mockitoInline = "org.mockito:mockito-inline:$mockitoInlineVersion"
+
+    private const val mockitoCoreVersion = "3.6.0"
+    const val mockitoCore = "org.mockito:mockito-core:$mockitoCoreVersion"
+
+    private const val orgJsonVersion = "20201115"
+    const val orgJson = "org.json:json:$orgJsonVersion"
+
+    private const val roboElectricVersion = "4.6"
+    const val roboElectric = "org.robolectric:robolectric:$roboElectricVersion"
+
+
+
 }

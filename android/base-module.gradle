@@ -66,6 +66,14 @@ dependencies {
     testImplementation Testing.composeUiTest
     testImplementation Testing.mockk
     testImplementation Testing.mockWebServer
+    testImplementation Testing.unitCoreTesting
+    testImplementation Testing.unitRoomTesting
+    testImplementation Testing.unitCore
+    testImplementation Testing.unitMockitoKotlin
+    testImplementation Testing.mockitoInline
+    testImplementation Testing.mockitoCore
+    testImplementation Testing.orgJson
+    testImplementation Testing.roboElectric
 
     androidTestImplementation Testing.junit4
     androidTestImplementation Testing.junitAndroidExt
