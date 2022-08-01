@@ -1,4 +1,4 @@
-package com.iprayforgod.core.base
+package com.droid.core_test.base
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi

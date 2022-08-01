@@ -1,4 +1,4 @@
-package com.iprayforgod.core.base
+package com.droid.core_test.base
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
