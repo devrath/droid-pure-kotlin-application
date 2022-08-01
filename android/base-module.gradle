@@ -57,4 +57,35 @@ dependencies {
     implementation Coroutines.coroutineLib
     implementation AndroidX.coreKtx
     implementation Coroutines.coroutineAndroidLib
+
+
+    testImplementation Testing.junit4
+    testImplementation Testing.junitAndroidExt
+    testImplementation Testing.truth
+    testImplementation Testing.coroutines
+    testImplementation Testing.turbine
+    testImplementation Testing.composeUiTest
+    testImplementation Testing.mockk
+    testImplementation Testing.mockWebServer
+    testImplementation Testing.unitCoreTesting
+    testImplementation Testing.unitRoomTesting
+    testImplementation Testing.unitCore
+    testImplementation Testing.unitMockitoKotlin
+    testImplementation Testing.mockitoInline
+    testImplementation Testing.mockitoCore
+    testImplementation Testing.orgJson
+    testImplementation Testing.roboElectric
+
+    testImplementation Testing.junit4
+    testImplementation Testing.junitAndroidExt
+    testImplementation Testing.truth
+    testImplementation Testing.coroutines
+    testImplementation Testing.turbine
+    testImplementation Testing.composeUiTest
+    testImplementation Testing.mockk
+    testImplementation Testing.mockWebServer
+    testImplementation Testing.hiltTesting
+
+    kaptAndroidTest DaggerHilt.hiltCompiler
+    testImplementation Testing.testRunner
 }

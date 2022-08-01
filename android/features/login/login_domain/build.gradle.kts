@@ -4,5 +4,6 @@ apply {
 
 dependencies {
     "implementation"(project(Modules.core))
+    "implementation"(project(Modules.coreTest))
     "implementation"(Coroutines.coroutineLib)
 }

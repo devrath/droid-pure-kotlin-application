@@ -5,11 +5,9 @@ import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
 import com.droid.login_domain.usecases.entities.inputs.LoginInput
 import com.droid.login_domain.usecases.utils.UseCaseUtils
-import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
-import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
 /**
@@ -21,18 +19,17 @@ import javax.inject.Inject
  * Condition-4: Password needs to contain minimum of one letter and one digit
  */
 class ValidateLoginEntriesUseCase @Inject constructor(
-    @IoDispatcher val dispatcher: CoroutineDispatcher,
     private val log: LoggerRepository,
 ) {
 
-    suspend operator fun invoke(
+    operator fun invoke(
         input: LoginInput
     ): Result<ValidationResult> {
-        try {
+        return try {
             val result = initiateValidation(input)
-            return Result.success(result)
+            Result.success(result)
         } catch (ex: Exception) {
-            return Result.failure(ex)
+            Result.failure(ex)
         }
     }
 

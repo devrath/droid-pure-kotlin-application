@@ -5,11 +5,9 @@ import com.droid.login_domain.R
 import com.droid.login_domain.usecases.ValidationResult
 import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
 import com.droid.login_domain.usecases.utils.UseCaseUtils
-import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
-import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
 /**
@@ -26,18 +24,17 @@ import javax.inject.Inject
  * ********
  */
 class ValidateRegistrationEntriesUseCase @Inject constructor(
-    @IoDispatcher val dispatcher: CoroutineDispatcher,
     private val log: LoggerRepository,
 ) {
 
-    suspend operator fun invoke(
+    operator fun invoke(
         input: RegistrationInput
     ): Result<ValidationResult> {
-        try {
+        return try {
             val result = initiateEmailValidation(input)
-            return Result.success(result)
+            Result.success(result)
         } catch (ex: Exception) {
-            return Result.failure(ex)
+            Result.failure(ex)
         }
     }
 
