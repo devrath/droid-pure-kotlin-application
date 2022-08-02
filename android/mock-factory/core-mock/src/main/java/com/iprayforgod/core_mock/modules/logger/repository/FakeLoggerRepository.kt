@@ -1,7 +1,7 @@
-package com.iprayforgod.core_test.modules.logger.repository
+package com.iprayforgod.core_mock.modules.logger.repository
 
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
-import com.iprayforgod.core_test.domain.logger.FakeLoggerFeature
+import com.iprayforgod.core_mock.domain.logger.FakeLoggerFeature
 
 class FakeLoggerRepository : LoggerRepository(loggerFeature = FakeLoggerFeature()) {
     override fun d(featureName: String?, msg: String?) { }

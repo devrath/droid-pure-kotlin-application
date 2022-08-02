@@ -3,7 +3,9 @@ object Modules {
 
     const val core = ":core"
     const val coreUi = ":core-ui"
+
     const val mockFactory = ":mock-factory"
+    const val coreMockFactory = ":mock-factory:core-mock"
 
     // -------------------- On-boarding -------------------->
     const val featuresOnboarding = ":features:onboarding"

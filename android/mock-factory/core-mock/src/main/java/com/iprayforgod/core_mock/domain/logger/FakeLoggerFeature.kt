@@ -1,4 +1,4 @@
-package com.iprayforgod.core_test.domain.logger
+package com.iprayforgod.core_mock.domain.logger
 
 import com.iprayforgod.core.domain.features.logger.LoggerFeature
 
