@@ -80,6 +80,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.mock-factory.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.mock-factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.unitTest.iml" />
     </modules>
   </component>
 </project>

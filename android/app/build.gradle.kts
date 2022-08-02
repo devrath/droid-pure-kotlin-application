@@ -7,6 +7,7 @@ plugins {
     id(Build.BuildPlugins.crashlytics)
     id(Build.BuildPlugins.ktLint)
     id(Build.BuildPlugins.kotlinParcelize)
+    id("java-test-fixtures")
 }
 
 android {
@@ -94,6 +95,7 @@ dependencies {
 
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
+    implementation(project(Modules.mockFactory))
     implementation(project(Modules.featuresOnboardingOnboardingPresentation))
     implementation(project(Modules.featureLoginPresentation))
     implementation(project(Modules.featureLoginData))
@@ -118,6 +120,7 @@ dependencies {
     implementation(Room.roomKtx)
     implementation(Room.roomRuntime)
 
+
     testImplementation(Testing.junit4)
     testImplementation(Testing.junitAndroidExt)
     testImplementation(Testing.truth)
@@ -126,6 +129,14 @@ dependencies {
     testImplementation(Testing.composeUiTest)
     testImplementation(Testing.mockk)
     testImplementation(Testing.mockWebServer)
+    testImplementation(Testing.unitCoreTesting)
+    testImplementation(Testing.unitRoomTesting)
+    testImplementation(Testing.unitCore)
+    testImplementation(Testing.unitMockitoKotlin)
+    testImplementation(Testing.mockitoInline)
+    testImplementation(Testing.mockitoCore)
+    testImplementation(Testing.orgJson)
+    testImplementation(Testing.roboElectric)
 
     androidTestImplementation(Testing.junit4)
     androidTestImplementation(Testing.junitAndroidExt)
@@ -133,9 +144,10 @@ dependencies {
     androidTestImplementation(Testing.coroutines)
     androidTestImplementation(Testing.turbine)
     androidTestImplementation(Testing.composeUiTest)
-    androidTestImplementation(Testing.mockkAndroid)
+    androidTestImplementation(Testing.mockk)
     androidTestImplementation(Testing.mockWebServer)
     androidTestImplementation(Testing.hiltTesting)
+
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
 }

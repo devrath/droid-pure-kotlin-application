@@ -36,6 +36,7 @@
             <option value="$PROJECT_DIR$/features/profile/profile_data" />
             <option value="$PROJECT_DIR$/features/profile/profile_domain" />
             <option value="$PROJECT_DIR$/features/profile/profile_presentation" />
+            <option value="$PROJECT_DIR$/mock-factory" />
           </set>
         </option>
       </GradleProjectSettings>
