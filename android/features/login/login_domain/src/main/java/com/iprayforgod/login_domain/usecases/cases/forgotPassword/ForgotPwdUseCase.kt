@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.usecases.cases.login
+package com.iprayforgod.login_domain.usecases.cases.forgotPassword
 
 import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
 import com.iprayforgod.login_domain.usecases.repository.LoginRepository

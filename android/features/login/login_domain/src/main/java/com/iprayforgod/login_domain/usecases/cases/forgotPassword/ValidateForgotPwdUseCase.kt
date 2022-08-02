@@ -1,12 +1,12 @@
 package com.iprayforgod.login_domain.usecases.cases.forgotPassword
 
 import android.util.Patterns
-import com.iprayforgod.login_domain.R
 import com.iprayforgod.login_domain.usecases.ValidationResult
 import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
+import com.iprayforgod.login_domain.R
 import javax.inject.Inject
 
 class ValidateForgotPwdUseCase @Inject constructor(
