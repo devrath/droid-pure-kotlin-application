@@ -38,6 +38,9 @@
             <option value="$PROJECT_DIR$/features/profile/profile_presentation" />
             <option value="$PROJECT_DIR$/mock-factory" />
             <option value="$PROJECT_DIR$/mock-factory/core-mock" />
+            <option value="$PROJECT_DIR$/mock-factory/features-mock" />
+            <option value="$PROJECT_DIR$/mock-factory/features-mock/login-mock" />
+            <option value="$PROJECT_DIR$/mock-factory/features-mock/login-mock/login-domain-mock" />
           </set>
         </option>
       </GradleProjectSettings>
