@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.robolectric:junit:4.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/junit/4.6/75341ccf94c9b434c0380ab19268dab34846f077/junit-4.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/junit/4.6/9447e61160daff5fefeef639d671f88e4836c585/junit-4.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.robolectric/junit/4.6/a337a5b82c4dc6947c13bbb2bb1a59ec7acd6fef/junit-4.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:firebase-storage:20.0.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2a217b47672bcc9049368f0544436795/transformed/jetified-firebase-storage-20.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2a217b47672bcc9049368f0544436795/transformed/jetified-firebase-storage-20.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2a217b47672bcc9049368f0544436795/transformed/jetified-firebase-storage-20.0.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-storage/20.0.1/2e66e2f28eb6e473520d2e64a44b503f01f73c1f/firebase-storage-20.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-storage/20.0.1/fcad4128b95be5261e34b1d8d81b898f6dd02f6b/firebase-storage-20.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
