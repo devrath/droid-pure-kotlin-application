@@ -1,8 +1,8 @@
-package com.droid.common_data.di
+package com.iprayforgod.common_data.di
 
-import com.droid.common_data.repository.CommonRepositoryImpl
-import com.droid.common_data.service.preferences.SaveUserService
-import com.droid.common_domain.repository.CommonRepository
+import com.iprayforgod.common_data.repository.CommonRepositoryImpl
+import com.iprayforgod.common_data.service.preferences.SaveUserService
+import com.iprayforgod.common_domain.repository.CommonRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

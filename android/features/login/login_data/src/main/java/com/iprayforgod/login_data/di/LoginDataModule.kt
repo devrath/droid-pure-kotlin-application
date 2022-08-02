@@ -1,10 +1,10 @@
-package com.droid.login_data.di
+package com.iprayforgod.login_data.di
 
-import com.droid.login_data.repository.LoginRepositoryImpl
-import com.droid.login_data.service.firebase.forgotPwd.ForgotPwdService
-import com.droid.login_data.service.firebase.login.LoginService
-import com.droid.login_data.service.firebase.registration.RegistrationService
-import com.droid.login_domain.usecases.repository.LoginRepository
+import com.iprayforgod.login_data.repository.LoginRepositoryImpl
+import com.iprayforgod.login_data.service.firebase.forgotPwd.ForgotPwdService
+import com.iprayforgod.login_data.service.firebase.login.LoginService
+import com.iprayforgod.login_data.service.firebase.registration.RegistrationService
+import com.iprayforgod.login_domain.usecases.repository.LoginRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,13 +1,13 @@
-package com.droid.login_presentation.vm
+package com.iprayforgod.login_presentation.vm
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
-import com.droid.login_domain.usecases.cases.LoginModuleUseCases
-import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
-import com.droid.login_presentation.states.forgotPassword.ForgotPwdUiState
-import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
+import com.iprayforgod.login_domain.usecases.cases.LoginModuleUseCases
+import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_presentation.states.forgotPassword.ForgotPwdUiState
+import com.iprayforgod.login_presentation.states.forgotPassword.ForgotPwdViewEvent
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel

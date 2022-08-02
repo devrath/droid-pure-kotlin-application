@@ -1,4 +1,4 @@
-package com.droid.login_presentation.view
+package com.iprayforgod.login_presentation.view
 
 import android.widget.Toast
 import androidx.compose.material.Scaffold
@@ -10,10 +10,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.droid.login_presentation.R
-import com.droid.login_presentation.components.mainComponents.ForgotPwdPageContent
-import com.droid.login_presentation.states.forgotPassword.ForgotPwdViewEvent
-import com.droid.login_presentation.vm.ForgotPwdVm
+import com.iprayforgod.login_presentation.R
+import com.iprayforgod.login_presentation.components.mainComponents.ForgotPwdPageContent
+import com.iprayforgod.login_presentation.states.forgotPassword.ForgotPwdViewEvent
+import com.iprayforgod.login_presentation.vm.ForgotPwdVm
 import com.iprayforgod.core.platform.ui.uiEvent.UiEvent
 
 @OptIn(ExperimentalComposeUiApi::class)

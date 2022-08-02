@@ -1,4 +1,4 @@
-package com.droid.core_test
+package com.iprayforgod.core_test
 
 import org.junit.Test
 

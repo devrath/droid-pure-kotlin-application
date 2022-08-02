@@ -1,4 +1,4 @@
-package com.droid.common_data
+package com.iprayforgod.common_data
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

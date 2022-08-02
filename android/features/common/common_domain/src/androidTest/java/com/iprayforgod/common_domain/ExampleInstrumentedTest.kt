@@ -1,4 +1,4 @@
-package com.droid.common_domain
+package com.iprayforgod.common_domain
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

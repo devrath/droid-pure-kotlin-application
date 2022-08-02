@@ -1,4 +1,4 @@
-package com.droid.home_data
+package com.iprayforgod.home_data
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.droid.login_domain.usecases.entities.inputs
+package com.iprayforgod.login_domain.usecases.entities.inputs
 
 data class RegistrationInput(
     val firstName: String,

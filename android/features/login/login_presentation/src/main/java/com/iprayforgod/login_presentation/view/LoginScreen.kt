@@ -1,4 +1,4 @@
-package com.droid.login_presentation.view
+package com.iprayforgod.login_presentation.view
 
 import android.widget.Toast
 import androidx.compose.material.Scaffold
@@ -10,11 +10,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.droid.login_presentation.R
-import com.droid.login_presentation.components.mainComponents.LoginScreenContent
-import com.droid.login_presentation.states.login.LoginViewEvent
-import com.droid.login_presentation.states.login.LoginViewResponseEvent
-import com.droid.login_presentation.vm.LoginVm
+import com.iprayforgod.login_presentation.R
+import com.iprayforgod.login_presentation.components.mainComponents.LoginScreenContent
+import com.iprayforgod.login_presentation.states.login.LoginViewEvent
+import com.iprayforgod.login_presentation.states.login.LoginViewResponseEvent
+import com.iprayforgod.login_presentation.vm.LoginVm
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

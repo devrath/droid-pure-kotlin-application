@@ -1,4 +1,4 @@
-package com.droid.login_domain.usecases.utils
+package com.iprayforgod.login_domain.usecases.utils
 
 object UseCaseUtils {
 

@@ -1,4 +1,4 @@
-package com.droid.login_domain.utils
+package com.iprayforgod.login_domain.utils
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

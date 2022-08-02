@@ -1,8 +1,8 @@
-package com.droid.login_domain.usecases.repository
+package com.iprayforgod.login_domain.usecases.repository
 
-import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
-import com.droid.login_domain.usecases.entities.inputs.LoginInput
-import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow

@@ -1,6 +1,6 @@
-package com.droid.login_data.service.firebase.registration
+package com.iprayforgod.login_data.service.firebase.registration
 
-import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
 import com.google.firebase.firestore.SetOptions
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.firebase.endpoints.Constants

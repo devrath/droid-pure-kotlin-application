@@ -1,6 +1,6 @@
-package com.droid.common_data.di
+package com.iprayforgod.common_data.di
 
-import com.droid.common_data.service.preferences.SaveUserService
+import com.iprayforgod.common_data.service.preferences.SaveUserService
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.modules.parser.repository.ParserRepository

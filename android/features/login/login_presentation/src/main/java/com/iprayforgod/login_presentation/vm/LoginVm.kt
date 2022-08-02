@@ -1,15 +1,15 @@
-package com.droid.login_presentation.vm
+package com.iprayforgod.login_presentation.vm
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
-import com.droid.common_domain.usecases.CommonModuleUseCases
-import com.droid.login_domain.usecases.cases.LoginModuleUseCases
-import com.droid.login_domain.usecases.entities.inputs.LoginInput
-import com.droid.login_presentation.states.login.LoginUiState
-import com.droid.login_presentation.states.login.LoginViewEvent
-import com.droid.login_presentation.states.login.LoginViewResponseEvent
+import com.iprayforgod.common_domain.usecases.CommonModuleUseCases
+import com.iprayforgod.login_domain.usecases.cases.LoginModuleUseCases
+import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.login_presentation.states.login.LoginUiState
+import com.iprayforgod.login_presentation.states.login.LoginViewEvent
+import com.iprayforgod.login_presentation.states.login.LoginViewResponseEvent
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository

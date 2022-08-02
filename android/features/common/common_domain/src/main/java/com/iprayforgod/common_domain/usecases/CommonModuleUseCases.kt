@@ -1,6 +1,6 @@
-package com.droid.common_domain.usecases
+package com.iprayforgod.common_domain.usecases
 
-import com.droid.common_domain.usecases.module.SaveUserUseCase
+import com.iprayforgod.common_domain.usecases.module.SaveUserUseCase
 
 data class CommonModuleUseCases(
     // --> ***************** REPO_CALL *******************

@@ -1,4 +1,4 @@
-package com.droid.profile_domain
+package com.iprayforgod.profile_domain
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

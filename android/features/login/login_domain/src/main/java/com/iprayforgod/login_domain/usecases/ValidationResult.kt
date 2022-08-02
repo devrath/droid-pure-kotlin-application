@@ -1,4 +1,4 @@
-package com.droid.login_domain.usecases
+package com.iprayforgod.login_domain.usecases
 
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 

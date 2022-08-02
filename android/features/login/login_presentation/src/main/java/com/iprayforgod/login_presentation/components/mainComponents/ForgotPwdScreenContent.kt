@@ -1,4 +1,4 @@
-package com.droid.login_presentation.components.mainComponents
+package com.iprayforgod.login_presentation.components.mainComponents
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

@@ -1,7 +1,7 @@
-package com.droid.login_domain.usecases.cases.forgotPassword
+package com.iprayforgod.login_domain.usecases.cases.forgotPassword
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.droid.login_domain.utils.UseCaseUtilities
+import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import com.google.common.truth.Truth.assertThat
 import com.iprayforgod.core_test.modules.logger.repository.FakeLoggerRepository
 import org.junit.Test

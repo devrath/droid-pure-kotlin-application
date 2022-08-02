@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.registration
+package com.iprayforgod.login_presentation.states.registration
 
 data class RegistrationUiState(
     val firstName: String = "",

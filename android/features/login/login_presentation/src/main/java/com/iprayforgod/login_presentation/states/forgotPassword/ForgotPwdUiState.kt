@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.forgotPassword
+package com.iprayforgod.login_presentation.states.forgotPassword
 
 data class ForgotPwdUiState(
     val email: String = "",

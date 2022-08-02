@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.registration
+package com.iprayforgod.login_presentation.states.registration
 
 sealed class RegistrationViewEvent {
     object OnRegisterViewClick : RegistrationViewEvent()

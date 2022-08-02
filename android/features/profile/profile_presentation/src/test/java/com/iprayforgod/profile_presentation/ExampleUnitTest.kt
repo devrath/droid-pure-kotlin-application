@@ -1,4 +1,4 @@
-package com.droid.profile_presentation
+package com.iprayforgod.profile_presentation
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

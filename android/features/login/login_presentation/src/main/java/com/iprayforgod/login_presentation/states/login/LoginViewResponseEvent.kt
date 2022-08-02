@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.login
+package com.iprayforgod.login_presentation.states.login
 
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.ui.uiEvent.UiText

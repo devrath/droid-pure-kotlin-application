@@ -1,8 +1,8 @@
-package com.droid.login_domain.utils
+package com.iprayforgod.login_domain.utils
 
-import com.droid.login_domain.usecases.entities.inputs.ForgotPwdInput
-import com.droid.login_domain.usecases.entities.inputs.LoginInput
-import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
 
 object UseCaseUtilities {
 

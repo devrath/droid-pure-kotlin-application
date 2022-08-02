@@ -1,4 +1,4 @@
-package com.droid.profile_data
+package com.iprayforgod.profile_data
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

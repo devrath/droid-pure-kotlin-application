@@ -1,6 +1,6 @@
-package com.droid.login_data.service.firebase.login
+package com.iprayforgod.login_data.service.firebase.login
 
-import com.droid.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.firebase.endpoints.Constants
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository

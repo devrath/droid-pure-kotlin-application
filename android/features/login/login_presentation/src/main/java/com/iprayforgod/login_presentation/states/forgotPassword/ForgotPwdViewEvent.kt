@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.forgotPassword
+package com.iprayforgod.login_presentation.states.forgotPassword
 
 sealed class ForgotPwdViewEvent {
     object OnSubmitClick : ForgotPwdViewEvent()

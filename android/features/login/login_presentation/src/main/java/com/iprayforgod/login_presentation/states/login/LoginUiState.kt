@@ -1,4 +1,4 @@
-package com.droid.login_presentation.states.login
+package com.iprayforgod.login_presentation.states.login
 
 data class LoginUiState(
     val email: String = "",

@@ -1,4 +1,4 @@
-package com.droid.common_domain.repository
+package com.iprayforgod.common_domain.repository
 
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State

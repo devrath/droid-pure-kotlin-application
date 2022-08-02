@@ -1,4 +1,4 @@
-package com.droid.login_domain
+package com.iprayforgod.login_domain
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

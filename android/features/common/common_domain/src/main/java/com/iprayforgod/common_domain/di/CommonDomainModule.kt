@@ -1,8 +1,8 @@
-package com.droid.common_domain.di
+package com.iprayforgod.common_domain.di
 
-import com.droid.common_domain.repository.CommonRepository
-import com.droid.common_domain.usecases.CommonModuleUseCases
-import com.droid.common_domain.usecases.module.SaveUserUseCase
+import com.iprayforgod.common_domain.repository.CommonRepository
+import com.iprayforgod.common_domain.usecases.CommonModuleUseCases
+import com.iprayforgod.common_domain.usecases.module.SaveUserUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

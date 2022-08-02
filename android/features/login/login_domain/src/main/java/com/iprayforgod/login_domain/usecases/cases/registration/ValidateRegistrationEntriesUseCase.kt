@@ -1,10 +1,10 @@
-package com.droid.login_domain.usecases.cases.registration
+package com.iprayforgod.login_domain.usecases.cases.registration
 
 import android.util.Patterns
-import com.droid.login_domain.R
-import com.droid.login_domain.usecases.ValidationResult
-import com.droid.login_domain.usecases.entities.inputs.RegistrationInput
-import com.droid.login_domain.usecases.utils.UseCaseUtils
+import com.iprayforgod.login_domain.R
+import com.iprayforgod.login_domain.usecases.ValidationResult
+import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.usecases.utils.UseCaseUtils
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.ui.uiEvent.UiText

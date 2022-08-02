@@ -1,4 +1,4 @@
-package com.droid.common_domain
+package com.iprayforgod.common_domain
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

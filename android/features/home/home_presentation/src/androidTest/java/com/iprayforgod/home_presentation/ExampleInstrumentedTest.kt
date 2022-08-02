@@ -1,4 +1,4 @@
-package com.droid.home_presentation
+package com.iprayforgod.home_presentation
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

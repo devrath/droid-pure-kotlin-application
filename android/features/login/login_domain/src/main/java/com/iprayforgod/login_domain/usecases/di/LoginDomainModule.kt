@@ -1,13 +1,13 @@
-package com.droid.login_domain.usecases.di
+package com.iprayforgod.login_domain.usecases.di
 
-import com.droid.login_domain.usecases.cases.LoginModuleUseCases
-import com.droid.login_domain.usecases.cases.forgotPassword.ValidateForgotPwdUseCase
-import com.droid.login_domain.usecases.cases.login.ForgotPwdUseCase
-import com.droid.login_domain.usecases.cases.login.LoginUserUseCase
-import com.droid.login_domain.usecases.cases.login.ValidateLoginEntriesUseCase
-import com.droid.login_domain.usecases.cases.registration.RegisterUserUseCase
-import com.droid.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
-import com.droid.login_domain.usecases.repository.LoginRepository
+import com.iprayforgod.login_domain.usecases.cases.LoginModuleUseCases
+import com.iprayforgod.login_domain.usecases.cases.forgotPassword.ValidateForgotPwdUseCase
+import com.iprayforgod.login_domain.usecases.cases.login.ForgotPwdUseCase
+import com.iprayforgod.login_domain.usecases.cases.login.LoginUserUseCase
+import com.iprayforgod.login_domain.usecases.cases.login.ValidateLoginEntriesUseCase
+import com.iprayforgod.login_domain.usecases.cases.registration.RegisterUserUseCase
+import com.iprayforgod.login_domain.usecases.cases.registration.ValidateRegistrationEntriesUseCase
+import com.iprayforgod.login_domain.usecases.repository.LoginRepository
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import dagger.Module
 import dagger.Provides

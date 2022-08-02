@@ -1,4 +1,4 @@
-package com.droid.login_data
+package com.iprayforgod.login_data
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.droid.profile_data
+package com.iprayforgod.profile_data
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
