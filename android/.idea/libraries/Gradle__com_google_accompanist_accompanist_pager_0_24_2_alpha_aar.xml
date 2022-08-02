@@ -4,9 +4,11 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0ce164bd17042d00cb6df705b870d9e4/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5dd7b59040554b178e52eebeaff2a33e/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7afb99ee7c439176d0f971b16eb33df0/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e62f29bc6f224dad90b114f9f87ae557/transformed/jetified-accompanist-pager-0.24.2-alpha/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e62f29bc6f224dad90b114f9f87ae557/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/e62f29bc6f224dad90b114f9f87ae557/transformed/jetified-accompanist-pager-0.24.2-alpha/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8a83c157eff749ab19ceafc31563f42e/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/01ba080fe7b4b0cdc652ac87e79f1424/transformed/jetified-accompanist-pager-0.24.2-alpha/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/01ba080fe7b4b0cdc652ac87e79f1424/transformed/jetified-accompanist-pager-0.24.2-alpha/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/01ba080fe7b4b0cdc652ac87e79f1424/transformed/jetified-accompanist-pager-0.24.2-alpha/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.accompanist/accompanist-pager/0.24.2-alpha/3afd5c105af145f524a91d7629db4a16436d3020/accompanist-pager-0.24.2-alpha-javadoc.jar!/" />
