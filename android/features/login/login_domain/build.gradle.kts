@@ -4,6 +4,7 @@ apply {
 
 dependencies {
     "implementation"(project(Modules.core))
-    "testImplementation"(project(Modules.mockFactory))
     "implementation"(Coroutines.coroutineLib)
+    // For injecting the mocks
+    "testImplementation"(project(Modules.coreMockFactory))
 }

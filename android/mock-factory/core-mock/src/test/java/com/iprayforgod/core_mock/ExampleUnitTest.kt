@@ -1,4 +1,4 @@
-package com.iprayforgod.core_test
+package com.iprayforgod.core_mock
 
 import org.junit.Test
 
