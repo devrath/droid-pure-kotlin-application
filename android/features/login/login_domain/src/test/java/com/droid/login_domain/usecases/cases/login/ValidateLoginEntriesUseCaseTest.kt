@@ -15,7 +15,7 @@ class ValidateLoginEntriesUseCaseTest {
         // ARRANGE
         val emailInput = "John.123@gmail.com"
         val passwordInput = "Hello!2345"
-        val fakeResource = UseCaseUtilities.prepareEmailInput(
+        val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
         val fakeRepository = FakeLoggerRepository()
@@ -37,7 +37,7 @@ class ValidateLoginEntriesUseCaseTest {
         // ARRANGE
         val emailInput = ""
         val passwordInput = "Hello!2345"
-        val fakeResource = UseCaseUtilities.prepareEmailInput(
+        val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
         val fakeRepository = FakeLoggerRepository()
@@ -59,7 +59,7 @@ class ValidateLoginEntriesUseCaseTest {
         // ARRANGE
         val emailInput = "John.123@gmail.com"
         val passwordInput = ""
-        val fakeResource = UseCaseUtilities.prepareEmailInput(
+        val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
         val fakeRepository = FakeLoggerRepository()
@@ -80,7 +80,7 @@ class ValidateLoginEntriesUseCaseTest {
         // ARRANGE
         val emailInput = "John.123gmail.com"
         val passwordInput = "Hello!2345"
-        val fakeResource = UseCaseUtilities.prepareEmailInput(
+        val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
         val fakeRepository = FakeLoggerRepository()
@@ -102,7 +102,7 @@ class ValidateLoginEntriesUseCaseTest {
         // ARRANGE
         val emailInput = "John.123@gmail.com"
         val passwordInput = "test"
-        val fakeResource = UseCaseUtilities.prepareEmailInput(
+        val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
         val fakeRepository = FakeLoggerRepository()
