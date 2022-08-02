@@ -1,18 +1,68 @@
 package com.droid.login_domain.usecases.cases.forgotPassword
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.droid.login_domain.utils.MainCoroutineRule
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.Rule
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.droid.login_domain.utils.UseCaseUtilities
+import com.google.common.truth.Truth.assertThat
+import com.iprayforgod.core_test.modules.logger.repository.FakeLoggerRepository
+import org.junit.Test
+import org.junit.runner.RunWith
 
-@ExperimentalCoroutinesApi
+@RunWith(AndroidJUnit4::class)
 class ValidateForgotPwdUseCaseTest {
 
-    @get:Rule
-    var coroutineRule = MainCoroutineRule()
+    @Test
+    fun `test when user enters valid email input, then it succeeds`() {
+        // ARRANGE
+        val emailInput = "John.123@gmail.com"
+        val fakeResource = UseCaseUtilities.prepareEmailInput(emailInput)
+        val fakeRepository = FakeLoggerRepository()
+        val expectedOutput = true
 
-    @get:Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
+        // ACT
+        val useCase = ValidateForgotPwdUseCase(fakeRepository)
+        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+
+        // ASSERT
+        useCase.invoke(fakeResource).onSuccess {
+            assertThat(it.successful).isEqualTo(expectedOutput)
+        }
+    }
+
+
+    @Test
+    fun `test when user enters empty value for email input, it fails`() {
+        // ARRANGE
+        val emailInput = ""
+        val fakeResource = UseCaseUtilities.prepareEmailInput(emailInput)
+        val fakeRepository = FakeLoggerRepository()
+        val expectedOutput = false
+
+        // ACT
+        val useCase = ValidateForgotPwdUseCase(fakeRepository)
+
+        // ASSERT
+        useCase.invoke(fakeResource).onSuccess {
+            assertThat(it.successful).isEqualTo(expectedOutput)
+        }
+    }
+
+
+    @Test
+    fun `test when user enters email as input having improper email structure, then it fails`() {
+        // ARRANGE
+        val emailInput = "John.123gmail.com"
+        val fakeResource = UseCaseUtilities.prepareEmailInput(emailInput)
+        val fakeRepository = FakeLoggerRepository()
+        val expectedOutput = false
+
+        // ACT
+        val useCase = ValidateForgotPwdUseCase(fakeRepository)
+
+        // ASSERT
+        useCase.invoke(fakeResource).onSuccess {
+            assertThat(it.successful).isEqualTo(expectedOutput)
+        }
+    }
 
 
 }

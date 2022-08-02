@@ -95,7 +95,7 @@ dependencies {
 
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
-    implementation(project(Modules.coreTest))
+    implementation(project(Modules.mockFactory))
     implementation(project(Modules.featuresOnboardingOnboardingPresentation))
     implementation(project(Modules.featureLoginPresentation))
     implementation(project(Modules.featureLoginData))

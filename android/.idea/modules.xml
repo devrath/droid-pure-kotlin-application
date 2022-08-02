@@ -11,10 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.main.iml" filepath="$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.test.iml" filepath="$PROJECT_DIR$/.idea/modules/iPrayForGod.buildSrc.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/iPrayForGod.core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.core-test.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ui/iPrayForGod.core-ui.main.iml" />
@@ -84,6 +80,10 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/features/profile/profile_presentation/iPrayForGod.features.profile.profile_presentation.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.mock-factory.iml" filepath="$PROJECT_DIR$/.idea/modules/core-test/iPrayForGod.mock-factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/mock-factory/iPrayForGod.mock-factory.unitTest.iml" />
     </modules>
   </component>
 </project>
