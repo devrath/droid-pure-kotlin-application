@@ -1,8 +1,8 @@
 package com.iprayforgod.login_domain.utils
 
-import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
-import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
-import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_domain.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 
 object UseCaseUtilities {
 

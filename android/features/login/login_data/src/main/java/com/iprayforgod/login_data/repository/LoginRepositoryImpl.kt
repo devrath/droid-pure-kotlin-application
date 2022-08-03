@@ -3,10 +3,10 @@ package com.iprayforgod.login_data.repository
 import com.iprayforgod.login_data.service.firebase.forgotPwd.ForgotPwdService
 import com.iprayforgod.login_data.service.firebase.login.LoginService
 import com.iprayforgod.login_data.service.firebase.registration.RegistrationService
-import com.iprayforgod.login_domain.usecases.entities.inputs.ForgotPwdInput
-import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
-import com.iprayforgod.login_domain.usecases.entities.inputs.RegistrationInput
-import com.iprayforgod.login_domain.usecases.repository.LoginRepository
+import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_domain.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.repository.LoginRepository
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow

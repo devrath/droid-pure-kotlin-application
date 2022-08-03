@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.iprayforgod.common_domain.usecases.CommonModuleUseCases
-import com.iprayforgod.login_domain.usecases.cases.LoginModuleUseCases
-import com.iprayforgod.login_domain.usecases.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.cases.LoginModuleUseCases
+import com.iprayforgod.login_domain.entities.inputs.LoginInput
 import com.iprayforgod.login_presentation.states.login.LoginUiState
 import com.iprayforgod.login_presentation.states.login.LoginViewEvent
 import com.iprayforgod.login_presentation.states.login.LoginViewResponseEvent
