@@ -4,7 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
-import com.iprayforgod.login_domain.cases.LoginModuleUseCases
+import com.iprayforgod.login_domain.usecases.LoginModuleUseCases
 import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
 import com.iprayforgod.login_presentation.states.forgotPassword.ForgotPwdUiState
 import com.iprayforgod.login_presentation.states.forgotPassword.ForgotPwdViewEvent

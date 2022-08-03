@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.cases.registration
+package com.iprayforgod.login_domain.usecases.registration
 
 import android.util.Patterns
 import com.iprayforgod.login_domain.ValidationResult

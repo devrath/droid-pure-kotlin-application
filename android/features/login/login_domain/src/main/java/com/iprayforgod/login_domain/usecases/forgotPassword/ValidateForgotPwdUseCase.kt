@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.cases.forgotPassword
+package com.iprayforgod.login_domain.usecases.forgotPassword
 
 import android.util.Patterns
 import com.iprayforgod.login_domain.ValidationResult

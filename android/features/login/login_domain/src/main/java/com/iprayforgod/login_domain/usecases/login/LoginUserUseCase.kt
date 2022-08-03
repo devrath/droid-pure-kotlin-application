@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.cases.login
+package com.iprayforgod.login_domain.usecases.login
 
 import com.iprayforgod.login_domain.entities.inputs.LoginInput
 import com.iprayforgod.login_domain.repository.LoginRepository

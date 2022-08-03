@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.cases.forgotPassword
+package com.iprayforgod.login_domain.usecases.forgotPassword
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.iprayforgod.login_domain.utils.UseCaseUtilities

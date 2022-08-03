@@ -1,4 +1,4 @@
-package com.iprayforgod.login_domain.cases.registration
+package com.iprayforgod.login_domain.usecases.registration
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.iprayforgod.login_domain.utils.UseCaseUtilities
