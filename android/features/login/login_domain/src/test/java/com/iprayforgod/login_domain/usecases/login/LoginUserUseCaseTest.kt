@@ -1,6 +1,7 @@
 package com.iprayforgod.login_domain.usecases.login
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.iprayforgod.login_domain_mock.usecases.repository.FakeLoginRepository
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -29,6 +30,12 @@ class LoginUserUseCaseTest {
             Truth.assertThat(it.successful).isEqualTo(expectedOutput)
         }*/
 
+        // ARRANGE
+        val fakeRepository = FakeLoginRepository()
+
+        // ACT
+        val useCase = LoginUserUseCase(fakeRepository)
+        //val result : Boolean = useCase.invoke(fakeResource).isSuccess
 
 
     }
