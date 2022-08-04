@@ -96,33 +96,8 @@ This repository contains a sample project that is developed using the clean arch
  :label: We test the `features` of the code, Each of the `features` contain three layers namely `data`, `domain`, `presentation`. <br/>
  :label: In the `core` layer we can write tests for the `implementation` and `repository` for each of modules. 
 
- ---
  
-## **`𝙲𝚘𝚍𝚎 𝚚𝚞𝚊𝚕𝚒𝚝𝚢`**
-  
-##### **`Run Kt lint`**
-:label: It is static code analysis tool that is used to analyze the Kotlin code for you. It will check if you have written the code by following the Kotlin code guidelines or not.
-
-```gradle
-// To check the list of errors
-./gradlew ktlintCheck  
-// Try to auto auto format errors
-./gradlew ktlintFormat
-```
- 
- ---
- 
-## **`𝙷𝚘𝚠 𝚝𝚘 𝚛𝚞𝚗 𝚝𝚑𝚎 𝚜𝚊𝚖𝚙𝚕𝚎 𝚊𝚙𝚙𝚕𝚒𝚌𝚊𝚝𝚒𝚘𝚗`** :card_index_dividers:
-:label: Basically You just follow steps to create a firebase account and eanable authentication module, I have summarized some steps below.<br/>
-:one: Before running the sample application, Please create a account in firebase console.<br/>
-:two: Now enable the authentication in settings for firebase(This is used during the authentication of login).<br/>
-:three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase.<br/> 
-:four: Last but not least add your application SHA in your firebase settings.<br/>
-
-## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
-:label: Currently the registration, login, forgot password flow is implemented 
-
-## **`𝙿𝚊𝚌𝚔𝚊𝚐𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚒𝚗 𝚝𝚑𝚎 𝚙𝚛𝚘𝚓𝚎𝚌𝚝`** :package:
+ ## **`𝙿𝚊𝚌𝚔𝚊𝚐𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚒𝚗 𝚝𝚑𝚎 𝚙𝚛𝚘𝚓𝚎𝚌𝚝`** :package:
 
     Project Folder                                    # Root Package
     .
@@ -197,6 +172,31 @@ This repository contains a sample project that is developed using the clean arch
                 ├── states                            # states of the data displayed and view-model
                 ├── view-composable                   # composable representing a screen
                 └── viewmodel                         # view model for the composable
+
+ 
+## **`𝙲𝚘𝚍𝚎 𝚚𝚞𝚊𝚕𝚒𝚝𝚢`**
+  
+##### **`Run Kt lint`**
+:label: It is static code analysis tool that is used to analyze the Kotlin code for you. It will check if you have written the code by following the Kotlin code guidelines or not.
+
+```gradle
+// To check the list of errors
+./gradlew ktlintCheck  
+// Try to auto auto format errors
+./gradlew ktlintFormat
+```
+ 
+ ---
+ 
+## **`𝙷𝚘𝚠 𝚝𝚘 𝚛𝚞𝚗 𝚝𝚑𝚎 𝚜𝚊𝚖𝚙𝚕𝚎 𝚊𝚙𝚙𝚕𝚒𝚌𝚊𝚝𝚒𝚘𝚗`** :card_index_dividers:
+:label: Basically You just follow steps to create a firebase account and eanable authentication module, I have summarized some steps below.<br/>
+:one: Before running the sample application, Please create a account in firebase console.<br/>
+:two: Now enable the authentication in settings for firebase(This is used during the authentication of login).<br/>
+:three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase.<br/> 
+:four: Last but not least add your application SHA in your firebase settings.<br/>
+
+## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
+:label: Currently the registration, login, forgot password flow is implemented 
 
 ## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🛠
 - [Kotlin](https://kotlinlang.org/) official programming language for Android development.
