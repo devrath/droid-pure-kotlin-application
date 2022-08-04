@@ -125,7 +125,7 @@ You need to have [android studio](https://developer.android.com/studio/features)
 ## **`𝙵𝚒𝚗𝚍 𝚝𝚑𝚒𝚜 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚞𝚜𝚎𝚏𝚞𝚕`** ? ❤️
 Support it by clicking the ⭐ button on the upper right of this page. ✌️
 
-## **`𝙻𝚒𝚌𝚎𝚗𝚜𝚎`**
+## **`𝙻𝚒𝚌𝚎𝚗𝚜𝚎`** :credit_card:
 
 <details><summary>Click to view License</summary>
 <p>
