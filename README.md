@@ -122,6 +122,82 @@ This repository contains a sample project that is developed using the clean arch
 ## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
 :label: Currently the registration, login, forgot password flow is implemented 
 
+## **`𝙿𝚊𝚌𝚔𝚊𝚐𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎`** :package:
+
+    Project Folder                                    # Root Package
+    .
+    ├── app                                           # It is the starting point for the application
+    │   ├── activity                                  # Entire application has just one activity
+    │   ├── view-model                                # This will be the view-model for the single activity     
+    |   ├── navigation                                # It contains the navigation compose and the routes used in the application
+    │   └── application                               # Singleton used at application level
+    |
+    ├── buildSrc                                      # It contains all project dependencies & its version references that can be modified from one place
+    |
+    ├── core                                          # Module with code that can be re-used in all the modules. This also helps us to manage them easily
+    │   ├── res                                       # String resources used in the project
+    │   └── java
+    │       ├── di                                    # Hilt dependency injection
+    │       ├── domain                                # Domain layer for all the reusable third party features in project
+    │       │   ├── features                          # Contains interface for all the reusable third party features in project
+    │       │   └── models                            # data modules used thorught the project
+    │       │
+    │       ├── modules                               # It can hold multiple third party features     
+    │       │   └── feature                           # A feature
+    │       │        ├── implementation-of-feature    # Implementation of the third party feature
+    │       │        └── repository-for-feature       # Repository for the third party feature
+    │       │
+    │       └── platform                              # Can old other miscellaneous things needed in project, some are listed below
+    │           ├── base                              # Can hold base classes that are used in different features in project
+    │           ├── extensions                        # kotlin extensions that can be kept in one place and handeled
+    │           └── functional                        # Other util functional elements in teh project
+    │      
+    │ 
+    ├── core-ui                                       # Module contains all the UI related things in the project
+    │   ├── res                                       
+    │   │   ├── drawable                              # Contains all the drawables needed for the project
+    │   │   └── font                                  # Place we can store the font files in the project
+    │   │
+    │   └── java
+    │       ├── composables                           # Here we store the reusable composables used for the project 
+    │       └── theme                                 # Contains the theme file used in project
+    │ 
+    └── features                                      # The module contains all the features used in project
+        │
+        ├── common                                    # sub-module that holds the logic that is re-used in multiple features
+        │   │
+        │   │
+        │   ├── common_data                           # sub-module for data
+        │   │   ├── di                                # di for current module
+        │   │   ├── repository                        # repository used for injection
+        │   │   └── service                           # service used in repository
+        │   │   
+        │   │
+        │   └── common_domain                         # sub-module for domain
+        │       ├── di                                # di used for having use-case data object instance
+        │       ├── repository                        # interface of the repository
+        │       └── usecases                          # individual logic for domain data
+        │         
+        └── login                                     # sub-module that contains one feature
+            │
+            │
+            ├── login_data                            # sub-module for data
+            │   ├── di                                # di used to build the module and create instances of service and repository of current module
+            │   ├── repository                        # implementation of the repository
+            │   └── service                           # service used in repository
+            │   
+            │
+            ├── login_domain                          # sub-module for domain
+            │   ├── di                                # di used for having use-case data object instance
+            │   ├── repository                        # interface of the repository
+            │   └── usecases                          # individual logic for domain data
+            │   
+            │
+            └── login_presentation                    # sub-module for presentation
+                ├── states                            # states of the data displayed and view-model
+                ├── view-composable                   # composable representing a screen
+                └── viewmodel                         # view model for the composable
+
 ## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🛠
 - [Kotlin](https://kotlinlang.org/) official programming language for Android development.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) Android’s modern toolkit for building native UI.
@@ -131,6 +207,7 @@ You need to have [android studio](https://developer.android.com/studio/features)
 
 ## **`𝙵𝚒𝚗𝚍 𝚝𝚑𝚒𝚜 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚞𝚜𝚎𝚏𝚞𝚕`** ? ❤️
 Support it by clicking the ⭐ button on the upper right of this page. ✌️
+
 
 ## **`𝙻𝚒𝚌𝚎𝚗𝚜𝚎`** :credit_card:
 
