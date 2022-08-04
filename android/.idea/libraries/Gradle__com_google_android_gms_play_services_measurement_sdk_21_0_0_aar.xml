@@ -10,8 +10,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/05e97ab891b41224de0ee5d09cf74936/transformed/jetified-play-services-measurement-sdk-21.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e0900936c518b5a2a23b1af026a9cbb9/transformed/jetified-play-services-measurement-sdk-21.0.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5739d66d71878341d1ce30224f687fa2/transformed/jetified-play-services-measurement-sdk-21.0.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/5739d66d71878341d1ce30224f687fa2/transformed/jetified-play-services-measurement-sdk-21.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5739d66d71878341d1ce30224f687fa2/transformed/jetified-play-services-measurement-sdk-21.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/412fc22271286f0f038918bc2fd5bd43/transformed/jetified-play-services-measurement-sdk-21.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/412fc22271286f0f038918bc2fd5bd43/transformed/jetified-play-services-measurement-sdk-21.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/412fc22271286f0f038918bc2fd5bd43/transformed/jetified-play-services-measurement-sdk-21.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-sdk/21.0.0/e30555d01f4b419de1eed6ceed27b98aedecf946/play-services-measurement-sdk-21.0.0-javadoc.jar!/" />
