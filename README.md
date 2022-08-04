@@ -91,6 +91,13 @@ This repository contains a sample project that is developed using the clean arch
  
  ---
  
+ ## **`𝚃𝚎𝚜𝚝𝚒𝚗𝚐 𝚝𝚑𝚎 𝚌𝚘𝚍𝚎`** :test_tube:
+ 
+ :label: We test the `features` of the code, Each of the `features` contain three layers namely `data`, `domain`, `presentation`. 
+ :label: In the `core` layer we can write tests for the `implementation` and `repository` for each of modules. 
+
+ ---
+ 
 ## **`𝙲𝚘𝚍𝚎 𝚚𝚞𝚊𝚕𝚒𝚝𝚢`**
   
 ##### **`Run Kt lint`**
