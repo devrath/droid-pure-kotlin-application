@@ -1,10 +1,10 @@
 package com.iprayforgod.login_domain.usecases.registration
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.droid.core_mock.core.modules.logger.repository.FakeLoggerRepository
 import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
-import com.iprayforgod.core_mock.modules.logger.repository.FakeLoggerRepository
 import org.junit.Test
 import org.junit.runner.RunWith
 

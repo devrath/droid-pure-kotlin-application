@@ -1,7 +1,7 @@
 package com.iprayforgod.login_domain.usecases.login
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.iprayforgod.login_domain_mock.usecases.repository.FakeLoginRepository
+import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeLoginRepository
 import org.junit.Test
 import org.junit.runner.RunWith
 

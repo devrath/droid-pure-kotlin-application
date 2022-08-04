@@ -6,7 +6,6 @@ dependencies {
     "implementation"(project(Modules.core))
     "implementation"(Coroutines.coroutineLib)
     // For injecting the mocks
-    "testImplementation"(project(Modules.coreMockFactory))
-    "testImplementation"(project(Modules.featuresLoginDomainMockFactory))
+    "testImplementation"(project(Modules.coreMock))
 
 }

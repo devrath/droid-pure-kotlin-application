@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core-mock" />
             <option value="$PROJECT_DIR$/core-ui" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/common" />
@@ -36,11 +37,6 @@
             <option value="$PROJECT_DIR$/features/profile/profile_data" />
             <option value="$PROJECT_DIR$/features/profile/profile_domain" />
             <option value="$PROJECT_DIR$/features/profile/profile_presentation" />
-            <option value="$PROJECT_DIR$/mock-factory" />
-            <option value="$PROJECT_DIR$/mock-factory/core-mock" />
-            <option value="$PROJECT_DIR$/mock-factory/features-mock" />
-            <option value="$PROJECT_DIR$/mock-factory/features-mock/login-mock" />
-            <option value="$PROJECT_DIR$/mock-factory/features-mock/login-mock/login-domain-mock" />
           </set>
         </option>
       </GradleProjectSettings>
