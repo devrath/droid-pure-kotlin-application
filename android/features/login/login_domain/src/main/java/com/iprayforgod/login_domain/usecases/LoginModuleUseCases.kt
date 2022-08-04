@@ -1,7 +1,7 @@
 package com.iprayforgod.login_domain.usecases
 
-import com.iprayforgod.login_domain.usecases.forgotPassword.ValidateForgotPwdUseCase
 import com.iprayforgod.login_domain.usecases.forgotPassword.ForgotPwdUseCase
+import com.iprayforgod.login_domain.usecases.forgotPassword.ValidateForgotPwdUseCase
 import com.iprayforgod.login_domain.usecases.login.LoginUserUseCase
 import com.iprayforgod.login_domain.usecases.login.ValidateLoginEntriesUseCase
 import com.iprayforgod.login_domain.usecases.registration.RegisterUserUseCase

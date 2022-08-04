@@ -7,5 +7,4 @@ dependencies {
     "implementation"(Coroutines.coroutineLib)
     // For injecting the mocks
     "testImplementation"(project(Modules.coreMock))
-
 }

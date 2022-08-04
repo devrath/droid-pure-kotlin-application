@@ -1,6 +1,5 @@
 package com.droid.core_mock.features.login.login_domain_mock.usecases.repository
 
-import com.droid.core_mock.core.domain.models.UserMocks
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
@@ -29,5 +28,4 @@ class FakeFailureMsgCheckLoginRepository : LoginRepository {
     override fun forgotPassword(input: ForgotPwdInput): Flow<State<Boolean>> {
         return flow { emit(State.failed(FAILURE_MESSAGE_FOR_FORGOT_PWD)) }
     }
-
 }

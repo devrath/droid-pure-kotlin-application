@@ -14,9 +14,9 @@ import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCre
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_LAST_NAME
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_PASSWORD
 import com.droid.core_mock.core.modules.logger.repository.FakeLoggerRepository
-import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
+import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -41,7 +41,7 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
@@ -67,14 +67,13 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when last name field is empty, then it fails`() {
@@ -94,7 +93,7 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
@@ -120,7 +119,7 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
@@ -146,14 +145,13 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when confirm password is empty, then it fails`() {
@@ -173,14 +171,13 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when all the inputs are valid but email is not of proper format, then it fails`() {
@@ -200,14 +197,13 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when all the inputs are valid but password length is not correct, then it fails`() {
@@ -227,7 +223,7 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
@@ -253,12 +249,11 @@ class ValidateRegistrationEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateRegistrationEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             Truth.assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 }

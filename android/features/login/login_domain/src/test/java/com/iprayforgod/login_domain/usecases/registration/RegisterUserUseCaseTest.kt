@@ -16,7 +16,6 @@ import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.
 import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeSuccessLoginRepository
 import com.google.common.truth.Truth
 import com.iprayforgod.core.platform.functional.State
-import com.iprayforgod.login_domain.usecases.login.LoginUserUseCase
 import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
@@ -42,12 +41,11 @@ class RegisterUserUseCaseTest {
 
         // ACT
         val useCase = RegisterUserUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         Truth.assertThat(result).isEqualTo(State.success(UserMocks.validUser()))
     }
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -66,14 +64,11 @@ class RegisterUserUseCaseTest {
 
         // ACT
         val useCase = RegisterUserUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         Truth.assertThat(result).isNotEqualTo(State.success(UserMocks.validUser()))
     }
-
-
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -92,11 +87,10 @@ class RegisterUserUseCaseTest {
 
         // ACT
         val useCase = RegisterUserUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         Truth.assertThat(result)
             .isEqualTo(State.Failed<String>(message = FakeFailureMsgCheckLoginRepository.FAILURE_MESSAGE_FOR_REGISTRATION))
     }
-
 }

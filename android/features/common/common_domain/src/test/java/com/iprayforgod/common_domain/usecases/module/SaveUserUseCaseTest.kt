@@ -26,12 +26,11 @@ class SaveUserUseCaseTest {
 
         // ACT
         val useCase = SaveUserUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         assertThat(result).isEqualTo(State.success(expectedResult))
     }
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -42,7 +41,7 @@ class SaveUserUseCaseTest {
 
         // ACT
         val useCase = SaveUserUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         assertThat(result).isEqualTo(State.Failed<String>(message = FAILURE_MSG_SAVE_USER))

@@ -8,8 +8,8 @@ import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidC
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_EMAIL
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_PASSWORD
 import com.droid.core_mock.core.modules.logger.repository.FakeLoggerRepository
-import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import com.google.common.truth.Truth.assertThat
+import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -29,14 +29,13 @@ class ValidateLoginEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateLoginEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when user enters empty email and correct password as input, then it fails`() {
@@ -51,14 +50,13 @@ class ValidateLoginEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateLoginEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when user enters valid email and empty password as input, then it fails`() {
@@ -73,7 +71,7 @@ class ValidateLoginEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateLoginEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
@@ -94,14 +92,13 @@ class ValidateLoginEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateLoginEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 
     @Test
     fun `test when user enters valid email and invalid password format as input, then it fails`() {
@@ -116,12 +113,11 @@ class ValidateLoginEntriesUseCaseTest {
 
         // ACT
         val useCase = ValidateLoginEntriesUseCase(fakeRepository)
-        val result : Boolean = useCase.invoke(fakeResource).isSuccess
+        val result: Boolean = useCase.invoke(fakeResource).isSuccess
 
         // ASSERT
         useCase.invoke(fakeResource).onSuccess {
             assertThat(it.successful).isEqualTo(expectedOutput)
         }
     }
-
 }

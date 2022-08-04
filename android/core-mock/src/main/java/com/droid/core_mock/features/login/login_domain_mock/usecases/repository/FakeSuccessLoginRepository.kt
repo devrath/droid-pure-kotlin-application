@@ -23,5 +23,4 @@ class FakeSuccessLoginRepository : LoginRepository {
     override fun forgotPassword(input: ForgotPwdInput): Flow<State<Boolean>> {
         return flow { emit(State.success(data = true)) }
     }
-
 }

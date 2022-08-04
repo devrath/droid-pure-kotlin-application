@@ -8,5 +8,4 @@ dependencies {
 
     "implementation"(project(Modules.featureLoginDomain))
     "implementation"(project(Modules.featureCommonDomain))
-
 }

@@ -1,6 +1,5 @@
 package com.droid.core_mock.features.common.common_domain.repository
 
-import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeFailureMsgCheckLoginRepository
 import com.iprayforgod.common_domain.repository.CommonRepository
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.platform.functional.State

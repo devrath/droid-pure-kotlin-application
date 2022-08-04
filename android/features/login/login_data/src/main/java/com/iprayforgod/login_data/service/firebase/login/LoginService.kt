@@ -1,6 +1,5 @@
 package com.iprayforgod.login_data.service.firebase.login
 
-import com.iprayforgod.login_domain.entities.inputs.LoginInput
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.firebase.endpoints.Constants
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
@@ -8,6 +7,7 @@ import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreReposit
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.functional.State
+import com.iprayforgod.login_domain.entities.inputs.LoginInput
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

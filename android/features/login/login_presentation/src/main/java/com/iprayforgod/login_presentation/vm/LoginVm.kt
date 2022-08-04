@@ -5,11 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.iprayforgod.common_domain.usecases.CommonModuleUseCases
-import com.iprayforgod.login_domain.usecases.LoginModuleUseCases
-import com.iprayforgod.login_domain.entities.inputs.LoginInput
-import com.iprayforgod.login_presentation.states.login.LoginUiState
-import com.iprayforgod.login_presentation.states.login.LoginViewEvent
-import com.iprayforgod.login_presentation.states.login.LoginViewResponseEvent
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -17,6 +12,11 @@ import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
+import com.iprayforgod.login_domain.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.usecases.LoginModuleUseCases
+import com.iprayforgod.login_presentation.states.login.LoginUiState
+import com.iprayforgod.login_presentation.states.login.LoginViewEvent
+import com.iprayforgod.login_presentation.states.login.LoginViewResponseEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel

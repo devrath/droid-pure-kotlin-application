@@ -6,23 +6,24 @@ import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 
 object UseCaseUtilities {
 
-    fun prepareForgotPasswordInput(email: String) : ForgotPwdInput {
+    fun prepareForgotPasswordInput(email: String): ForgotPwdInput {
         return ForgotPwdInput(email = email)
     }
 
-    fun prepareLoginInput(email: String, password:String) : LoginInput {
+    fun prepareLoginInput(email: String, password: String): LoginInput {
         return LoginInput(email = email, password = password)
     }
 
     fun prepareRegistrationInput(
-        firstName: String, lastName:String, email: String,
-        password:String, confirmPassword:String
-    ) : RegistrationInput {
+        firstName: String,
+        lastName: String,
+        email: String,
+        password: String,
+        confirmPassword: String
+    ): RegistrationInput {
         return RegistrationInput(
             firstName = firstName, lastName = lastName, email = email, password = password,
             confirmPassword = confirmPassword
         )
     }
-
-
 }
