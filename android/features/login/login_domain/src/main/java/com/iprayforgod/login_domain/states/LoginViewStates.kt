@@ -1,7 +1,7 @@
 package com.iprayforgod.login_domain.states
 
-import com.iprayforgod.login_domain.ValidationResult
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
+import com.iprayforgod.login_domain.ValidationResult
 
 sealed class LoginViewStates {
     object InitialState : LoginViewStates()

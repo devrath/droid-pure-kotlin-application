@@ -7,5 +7,5 @@ dependencies {
     "implementation"(project(Modules.core))
 
     "implementation"(project(Modules.featureLoginDomain))
-
+    "implementation"(project(Modules.featureCommonDomain))
 }

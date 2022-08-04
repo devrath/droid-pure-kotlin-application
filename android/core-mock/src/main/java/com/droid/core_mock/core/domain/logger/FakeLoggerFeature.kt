@@ -2,7 +2,7 @@ package com.droid.core_mock.core.domain.logger
 
 import com.iprayforgod.core.domain.features.logger.LoggerFeature
 
-class FakeLoggerFeature: LoggerFeature {
+class FakeLoggerFeature : LoggerFeature {
     override fun d(featureName: String?, msg: String?) {}
     override fun e(featureName: String?, msg: String?) {}
     override fun w(featureName: String?, msg: String?) {}

@@ -18,7 +18,6 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ForgotPwdUseCaseTest {
 
-
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `test repository when user enters valid credential as input, then it succeeds`() = runTest {
@@ -30,12 +29,11 @@ class ForgotPwdUseCaseTest {
 
         // ACT
         val useCase = ForgotPwdUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         assertThat(result).isEqualTo(State.success(expectedResult))
     }
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -48,14 +46,11 @@ class ForgotPwdUseCaseTest {
 
         // ACT
         val useCase = ForgotPwdUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         assertThat(result).isEqualTo(State.success(expectedResult))
     }
-
-
-
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -67,12 +62,10 @@ class ForgotPwdUseCaseTest {
 
         // ACT
         val useCase = ForgotPwdUseCase(fakeRepository)
-        val result  = useCase.invoke(fakeResource).first()
+        val result = useCase.invoke(fakeResource).first()
 
         // ASSERT
         assertThat(result)
             .isEqualTo(State.Failed<String>(message = FakeFailureMsgCheckLoginRepository.FAILURE_MESSAGE_FOR_FORGOT_PWD))
     }
-
-
 }

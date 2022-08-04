@@ -1,10 +1,10 @@
 package com.iprayforgod.login_domain.repository
 
+import com.iprayforgod.core.domain.models.User
+import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
 import com.iprayforgod.login_domain.entities.inputs.LoginInput
 import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
-import com.iprayforgod.core.domain.models.User
-import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {

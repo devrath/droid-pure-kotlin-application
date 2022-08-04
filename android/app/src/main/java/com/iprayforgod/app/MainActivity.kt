@@ -15,11 +15,11 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.iprayforgod.app.navigation.Route
+import com.iprayforgod.core_ui.theme.AppTheme
 import com.iprayforgod.login_presentation.view.ForgotPwdScreen
 import com.iprayforgod.login_presentation.view.LoginScreen
 import com.iprayforgod.login_presentation.view.RegistrationScreen
-import com.iprayforgod.app.navigation.Route
-import com.iprayforgod.core_ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

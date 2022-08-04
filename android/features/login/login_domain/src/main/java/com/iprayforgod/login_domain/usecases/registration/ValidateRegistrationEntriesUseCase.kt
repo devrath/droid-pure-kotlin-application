@@ -1,13 +1,13 @@
 package com.iprayforgod.login_domain.usecases.registration
 
 import android.util.Patterns
-import com.iprayforgod.login_domain.ValidationResult
-import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
-import com.iprayforgod.login_domain.utils.UseCaseUtils
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import com.iprayforgod.login_domain.R
+import com.iprayforgod.login_domain.ValidationResult
+import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.utils.UseCaseUtils
 import javax.inject.Inject
 
 /**

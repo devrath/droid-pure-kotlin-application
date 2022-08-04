@@ -1,8 +1,8 @@
 package com.iprayforgod.login_domain.usecases.forgotPassword
 
+import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
 import com.iprayforgod.login_domain.repository.LoginRepository
-import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.flow.Flow
 
 class ForgotPwdUseCase(

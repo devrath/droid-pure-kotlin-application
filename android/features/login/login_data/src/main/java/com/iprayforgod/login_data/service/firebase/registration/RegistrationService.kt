@@ -1,6 +1,5 @@
 package com.iprayforgod.login_data.service.firebase.registration
 
-import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 import com.google.firebase.firestore.SetOptions
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.firebase.endpoints.Constants
@@ -9,6 +8,7 @@ import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreReposit
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.functional.State
+import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -1,14 +1,14 @@
 package com.iprayforgod.login_domain.di
 
+import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.login_domain.repository.LoginRepository
 import com.iprayforgod.login_domain.usecases.LoginModuleUseCases
-import com.iprayforgod.login_domain.usecases.forgotPassword.ValidateForgotPwdUseCase
 import com.iprayforgod.login_domain.usecases.forgotPassword.ForgotPwdUseCase
+import com.iprayforgod.login_domain.usecases.forgotPassword.ValidateForgotPwdUseCase
 import com.iprayforgod.login_domain.usecases.login.LoginUserUseCase
 import com.iprayforgod.login_domain.usecases.login.ValidateLoginEntriesUseCase
 import com.iprayforgod.login_domain.usecases.registration.RegisterUserUseCase
 import com.iprayforgod.login_domain.usecases.registration.ValidateRegistrationEntriesUseCase
-import com.iprayforgod.login_domain.repository.LoginRepository
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
