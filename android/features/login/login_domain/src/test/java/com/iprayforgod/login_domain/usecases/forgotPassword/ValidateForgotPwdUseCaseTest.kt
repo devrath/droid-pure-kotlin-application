@@ -17,7 +17,7 @@ class ValidateForgotPwdUseCaseTest {
     fun `test when user enters valid email input, then it succeeds`() {
         // ARRANGE
         val emailInput = VALID_EMAIL
-        val fakeResource = UseCaseUtilities.prepareLoginInput(emailInput)
+        val fakeResource = UseCaseUtilities.prepareForgotPasswordInput(emailInput)
         val fakeRepository = FakeLoggerRepository()
         val expectedOutput = true
 
@@ -36,7 +36,7 @@ class ValidateForgotPwdUseCaseTest {
     fun `test when user enters empty value for email input, it fails`() {
         // ARRANGE
         val emailInput = IN_VALID_EMAIL
-        val fakeResource = UseCaseUtilities.prepareLoginInput(emailInput)
+        val fakeResource = UseCaseUtilities.prepareForgotPasswordInput(emailInput)
         val fakeRepository = FakeLoggerRepository()
         val expectedOutput = false
 
@@ -54,7 +54,7 @@ class ValidateForgotPwdUseCaseTest {
     fun `test when user enters email as input having improper email structure, then it fails`() {
         // ARRANGE
         val emailInput = IN_VALID_EMAIL_FORMAT
-        val fakeResource = UseCaseUtilities.prepareLoginInput(emailInput)
+        val fakeResource = UseCaseUtilities.prepareForgotPasswordInput(emailInput)
         val fakeRepository = FakeLoggerRepository()
         val expectedOutput = false
 
