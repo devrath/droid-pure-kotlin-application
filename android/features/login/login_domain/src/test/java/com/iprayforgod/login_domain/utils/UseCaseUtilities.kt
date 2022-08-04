@@ -6,7 +6,7 @@ import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 
 object UseCaseUtilities {
 
-    fun prepareLoginInput(email: String) : ForgotPwdInput {
+    fun prepareForgotPasswordInput(email: String) : ForgotPwdInput {
         return ForgotPwdInput(email = email)
     }
 

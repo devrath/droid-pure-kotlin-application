@@ -95,11 +95,9 @@ dependencies {
 
     implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
-    implementation(project(Modules.featuresOnboardingOnboardingPresentation))
     implementation(project(Modules.featureLoginPresentation))
     implementation(project(Modules.featureLoginData))
     implementation(project(Modules.featureCommonData))
-    implementation(project(Modules.featureProfileData))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
