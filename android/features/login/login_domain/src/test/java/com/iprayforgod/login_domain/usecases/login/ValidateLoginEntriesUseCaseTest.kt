@@ -1,6 +1,12 @@
 package com.iprayforgod.login_domain.usecases.login
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidCredentials.IN_VALID_EMAIL
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidCredentials.IN_VALID_EMAIL_FORMAT
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidCredentials.IN_VALID_PASSWORD
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidCredentials.IN_VALID_PASSWORD_LENGTH
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_EMAIL
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_PASSWORD
 import com.droid.core_mock.core.modules.logger.repository.FakeLoggerRepository
 import com.iprayforgod.login_domain.utils.UseCaseUtilities
 import com.google.common.truth.Truth.assertThat
@@ -13,8 +19,8 @@ class ValidateLoginEntriesUseCaseTest {
     @Test
     fun `test when user enters valid email and password as input, then it succeeds`() {
         // ARRANGE
-        val emailInput = "John.123@gmail.com"
-        val passwordInput = "Hello!2345"
+        val emailInput = VALID_EMAIL
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -35,8 +41,8 @@ class ValidateLoginEntriesUseCaseTest {
     @Test
     fun `test when user enters empty email and correct password as input, then it fails`() {
         // ARRANGE
-        val emailInput = ""
-        val passwordInput = "Hello!2345"
+        val emailInput = IN_VALID_EMAIL
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -57,8 +63,8 @@ class ValidateLoginEntriesUseCaseTest {
     @Test
     fun `test when user enters valid email and empty password as input, then it fails`() {
         // ARRANGE
-        val emailInput = "John.123@gmail.com"
-        val passwordInput = ""
+        val emailInput = VALID_EMAIL
+        val passwordInput = IN_VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -78,8 +84,8 @@ class ValidateLoginEntriesUseCaseTest {
     @Test
     fun `test when user enters invalid email format and valid password format as input, then it fails`() {
         // ARRANGE
-        val emailInput = "John.123gmail.com"
-        val passwordInput = "Hello!2345"
+        val emailInput = IN_VALID_EMAIL_FORMAT
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -100,8 +106,8 @@ class ValidateLoginEntriesUseCaseTest {
     @Test
     fun `test when user enters valid email and invalid password format as input, then it fails`() {
         // ARRANGE
-        val emailInput = "John.123@gmail.com"
-        val passwordInput = "test"
+        val emailInput = VALID_EMAIL
+        val passwordInput = IN_VALID_PASSWORD_LENGTH
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )

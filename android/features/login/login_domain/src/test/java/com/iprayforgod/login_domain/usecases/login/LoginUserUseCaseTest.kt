@@ -4,6 +4,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.droid.core_mock.core.domain.models.UserMocks
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.InvalidCredentials.IN_VALID_EMAIL
 import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_EMAIL
+import com.droid.core_mock.core.domain.models.UserMocks.MockCredentials.ValidCredentials.VALID_PASSWORD
 import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeFailureLoginRepository
 import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeFailureMsgCheckLoginRepository
 import com.droid.core_mock.features.login.login_domain_mock.usecases.repository.FakeFailureMsgCheckLoginRepository.Companion.FAILURE_MESSAGE_FOR_LOGIN
@@ -29,7 +30,7 @@ class LoginUserUseCaseTest {
     fun `test repository when user enters valid email and password as input, then it succeeds`() = runTest {
         // ARRANGE
         val emailInput = VALID_EMAIL
-        val passwordInput = "Hello!2345"
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -49,7 +50,7 @@ class LoginUserUseCaseTest {
     fun `test repository when user enters invalid email and password as input, then it fails`() = runTest {
         // ARRANGE
         val emailInput = VALID_EMAIL
-        val passwordInput = "Hello!2345"
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )
@@ -71,7 +72,7 @@ class LoginUserUseCaseTest {
     fun `test repository for login failure message`() = runTest {
         // ARRANGE
         val emailInput = VALID_EMAIL
-        val passwordInput = "Hello!2345"
+        val passwordInput = VALID_PASSWORD
         val fakeResource = UseCaseUtilities.prepareLoginInput(
             email = emailInput, password = passwordInput
         )

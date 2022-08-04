@@ -31,7 +31,10 @@ object UserMocks {
            const val VALID_MOBILE = 9811273641
            const val VALID_GENDER = "male"
            const val VALID_PROFILE_COMPLETED = 0
-       }
+           const val VALID_PASSWORD = "Hello!2345"
+           const val VALID_CONFIRM_PASSWORD = "Hello!2345"
+
+        }
 
        object InvalidCredentials {
            const val IN_VALID_ID = ""
@@ -42,6 +45,10 @@ object UserMocks {
            const val IN_VALID_MOBILE  : Long = 0
            const val IN_VALID_GENDER = ""
            const val IN_VALID_PROFILE_COMPLETED = 1
+           const val IN_VALID_PASSWORD = "-"
+           const val IN_VALID_CONFIRM_PASSWORD = "/"
+           const val IN_VALID_EMAIL_FORMAT = "micheal.daniels123gmail.com"
+           const val IN_VALID_PASSWORD_LENGTH = "12"
        }
 
     }
