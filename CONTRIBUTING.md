@@ -11,6 +11,13 @@ If you want to discuss on something then feel free to present your opinions, vie
 - Open PR against latest *development* branch. Add nice description in PR.
 - You're done!
 
+### How to Contribute
+- Fork it
+- Create your feature branch (git checkout -b my-new-feature)
+- Commit your changes (git commit -am 'Add some feature')
+- Push to the branch (git push origin my-new-feature)
+- Create new Pull Request
+
 ### Code contribution checklist
 
 - New code addition/deletion should not break existing flow of a system.
