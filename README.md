@@ -3,10 +3,12 @@
 
 
 
-
-
-
-This repository contains a sample project that is developed using the clean architecture with compose and multi-module features
+## **`𝙸𝚗𝚝𝚛𝚘𝚍𝚞𝚌𝚝𝚒𝚘𝚗`** 💡
+:label: This repository serves as template and demo for building android applications for scale. </br>
+:label: It is built with pure kutlin in the project namely `compose` for the `presentation-layer`, `kotlin` for writing the `business-logic`, `kotlin-dsl` for handeling the dependencies. </br>
+:label: Multimodule architecture used with `reusability` by adhering `SOLID-principles`, also `unit-testing`, `integration-testing` in mind. </br>
+:label: Demo contains three screen application namely `registration`, `login`, `forgot-password` and external service used here is `firebase`. User can create an account using `registration`. User can login and once login is successful the user details is saved in `data-store` </br>
+:label: `Coding for abstraction rather than implementation` is followed in the project that enables `testing` and so that `fakes` can be easily provided for abstractions for testing individual components.
 
 ---
 
