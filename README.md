@@ -201,12 +201,10 @@
 ## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
 :label: Currently the registration, login, forgot password flow is implemented 
 
-## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🛠
+## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🧰
 - [Kotlin](https://kotlinlang.org/) official programming language for Android development.
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) Android’s modern toolkit for building native UI.
-
-## **`𝙱𝚞𝚒𝚕𝚍-𝚝𝚘𝚘𝚕`** 🧰
-You need to have [android studio](https://developer.android.com/studio/features) to build this project.
+- [android studio](https://developer.android.com/studio/features) to build this project.
 
 ## **`𝙲𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚎`** 🙋‍♂️
 Read [contribution guidelines](CONTRIBUTING.md) for more information regarding contribution.
