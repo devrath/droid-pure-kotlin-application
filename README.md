@@ -196,7 +196,7 @@
 :three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase.<br/> 
 :four: Last but not least add your application SHA in your firebase settings.<br/>
 
-## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
+## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** 🧰
 Currently the `registration`, `login`, `forgot password` flow is implemented and is under constant development and improvement.
 
 <div align="center">
@@ -206,11 +206,6 @@ Currently the `registration`, `login`, `forgot password` flow is implemented and
 <img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/login.png" width="220" height="460"/> | <img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/registration.png" width="220" height="460"/> | <img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/forgot_pwd.png" width="220" height="460"/>|
  
 </div>
-
-## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🧰
-- [Kotlin](https://kotlinlang.org/) official programming language for Android development.
-- [Jetpack Compose](https://developer.android.com/jetpack/compose) Android’s modern toolkit for building native UI.
-- [android studio](https://developer.android.com/studio/features) to build this project.
 
 ## **`𝙲𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚎`** 🙋‍♂️
 Read [contribution guidelines](CONTRIBUTING.md) for more information regarding contribution.
