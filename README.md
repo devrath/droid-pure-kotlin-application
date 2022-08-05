@@ -197,7 +197,7 @@
 :four: Last but not least add your application SHA in your firebase settings.<br/>
 
 ## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
-:label: Currently the registration, login, forgot password flow is implemented 
+:label: Currently the `registration`, `login`, `forgot password` flow is implemented and is under constant development and improvement.
 
 ## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🧰
 - [Kotlin](https://kotlinlang.org/) official programming language for Android development.
