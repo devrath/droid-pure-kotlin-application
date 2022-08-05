@@ -201,7 +201,10 @@ Currently the `registration`, `login`, `forgot password` flow is implemented and
 
 `Login` | `Registration` | `Forgot Password` |
 --- | --- | --- |
-![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/login.png) | ![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/registration.png) | ![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/forgot_pwd.png) |
+<img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/login.png" width="220" height="460"/> | <img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/registration.png" width="220" height="460"/> | <img src="https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/forgot_pwd.png" width="220" height="460"/>|
+
+
+
 
 
 ## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🧰
