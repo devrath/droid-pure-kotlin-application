@@ -4,8 +4,7 @@
 
 
 ## **`𝙸𝚗𝚝𝚛𝚘𝚍𝚞𝚌𝚝𝚒𝚘𝚗`** 💡
-:label: This repository serves as template and demo for building android applications for scale. It is suited for large teams where individuals can work independently on feature wise and layer wise reducing the dependency on each other. </br>
-:label: It is built with pure kutlin in the project namely `compose` for the `presentation-layer`, `kotlin` for writing the `business-logic`, `kotlin-dsl` for handeling the dependencies. </br>
+:label: This repository serves as template and demo for building android applications for scale. It is suited for large teams where individuals can work independently on feature wise and layer wise reducing the dependency on each other. It is built with pure kutlin in the project namely `compose` for the `presentation-layer`, `kotlin` for writing the `business-logic`, `kotlin-dsl` for handeling the dependencies. </br>
 :label: `Single activity` architecture where `compose-navigation` is used for navigating between the screens. Also care is taken so that dependencies used in `presentation layer` is not available for `domain layer` and `data layer`.</br>
 :label: Multimodule architecture used with `reusability` by adhering `SOLID-principles`, also `unit-testing`, `integration-testing` in mind. </br>
 :label: Demo contains three screen application namely `registration`, `login`, `forgot-password` and external service used here is `firebase`. User can create an account using `registration`. User can login and once login is successful the user details is saved in `data-store` </br>
