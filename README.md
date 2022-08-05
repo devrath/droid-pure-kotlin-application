@@ -197,7 +197,12 @@
 :four: Last but not least add your application SHA in your firebase settings.<br/>
 
 ## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** :card_index_dividers:
-:label: Currently the `registration`, `login`, `forgot password` flow is implemented and is under constant development and improvement.
+Currently the `registration`, `login`, `forgot password` flow is implemented and is under constant development and improvement.
+
+`Login` | `Registration` | `Forgot Password` |
+--- | --- | --- |
+![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/login.png) | ![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/registration.png) | ![](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/output/forgot_pwd.png) |
+
 
 ## **`𝙱𝚞𝚒𝚕𝚝 𝚆𝚒𝚝𝚑`** 🧰
 - [Kotlin](https://kotlinlang.org/) official programming language for Android development.
