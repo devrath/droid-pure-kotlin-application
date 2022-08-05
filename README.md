@@ -207,6 +207,9 @@ Demo contains three screen application namely `registration`, `login`, `forgot-p
 ## **`𝙲𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚎`** 🙋‍♂️
 Read [contribution guidelines](CONTRIBUTING.md) for more information regarding contribution.
 
+## **`𝙵𝚎𝚎𝚍𝚋𝚊𝚌𝚔`** ✍️ 
+[file an issue](https://github.com/devrath/droid-pure-kotlin-application/issues/new). Feature requests are always welcome.
+
 ## **`𝙵𝚒𝚗𝚍 𝚝𝚑𝚒𝚜 𝚙𝚛𝚘𝚓𝚎𝚌𝚝 𝚞𝚜𝚎𝚏𝚞𝚕`** ? ❤️
 Support it by clicking the ⭐ button on the upper right of this page. ✌️
 
