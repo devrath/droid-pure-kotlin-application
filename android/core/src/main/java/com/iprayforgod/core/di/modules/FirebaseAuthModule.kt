@@ -4,8 +4,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
-import com.iprayforgod.core.modules.firebase.implementation.FirebaseAuthImpl
-import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
+import com.iprayforgod.core.data.implementation.firebase.FirebaseAuthImpl
+import com.iprayforgod.core.data.repository.firebase.FirebaseAuthRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

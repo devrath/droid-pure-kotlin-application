@@ -5,8 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.iprayforgod.core.domain.features.logger.LoggerFeature
-import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.platform.base.BaseViewModel
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.core.platform.functional.UseCaseResult

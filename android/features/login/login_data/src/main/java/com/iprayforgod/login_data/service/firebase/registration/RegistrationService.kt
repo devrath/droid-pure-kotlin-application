@@ -5,11 +5,8 @@ import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
 import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
 import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.domain.models.User
-import com.iprayforgod.core.modules.firebase.endpoints.Constants
-import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
-import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
-import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.core.data.implementation.firebase.utilities.endpoints.Constants
+import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
 import kotlinx.coroutines.CompletableDeferred
