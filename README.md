@@ -94,6 +94,7 @@
  
  :label: We test the `features` of the code, Each of the `features` contain three layers namely `data`, `domain`, `presentation`. <br/>
  :label: In the `core` layer we can write tests for the `implementation` and `repository` for each of modules. 
+ :label: UI tests - `Development in progress`
 
  
  ## **`𝙿𝚊𝚌𝚔𝚊𝚐𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎 𝚒𝚗 𝚝𝚑𝚎 𝚙𝚛𝚘𝚓𝚎𝚌𝚝`** :package:
