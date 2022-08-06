@@ -6,7 +6,10 @@ import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.login_data.service.firebase.forgotPwd.ForgotPwdServiceImpl
 import com.iprayforgod.login_data.service.firebase.registration.RegistrationService
+import com.iprayforgod.login_domain.entities.inputs.ForgotPwdInput
+import com.iprayforgod.login_domain.service.ForgotPwdService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,4 +33,15 @@ object LoginServiceModule {
             serviceFirestore = firebaseFirestoreRepository
         )
     }
+
+
+    @Provides
+    @Singleton
+    fun provideForgotPwdService(
+        authFeature: FirebaseAuthFeature,
+        log: LoggerFeature
+    ): ForgotPwdService {
+        return ForgotPwdServiceImpl(authFeature,log)
+    }
+
 }
