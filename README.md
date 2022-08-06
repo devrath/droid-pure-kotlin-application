@@ -111,15 +111,14 @@
     ├── core                                          # Module with code that can be re-used in all the modules. This also helps us to manage them easily
     │   ├── res                                       # String resources used in the project
     │   └── java
+    │       ├── data                                  # data layer of the core module
+    │       │    ├── implementation                   # contains implementations of the features hosted in core module
+    │       │    └── repository                       # contains repository for the features
+    │       │  
     │       ├── di                                    # Hilt dependency injection
     │       ├── domain                                # Domain layer for all the reusable third party features in project
     │       │   ├── features                          # Contains interface for all the reusable third party features in project
     │       │   └── models                            # data modules used thorught the project
-    │       │
-    │       ├── modules                               # It can hold multiple third party features     
-    │       │   └── feature                           # A feature
-    │       │        ├── implementation-of-feature    # Implementation of the third party feature
-    │       │        └── repository-for-feature       # Repository for the third party feature
     │       │
     │       └── platform                              # Can old other miscellaneous things needed in project, some are listed below
     │           ├── base                              # Can hold base classes that are used in different features in project
