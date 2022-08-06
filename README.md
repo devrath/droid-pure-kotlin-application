@@ -7,6 +7,8 @@
 :label: This repository serves as template and demo for building android applications for scale. It is suited for large teams where individuals can work independently on feature wise and layer wise reducing the dependency on each other. It is built with pure kotlin in the project namely `compose` for the `presentation-layer`, `kotlin` for writing the `business-logic`, `kotlin-dsl` for handeling the dependencies. </br>
 :label: `Single activity` architecture where `compose-navigation` is used for navigating between the screens. Also care is taken so that dependencies used in `presentation layer` is not available for `domain layer` and `data layer`. Multimodule architecture used with `reusability` by adhering `SOLID-principles`, also `unit-testing`, `integration-testing` in mind. `Coding for abstraction rather than implementation` is followed in the project that enables `testing` and so that `fakes` can be easily provided for abstractions for testing individual components.
 
+:bricks::bricks: Application is under constant improvement :bricks::bricks:
+
 ---
 
 ### **`𝙿𝚞𝚛𝚎 𝚔𝚘𝚝𝚕𝚒𝚗`** :card_index_dividers:
