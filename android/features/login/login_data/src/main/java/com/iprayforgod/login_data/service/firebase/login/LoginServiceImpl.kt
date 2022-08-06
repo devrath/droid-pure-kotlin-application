@@ -8,23 +8,24 @@ import com.iprayforgod.core.data.implementation.firebase.utilities.endpoints.Con
 import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.LoginInput
+import com.iprayforgod.login_domain.service.LoginService
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class LoginService @Inject constructor(
+class LoginServiceImpl @Inject constructor(
     private val serviceFirebase: FirebaseAuthFeature,
     private val serviceFirestore: FirebaseFirestoreFeature,
     private var log: LoggerFeature
-) {
+) : LoginService {
 
     companion object {
         const val USER_DATA_FIREBASE_IS_NULL = "user data is null in firebase"
         const val USER_DATA_FIRESTORE_IS_NULL = "user data is null in firestore"
     }
 
-    fun loginUser(input: LoginInput): Flow<State<User>> {
+    override fun loginUser(input: LoginInput): Flow<State<User>> {
 
         val resultDeferred = CompletableDeferred<State<User>>()
 

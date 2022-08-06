@@ -9,21 +9,22 @@ import com.iprayforgod.core.data.implementation.firebase.utilities.endpoints.Con
 import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.platform.functional.State
 import com.iprayforgod.login_domain.entities.inputs.RegistrationInput
+import com.iprayforgod.login_domain.service.RegistrationService
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class RegistrationService @Inject constructor(
+class RegistrationServiceImpl @Inject constructor(
     private val serviceFirebase: FirebaseAuthFeature,
     private val serviceFirestore: FirebaseFirestoreFeature,
     private var log: LoggerFeature
-) {
+) : RegistrationService {
 
     /**
      * Here we make and entry for a user in the authentication module of firebase
      */
-    fun registerUser(
+    override fun registerUser(
         input: RegistrationInput
     ): Flow<State<User>> {
 
