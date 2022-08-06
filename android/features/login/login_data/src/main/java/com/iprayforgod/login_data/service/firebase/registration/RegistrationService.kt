@@ -1,6 +1,9 @@
 package com.iprayforgod.login_data.service.firebase.registration
 
 import com.google.firebase.firestore.SetOptions
+import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
+import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.firebase.endpoints.Constants
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
@@ -15,9 +18,9 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class RegistrationService @Inject constructor(
-    private val serviceFirebase: FirebaseAuthRepository,
-    private val serviceFirestore: FirebaseFirestoreRepository,
-    private var log: LoggerRepository
+    private val serviceFirebase: FirebaseAuthFeature,
+    private val serviceFirestore: FirebaseFirestoreFeature,
+    private var log: LoggerFeature
 ) {
 
     /**

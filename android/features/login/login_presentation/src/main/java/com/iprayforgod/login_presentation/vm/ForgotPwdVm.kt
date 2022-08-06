@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.core.platform.base.BaseViewModel
@@ -26,7 +27,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ForgotPwdVm @Inject constructor(
     private var loginModuleUseCases: LoginModuleUseCases,
-    private var log: LoggerRepository,
+    private var log: LoggerFeature,
 ) : BaseViewModel() {
 
     var viewState by mutableStateOf(ForgotPwdUiState())

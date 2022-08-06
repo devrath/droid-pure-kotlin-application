@@ -1,5 +1,8 @@
 package com.iprayforgod.login_data.di
 
+import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
+import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -17,9 +20,9 @@ object LoginServiceModule {
     @Provides
     @Singleton
     fun provideRegistrationService(
-        firebaseAuthRepository: FirebaseAuthRepository,
-        logService: LoggerRepository,
-        firebaseFirestoreRepository: FirebaseFirestoreRepository
+        firebaseAuthRepository: FirebaseAuthFeature,
+        logService: LoggerFeature,
+        firebaseFirestoreRepository: FirebaseFirestoreFeature
     ): RegistrationService {
         return RegistrationService(
             serviceFirebase = firebaseAuthRepository,

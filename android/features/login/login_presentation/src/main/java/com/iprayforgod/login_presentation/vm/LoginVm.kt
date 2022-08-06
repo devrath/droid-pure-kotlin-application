@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.iprayforgod.common_domain.usecases.CommonModuleUseCases
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.domain.models.User
 import com.iprayforgod.core.modules.keys.KeysFeatureNames.FEATURE_LOGIN
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -29,7 +30,7 @@ import javax.inject.Inject
 class LoginVm @Inject constructor(
     private var loginModuleUseCases: LoginModuleUseCases,
     private var commonModuleUseCases: CommonModuleUseCases,
-    private var log: LoggerRepository,
+    private var log: LoggerFeature,
 ) : BaseViewModel() {
 
     var viewState by mutableStateOf(LoginUiState())
@@ -61,6 +62,8 @@ class LoginVm @Inject constructor(
      * ACTION - Login
      */
     private fun actionLogin() {
+        log.d("Dev", "Testinggggggggggg")
+
         log.d(FEATURE_LOGIN, "ACTION:->  Login action functionality is invoked")
 
         viewModelScope.launch {

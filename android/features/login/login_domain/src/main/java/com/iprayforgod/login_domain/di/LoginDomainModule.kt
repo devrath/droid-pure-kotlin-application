@@ -1,5 +1,6 @@
 package com.iprayforgod.login_domain.di
 
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
 import com.iprayforgod.login_domain.repository.LoginRepository
 import com.iprayforgod.login_domain.usecases.LoginModuleUseCases
@@ -22,7 +23,7 @@ object LoginDomainModule {
     @ViewModelScoped
     @Provides
     fun provideTrackerUseCases(
-        loggerRepository: LoggerRepository,
+        loggerRepository: LoggerFeature,
         loginRepo: LoginRepository
     ): LoginModuleUseCases {
         return LoginModuleUseCases(

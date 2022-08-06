@@ -1,5 +1,7 @@
 package com.iprayforgod.login_data.service.firebase.forgotPwd
 
+import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
 import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
 import com.iprayforgod.core.modules.keys.KeysFeatureNames
 import com.iprayforgod.core.modules.logger.repository.LoggerRepository
@@ -11,8 +13,8 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class ForgotPwdService @Inject constructor(
-    private val service: FirebaseAuthRepository,
-    private var log: LoggerRepository
+    private val service: FirebaseAuthFeature,
+    private var log: LoggerFeature
 ) {
 
     fun forgotPwd(input: ForgotPwdInput): Flow<State<Boolean>> {
