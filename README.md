@@ -93,7 +93,7 @@
  ## **`𝚃𝚎𝚜𝚝𝚒𝚗𝚐 𝚝𝚑𝚎 𝚌𝚘𝚍𝚎`** :test_tube:
  
  :label: We test the `features` of the code, Each of the `features` contain three layers namely `data`, `domain`, `presentation`. <br/>
- :label: In the `core` layer we can write tests for the `implementation` and `repository` for each of modules. 
+ :label: In the `core` layer we can write tests for the `implementation` and `repository` for each of modules.  <br/>
  :label: UI tests - `Development in progress`
 
  
