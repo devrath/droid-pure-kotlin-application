@@ -5,6 +5,9 @@ import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.data.repository.logger.LoggerRepository
 import com.iprayforgod.core.data.repository.parser.ParserRepository
 import com.iprayforgod.core.data.repository.preference.PreferenceRepository
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
+import com.iprayforgod.core.domain.features.parser.ParserFeature
+import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,9 +22,9 @@ object SaveServiceModule {
     @Provides
     @Singleton
     fun provideSaveUserService(
-        parserRepository: ParserRepository,
-        preferenceRepository: PreferenceRepository,
-        logService: LoggerRepository,
+        parserRepository: ParserFeature,
+        preferenceRepository: PreferenceDatastore,
+        logService: LoggerFeature,
         @IoDispatcher dispatcher: CoroutineDispatcher
     ): SaveUserService {
         return SaveUserService(
