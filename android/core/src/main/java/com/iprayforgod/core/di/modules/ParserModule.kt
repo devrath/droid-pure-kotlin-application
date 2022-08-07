@@ -1,8 +1,8 @@
 package com.iprayforgod.core.di.modules
 
 import com.iprayforgod.core.domain.features.parser.ParserFeature
-import com.iprayforgod.core.modules.parser.implementation.ParserFeatureImpl
-import com.iprayforgod.core.modules.parser.repository.ParserRepository
+import com.iprayforgod.core.data.implementation.parser.ParserFeatureImpl
+import com.iprayforgod.core.data.repository.parser.ParserRepository
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides

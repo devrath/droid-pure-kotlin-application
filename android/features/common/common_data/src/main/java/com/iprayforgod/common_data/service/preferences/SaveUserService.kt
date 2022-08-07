@@ -2,10 +2,13 @@ package com.iprayforgod.common_data.service.preferences
 
 import com.iprayforgod.core.di.qualifiers.IoDispatcher
 import com.iprayforgod.core.domain.models.User
-import com.iprayforgod.core.modules.keys.KeysFeatureNames
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
-import com.iprayforgod.core.modules.parser.repository.ParserRepository
-import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
+import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames
+import com.iprayforgod.core.data.repository.logger.LoggerRepository
+import com.iprayforgod.core.data.repository.parser.ParserRepository
+import com.iprayforgod.core.data.repository.preference.PreferenceRepository
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
+import com.iprayforgod.core.domain.features.parser.ParserFeature
+import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
 import com.iprayforgod.core.platform.functional.State
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineDispatcher
@@ -16,9 +19,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class SaveUserService @Inject constructor(
-    private val parserRepo: ParserRepository,
-    private val prefRepo: PreferenceRepository,
-    private var log: LoggerRepository,
+    private val parserRepo: ParserFeature,
+    private val prefRepo: PreferenceDatastore,
+    private var log: LoggerFeature,
     @IoDispatcher val dispatcher: CoroutineDispatcher
 ) {
 
@@ -27,7 +30,7 @@ class SaveUserService @Inject constructor(
         try {
             CoroutineScope(dispatcher).launch {
                 val userStr: String = convertUserObjectToString(resultDeferred, input)
-                val savedResultState = prefRepo.saveUserState(user = userStr)
+                val savedResultState = prefRepo.saveCurrentUser(text = userStr)
                 resultDeferred.complete(State.success(Unit))
             }
         } catch (ex: Exception) {

@@ -9,9 +9,9 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.iprayforgod.core.domain.features.preferences.PreferenceDatastore
-import com.iprayforgod.core.modules.keys.KeysPreferences
-import com.iprayforgod.core.modules.preference.implementation.PreferenceDatastoreImpl
-import com.iprayforgod.core.modules.preference.repository.PreferenceRepository
+import com.iprayforgod.core.data.implementation.preference.utilities.KeysPreferences
+import com.iprayforgod.core.data.implementation.preference.PreferenceDatastoreImpl
+import com.iprayforgod.core.data.repository.preference.PreferenceRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

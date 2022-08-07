@@ -1,9 +1,11 @@
 package com.iprayforgod.login_data.di
 
-import com.iprayforgod.core.modules.firebase.repository.FirebaseAuthRepository
-import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
-import com.iprayforgod.login_data.service.firebase.registration.RegistrationService
+import com.iprayforgod.core.domain.features.firebase.FirebaseAuthFeature
+import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
+import com.iprayforgod.login_data.service.firebase.forgotPwd.ForgotPwdServiceImpl
+import com.iprayforgod.login_data.service.firebase.registration.RegistrationServiceImpl
+import com.iprayforgod.login_domain.service.ForgotPwdService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,14 +19,25 @@ object LoginServiceModule {
     @Provides
     @Singleton
     fun provideRegistrationService(
-        firebaseAuthRepository: FirebaseAuthRepository,
-        logService: LoggerRepository,
-        firebaseFirestoreRepository: FirebaseFirestoreRepository
-    ): RegistrationService {
-        return RegistrationService(
+        firebaseAuthRepository: FirebaseAuthFeature,
+        logService: LoggerFeature,
+        firebaseFirestoreRepository: FirebaseFirestoreFeature
+    ): RegistrationServiceImpl {
+        return RegistrationServiceImpl(
             serviceFirebase = firebaseAuthRepository,
             log = logService,
             serviceFirestore = firebaseFirestoreRepository
         )
     }
+
+
+    @Provides
+    @Singleton
+    fun provideForgotPwdService(
+        authFeature: FirebaseAuthFeature,
+        log: LoggerFeature
+    ): ForgotPwdService {
+        return ForgotPwdServiceImpl(authFeature,log)
+    }
+
 }

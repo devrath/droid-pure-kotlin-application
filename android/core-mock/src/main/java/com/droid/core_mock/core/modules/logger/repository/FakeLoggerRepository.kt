@@ -1,7 +1,7 @@
 package com.droid.core_mock.core.modules.logger.repository
 
 import com.droid.core_mock.core.domain.logger.FakeLoggerFeature
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.core.data.repository.logger.LoggerRepository
 
 class FakeLoggerRepository : LoggerRepository(loggerFeature = FakeLoggerFeature()) {
     override fun d(featureName: String?, msg: String?) { }

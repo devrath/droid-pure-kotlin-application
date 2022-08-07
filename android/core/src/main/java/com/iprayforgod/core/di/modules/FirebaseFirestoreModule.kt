@@ -2,8 +2,8 @@ package com.iprayforgod.core.di.modules
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.iprayforgod.core.domain.features.firebase.FirebaseFirestoreFeature
-import com.iprayforgod.core.modules.firebase.implementation.FirebaseFirestoreImpl
-import com.iprayforgod.core.modules.firebase.repository.FirebaseFirestoreRepository
+import com.iprayforgod.core.data.implementation.firebase.FirebaseFirestoreImpl
+import com.iprayforgod.core.data.repository.firebase.FirebaseFirestoreRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

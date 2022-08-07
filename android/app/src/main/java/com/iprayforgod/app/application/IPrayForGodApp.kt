@@ -2,7 +2,7 @@ package com.iprayforgod.app.application
 
 import android.app.Application
 import com.iprayforgod.app.BuildConfig
-import com.iprayforgod.core.modules.logger.AppLoggerConfig
+import com.iprayforgod.core.data.implementation.logger.utilities.AppLoggerConfig
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

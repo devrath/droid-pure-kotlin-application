@@ -1,8 +1,8 @@
 package com.iprayforgod.login_domain.usecases.login
 
 import android.util.Patterns
-import com.iprayforgod.core.modules.keys.KeysFeatureNames
-import com.iprayforgod.core.modules.logger.repository.LoggerRepository
+import com.iprayforgod.core.domain.features.logger.LoggerFeature
+import com.iprayforgod.core.data.implementation.logger.utilities.KeysFeatureNames
 import com.iprayforgod.core.platform.ui.uiEvent.UiText
 import com.iprayforgod.login_domain.R
 import com.iprayforgod.login_domain.ValidationResult
@@ -19,7 +19,7 @@ import javax.inject.Inject
  * Condition-4: Password needs to contain minimum of one letter and one digit
  */
 class ValidateLoginEntriesUseCase @Inject constructor(
-    private val log: LoggerRepository,
+    private val log: LoggerFeature,
 ) {
 
     operator fun invoke(
