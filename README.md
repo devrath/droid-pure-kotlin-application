@@ -196,6 +196,16 @@
 :three: Add the google-services.json in the app level of the project that is obtained when creating a project in firebase.<br/> 
 :four: Last but not least add your application SHA in your firebase settings.<br/>
 
+## **`𝚃𝚎𝚌𝚑 𝚜𝚝𝚊𝚌𝚔`** 🏗️️ 
+
+| What            | How                        |
+|----------------	|------------------------------	|
+| 🎭 𝚄𝚜𝚎𝚛 𝙸𝚗𝚝𝚎𝚛𝚏𝚊𝚌𝚎 (𝙰𝚗𝚍𝚛𝚘𝚒𝚍)   | [𝙹𝚎𝚝𝚙𝚊𝚌𝚔 𝙲𝚘𝚖𝚙𝚘𝚜𝚎](https://developer.android.com/jetpack/compose)                |
+| 🏗 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎    | [𝙲𝚕𝚎𝚊𝚗 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)                            |
+| 💉 𝙳𝙸 (𝙰𝚗𝚍𝚛𝚘𝚒𝚍)                | [𝙷𝚒𝚕𝚝](https://developer.android.com/training/dependency-injection/hilt-android)                        |
+| 🌊 𝙰𝚜𝚢𝚗𝚌            | [𝙲𝚘𝚛𝚘𝚞𝚝𝚒𝚗𝚎𝚜](https://kotlinlang.org/docs/coroutines-overview.html) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)                |
+| 🌐 𝙽𝚎𝚝𝚠𝚘𝚛𝚔𝚒𝚗𝚐        | [𝙵𝚒𝚛𝚎𝚋𝚊𝚜𝚎](https://firebase.google.com/)                        |
+
 ## **`𝙲𝚞𝚛𝚛𝚎𝚗𝚝𝚕𝚢 𝚏𝚎𝚊𝚝𝚞𝚛𝚎𝚜 𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚍`** 🧰
 Demo contains three screen application namely `registration`, `login`, `forgot-password` and external service used here is `firebase`. User can create an account using `registration`. User can login and once login is successful the user details is saved in `data-store` </br>
 <div align="center">
