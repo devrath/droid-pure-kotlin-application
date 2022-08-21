@@ -216,6 +216,10 @@ Demo contains three screen application namely `registration`, `login`, `forgot-p
  
 </div>
 
+
+## **`𝙼𝙰𝙳 𝚂𝚌𝚘𝚛𝚎`** 🎈
+![Banner](https://github.com/devrath/droid-pure-kotlin-application/blob/main/assets/MadScore/mad_banner.png)
+
 ## **`𝙲𝚘𝚗𝚝𝚛𝚒𝚋𝚞𝚝𝚎`** 🙋‍♂️
 Read [contribution guidelines](CONTRIBUTING.md) for more information regarding contribution.
 
