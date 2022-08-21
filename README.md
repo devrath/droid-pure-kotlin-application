@@ -90,6 +90,14 @@
  :label: We alwaays inject abstractions to any class instead of concrete implementation.<br/>
  :label: Data flows from presentation layer to data layer if data is saved locally or sent to server. In other case the data is retrieved from data layer to presentation layer in case when data is retrieved from server to UI displayed or from data saved locally to UI displayed<br/> 
  
+ 
+### **`𝙿𝚊𝚝𝚝𝚎𝚛𝚗𝚜`** 
+- [𝚁𝚎𝚙𝚘𝚜𝚒𝚝𝚘𝚛𝚢 𝙿𝚊𝚝𝚝𝚎𝚛𝚗](https://developer.android.com/jetpack/docs/guide) -
+The Repository Pattern is one of the most popular patterns to create an enterprise level application. It restricts us to work directly with the data in the application and creates new layers for database operations, business logic, and the application's UI.
+- [𝙾𝚋𝚜𝚎𝚛𝚟𝚎𝚛 𝙿𝚊𝚝𝚝𝚎𝚛𝚗](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963) - The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+- [𝚄𝚜𝚎𝙲𝚊𝚜𝚎 𝙿𝚊𝚝𝚝𝚎𝚛𝚗](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/) - This pattern means to convert and pass user actions to inner layers of the application.
+- [𝚃𝙳𝙳](https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/) - Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved so that the tests pass.
+ 
  ---
  
  ## **`𝚃𝚎𝚜𝚝𝚒𝚗𝚐 𝚝𝚑𝚎 𝚌𝚘𝚍𝚎`** :test_tube:
