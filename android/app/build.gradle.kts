@@ -20,7 +20,8 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = ProjectConfig.testRunner
+        // testInstrumentationRunner = ProjectConfig.testRunner
+        testInstrumentationRunner = "com.iprayforggod.HiltTestRunner"
         vectorDrawables { useSupportLibrary = true }
     }
 
@@ -146,4 +147,7 @@ dependencies {
 
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
+
+    // Injecting fakes
+    androidTestImplementation(project(Modules.coreMock))
 }
